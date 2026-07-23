@@ -12,13 +12,13 @@
 
 ### 小红书
 
-- 状态：轮播图片已完成，发布状态待记录
+- 状态：文案和轮播图片已完成，发布状态待记录
+- 文案：`xiaohongshu/post.md`
 - 原始生成图：`xiaohongshu/images/source/`
 - 1080×1440 发布图：`xiaohongshu/images/publish/`
-- 打包文件：`xiaohongshu/xiaohongshu-superpowers-carousel.zip`
 
 ## 待补
 
-- 汇总 Superpowers、gstack 的公开评价和可验证实测。
-- 保存最终发布文案、发布日期和链接。
+- 继续汇总 Superpowers、gstack 的公开评价和更多可验证实测。
+- 发布后补充发布日期和链接。
 - 如扩展到公众号或抖音，在对应渠道目录中复用研究和核心论点。

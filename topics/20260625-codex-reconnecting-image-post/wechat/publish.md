@@ -2,8 +2,8 @@
 
 ## 文件
 
-- 图片：`topics/20260625-codex-reconnecting-image-post/poster.png`
-- 配置：`topics/20260625-codex-reconnecting-image-post/wechat-image-post.json`
+- 图片：`topics/20260625-codex-reconnecting-image-post/wechat/poster.png`
+- 配置：`topics/20260625-codex-reconnecting-image-post/wechat/manifest.json`
 
 ## 标题
 
@@ -17,7 +17,7 @@ Codex 每次回答前都 Reconnecting？可能不是模型慢，而是 WebSocket
 
 ```bash
 node ../content-workflows/skills/wechat-image-post/scripts/wechat-image-post-draft.mjs \
-  --manifest topics/20260625-codex-reconnecting-image-post/wechat-image-post.json
+  --manifest topics/20260625-codex-reconnecting-image-post/wechat/manifest.json
 ```
 
 ## 说明

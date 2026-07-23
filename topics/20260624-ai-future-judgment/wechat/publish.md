@@ -2,8 +2,8 @@
 
 ## 文件
 
-- 公众号稿：`topics/20260624-ai-future-judgment/wechat.md`
-- 封面：`topics/20260624-ai-future-judgment/cover.jpg`
+- 公众号稿：`topics/20260624-ai-future-judgment/wechat/post.md`
+- 封面：`topics/20260624-ai-future-judgment/wechat/cover.jpg`
 
 ## 标题
 
@@ -17,8 +17,8 @@ AI 不会平均替代所有工作，而会先重写任务层、入门岗位和�
 
 ```bash
 wxp publish \
-  --file topics/20260624-ai-future-judgment/wechat.md \
-  --cover topics/20260624-ai-future-judgment/cover.jpg \
+  --file topics/20260624-ai-future-judgment/wechat/post.md \
+  --cover topics/20260624-ai-future-judgment/wechat/cover.jpg \
   --theme default \
   --title "AI 普及后的未来判断：就业、分配、教育、资产与个体策略" \
   --digest "AI 不会平均替代所有工作，而会先重写任务层、入门岗位和中产路径。真正要准备的，是可迁移现金流能力与更少单点依赖。"
@@ -34,5 +34,5 @@ wxp publish \
 - 旧版 media_id：`bpB07u_8H2Ns8YJAsyxW3XAKLW9JD-HxsKOxCYG6JHa-WvXQTO4ZE1fGtV4Mlp5f`（已被新版草稿取代，勿发布）。
 - 主题：`default`。
 - 正文图片：检测 0 张，上传 0 张。
-- 封面：使用本地 `cover.jpg`，未使用占位图。
+- 封面：使用本地 `wechat/cover.jpg`，未使用占位图。
 - 后续：到微信公众号后台草稿箱手动检查和发布。

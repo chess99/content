@@ -3,7 +3,7 @@
   "slug": "20260625-codex-reconnecting-image-post",
   "title": "Codex 重连修复",
   "description": "Codex 每次回答前都 Reconnecting？可能不是模型慢，而是 WebSocket 传输层不稳。改用户级 config，让 Responses API 直接走 HTTPS。",
-  "image": "topics/20260625-codex-reconnecting-image-post/poster.png",
+  "image": "topics/20260625-codex-reconnecting-image-post/wechat/poster.png",
   "sourceImage": "C:\\Users\\zcs\\.codex\\generated_images\\019efd64-e3bf-73f0-a549-2e68d61030fa\\ig_0c3416f58ec0b81f016a3cc844e9fc819183d466729bc076e9.png",
   "createdAt": "2026-06-25T06:30:09.087Z",
   "status": "prepared"
