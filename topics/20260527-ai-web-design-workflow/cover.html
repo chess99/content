@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 900px;
+        height: 383px;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+        color: #151515;
+        background:
+          radial-gradient(circle at 20% 10%, rgba(126, 91, 239, 0.18), transparent 30%),
+          radial-gradient(circle at 82% 18%, rgba(169, 119, 54, 0.22), transparent 30%),
+          linear-gradient(135deg, #faf7ef 0%, #f2ece2 58%, #e9dfd0 100%);
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(76, 55, 31, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(76, 55, 31, 0.055) 1px, transparent 1px);
+        background-size: 22px 22px;
+        opacity: 0.55;
+      }
+
+      .frame {
+        position: relative;
+        width: 900px;
+        height: 383px;
+        padding: 38px 44px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: #8d6530;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 42px;
+        height: 3px;
+        border-radius: 999px;
+        background: #b68a4b;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 510px;
+        font-size: 54px;
+        line-height: 1.04;
+        letter-spacing: 0;
+        font-weight: 900;
+      }
+
+      .lead {
+        margin-top: 18px;
+        max-width: 500px;
+        color: #53473a;
+        font-size: 22px;
+        line-height: 1.42;
+        font-weight: 650;
+      }
+
+      .chips {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .chip {
+        padding: 8px 12px;
+        border: 1px solid rgba(80, 58, 32, 0.16);
+        border-radius: 999px;
+        background: rgba(255, 253, 248, 0.66);
+        color: #3f3429;
+        font-size: 13px;
+        font-weight: 750;
+        box-shadow: 0 8px 24px rgba(65, 45, 25, 0.08);
+      }
+
+      .phones {
+        position: absolute;
+        right: 44px;
+        top: 22px;
+        width: 310px;
+        height: 340px;
+      }
+
+      .phone {
+        position: absolute;
+        width: 156px;
+        height: 338px;
+        overflow: hidden;
+        border: 7px solid #151515;
+        border-radius: 28px;
+        background: #fff;
+        box-shadow: 0 24px 54px rgba(42, 31, 20, 0.26);
+      }
+
+      .phone.before {
+        left: 0;
+        top: 18px;
+        transform: rotate(-5deg);
+        opacity: 0.82;
+      }
+
+      .phone.after {
+        right: 0;
+        top: 0;
+        transform: rotate(4deg);
+      }
+
+      .phone img {
+        display: block;
+        width: 142px;
+        height: 308px;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .tag {
+        position: absolute;
+        left: -4px;
+        bottom: 16px;
+        padding: 7px 11px;
+        border-radius: 999px;
+        background: #151515;
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .phone.after .tag {
+        left: auto;
+        right: -2px;
+        background: #9a6b2f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <main class="frame">
+      <div class="eyebrow">AI WEB DESIGN WORKFLOW</div>
+      <h1>让 AI 写出好看的网页</h1>
+      <div class="lead">把审美拆成可讨论、可执行、可验收的约束。</div>
+      <div class="chips">
+        <span class="chip">brainstorming</span>
+        <span class="chip">frontend-design</span>
+        <span class="chip">ui-ux-pro-max</span>
+      </div>
+      <section class="phones" aria-hidden="true">
+        <div class="phone before">
+          <img src="file://~/code2/blog/source/images/ai-web-design-workflow/ai-reading-before-mobile.png" />
+          <div class="tag">BEFORE</div>
+        </div>
+        <div class="phone after">
+          <img src="file://~/code2/blog/source/images/ai-web-design-workflow/ai-reading-after-mobile.png" />
+          <div class="tag">AFTER</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

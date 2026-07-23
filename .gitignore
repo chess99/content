@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+*.log
+
+# Disposable generation and preview artifacts.
+topics/_tmp/
+topics/**/cover-candidates/
+topics/**/cover-work/
+topics/**/wechat-preview.html
+topics/**/publish-status.md
+topics/**/wechat-image-post-status.md
+
+# Large local media and model files.
+topics/**/audio/
+topics/**/video/raw/
+models/
+.venv*/
