@@ -36,12 +36,13 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/01-cover.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/05-tests-and-deployment.png` | — |
+| 小红书 | 待发布 | — | `post.md` + `images/01-cover-v2.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/03-social-card.png` | — |
 
 ## 资产
 
 - `post.md`：可直接复制发布的完整正文，末尾包含话题标签。
-- `images/01-cover.png`：1200×1600 小红书封面，直接用 MD2IMG 生成并展示工具界面。
+- `images/01-cover-v2.png`：当前小红书封面，用大字号标题传达核心信息，并保留工具界面作为产品证明。
+- `images/01-cover.png`：第一版封面，信息较完整，但缩略图中文字偏小，保留不再作为首图。
 - `images/02-workspace.png`：完整三栏工作台截图。
 - `images/03-social-card.png`：网站横版社交分享图，适合 X、即刻、朋友圈或链接预览。
 - `images/04-codex-process.png`：突出“吃饭回来已经完成”的 Codex 过程证据卡。

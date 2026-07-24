@@ -2,10 +2,10 @@
 
 ## 推荐顺序
 
-1. `images/01-cover.png`
-   - 首图，1200×1600。
-   - 标题直接包含“免费 Markdown 转图片工具”。
-   - 封面由 MD2IMG 自己生成，能形成一个自然的产品演示。
+1. `images/01-cover-v2.png`
+   - 当前首图，1024×1536。
+   - 用大字号直接传达“免费的 Markdown 转图片工具”，缩略图也能读清。
+   - 只保留“无水印、不登录、本地处理”和网址，底部界面截图负责证明产品真实存在。
 
 2. `images/02-workspace.png`
    - 展示编辑、预览和主题设置三栏工作台。
@@ -24,6 +24,7 @@
 5. `images/05-tests-and-deployment.png`
    - 证明项目不是只做了一个界面 Demo。
    - 展示 11/11 单元测试、三浏览器 15 项 E2E、生产构建和 40 个变更文件。
+   - 当前发布顺序不使用这张，避免与 `images/04-codex-process.png` 重复。
 
 6. 建议补充：开源与使用入口
    - 等 GitHub 仓库公开后，截 README 首页或仓库主页。
@@ -39,10 +40,10 @@
 
 如果暂时不补新素材，使用以下两张也可以发布：
 
-1. `images/01-cover.png`
+1. `images/01-cover-v2.png`
 2. `images/02-workspace.png`
 3. `images/04-codex-process.png`
-4. `images/05-tests-and-deployment.png`
+4. `images/03-social-card.png`
 
 但如果目标之一是验证真实需求，建议至少再补一张“脱敏报告转换结果”。它比功能列表更容易让读者判断自己是否需要这个工具。
 
