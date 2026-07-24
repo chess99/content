@@ -36,14 +36,17 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/01-cover.png` + `images/02-workspace.png` | — |
+| 小红书 | 待发布 | — | `post.md` + `images/01-cover.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/05-tests-and-deployment.png` | — |
 
 ## 资产
 
-- `post.md`：克制微调后的通用正文。
+- `post.md`：可直接复制发布的完整正文，末尾包含话题标签。
 - `images/01-cover.png`：1200×1600 小红书封面，直接用 MD2IMG 生成并展示工具界面。
 - `images/02-workspace.png`：完整三栏工作台截图。
 - `images/03-social-card.png`：网站横版社交分享图，适合 X、即刻、朋友圈或链接预览。
+- `images/04-codex-process.png`：突出“吃饭回来已经完成”的 Codex 过程证据卡。
+- `images/05-tests-and-deployment.png`：突出三浏览器测试、构建和代码变更的证据卡。
+- `shared/source/codex-build-longshot.png`：Codex 原始长截图，不直接公开发布。
 - `image-notes.md`：轮播顺序、发布前建议补充的真实素材和隐私检查。
 
 ## 发布前确认
