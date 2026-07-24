@@ -16,6 +16,9 @@
 - 将“这种工具根本不配收费”改成“我有点接受不了”，保留态度，但避免评论区完全偏到收费争论。
 - 标题和正文前段自然出现“Markdown 转图片”，不堆砌关键词。
 - 发布后主要观察收藏、评论中的使用场景、功能请求、GitHub stars/issues 和域名访问趋势。
+- 封面不放网址、二维码或“搜索某某”的入口提示；封面负责传达产品，访问入口放在主页简介、评论回复或私信承接。
+- 首发不把拉群作为使用工具的前置步骤。群更适合后续收集反馈，不适合作为下载或访问入口。
+- 暂不为了搜索排名仓促改名。`MD2IMG` 继续作为直观的工具名，需要区分时使用组合名称 `MD2IMG by Cearl`，而不是押注单一品牌词的搜索排名。
 
 ## 小红书标题
 
@@ -36,12 +39,14 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/01-cover-v2.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/03-social-card.png` | — |
+| 小红书 | 待发布 | — | `post.md` + `images/01-cover-v3.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/03-social-card.png` | — |
+| 抖音图文 | 待发布 | — | `post.md` + `images/01-cover-v3.png` + `images/02-workspace.png` + `images/04-codex-process.png` | — |
 
 ## 资产
 
 - `post.md`：可直接复制发布的完整正文，末尾包含话题标签。
-- `images/01-cover-v2.png`：当前小红书封面，用大字号标题传达核心信息，并保留工具界面作为产品证明。
+- `images/01-cover-v3.png`：当前通用封面，用大字号标题传达核心信息，并保留工具界面作为产品证明；不含网址、搜索词或其他入口提示。
+- `images/01-cover-v2.png`：上一版封面，底部含域名，保留但不再作为首图。
 - `images/01-cover.png`：第一版封面，信息较完整，但缩略图中文字偏小，保留不再作为首图。
 - `images/02-workspace.png`：完整三栏工作台截图。
 - `images/03-social-card.png`：网站横版社交分享图，适合 X、即刻、朋友圈或链接预览。

@@ -2,10 +2,11 @@
 
 ## 推荐顺序
 
-1. `images/01-cover-v2.png`
+1. `images/01-cover-v3.png`
    - 当前首图，1024×1536。
    - 用大字号直接传达“免费的 Markdown 转图片工具”，缩略图也能读清。
-   - 只保留“无水印、不登录、本地处理”和网址，底部界面截图负责证明产品真实存在。
+   - 只保留“无水印、不登录、本地处理”和工具界面，不放网址、搜索词、二维码或其他入口提示。
+   - 封面只负责让目标用户理解产品，不承担跳转和转化。
 
 2. `images/02-workspace.png`
    - 展示编辑、预览和主题设置三栏工作台。
@@ -40,7 +41,7 @@
 
 如果暂时不补新素材，使用以下两张也可以发布：
 
-1. `images/01-cover-v2.png`
+1. `images/01-cover-v3.png`
 2. `images/02-workspace.png`
 3. `images/04-codex-process.png`
 4. `images/03-social-card.png`
