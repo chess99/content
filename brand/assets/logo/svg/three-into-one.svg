@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24" role="img" aria-labelledby="title desc">
+  <title id="title">三束合流 Logo v0.1</title>
+  <desc id="desc">蓝、红、紫三条圆头轨道从左侧进入，汇成一条墨黑水平输出。</desc>
+  <g fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 5.2h2.7c3.15 0 3.48 4.44 6.55 5.83" stroke="#2457E6"/>
+    <path d="M3.5 12h9.5" stroke="#D64032"/>
+    <path d="M3.5 18.8h2.7c3.15 0 3.48-4.44 6.55-5.83" stroke="#7048C8"/>
+    <path d="M12.2 12H21" stroke="#17191C"/>
+  </g>
+</svg>

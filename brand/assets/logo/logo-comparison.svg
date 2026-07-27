@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="title desc">
+  <title id="title">母品牌 Logo v0.1 探索对比板</title>
+  <desc id="desc">开框点、未完格、三束合流和晨笙信号四个方向的彩色版、黑白版、32像素头像与封面角标模拟。</desc>
+
+  <defs>
+    <symbol id="open-frame-color" viewBox="0 0 24 24">
+      <g fill="none" stroke="#17191C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 4H5.25C4.56 4 4 4.56 4 5.25V9"/>
+        <path d="M4 15v3.75C4 19.44 4.56 20 5.25 20H9"/>
+        <path d="M15 20h3.75c.69 0 1.25-.56 1.25-1.25V15"/>
+      </g>
+      <circle cx="13" cy="10.8" r="3.1" fill="#315CFF"/>
+    </symbol>
+    <symbol id="open-frame-mono" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 4H5.25C4.56 4 4 4.56 4 5.25V9"/>
+        <path d="M4 15v3.75C4 19.44 4.56 20 5.25 20H9"/>
+        <path d="M15 20h3.75c.69 0 1.25-.56 1.25-1.25V15"/>
+      </g>
+      <circle cx="13" cy="10.8" r="3.1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="open-grid-color" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="8" height="7.6" rx="2.15" fill="#17191C"/>
+      <rect x="3" y="12.8" width="7.6" height="8.2" rx="2.25" fill="#17191C"/>
+      <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.65" fill="#17191C"/>
+      <circle cx="16.9" cy="7.1" r="3.55" fill="#FF5B4D"/>
+    </symbol>
+    <symbol id="open-grid-mono" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="8" height="7.6" rx="2.15" fill="currentColor"/>
+      <rect x="3" y="12.8" width="7.6" height="8.2" rx="2.25" fill="currentColor"/>
+      <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.65" fill="currentColor"/>
+      <circle cx="16.9" cy="7.1" r="3.55" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="three-into-one-color" viewBox="0 0 24 24">
+      <g fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3.5 5.2h2.7c3.15 0 3.48 4.44 6.55 5.83" stroke="#2457E6"/>
+        <path d="M3.5 12h9.5" stroke="#D64032"/>
+        <path d="M3.5 18.8h2.7c3.15 0 3.48-4.44 6.55-5.83" stroke="#7048C8"/>
+        <path d="M12.2 12H21" stroke="#17191C"/>
+      </g>
+    </symbol>
+    <symbol id="three-into-one-mono" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3.5 5.2h2.7c3.15 0 3.48 4.44 6.55 5.83"/>
+        <path d="M3.5 12h9.5"/>
+        <path d="M3.5 18.8h2.7c3.15 0 3.48-4.44 6.55-5.83"/>
+        <path d="M12.2 12H21"/>
+      </g>
+    </symbol>
+
+    <symbol id="rising-reeds-color" viewBox="0 0 24 24">
+      <rect x="3.5" y="12" width="3.6" height="9" rx="1.8" fill="#172554"/>
+      <rect x="9.2" y="8" width="3.6" height="13" rx="1.8" fill="#172554"/>
+      <rect x="14.9" y="4" width="3.6" height="17" rx="1.8" fill="#172554"/>
+      <circle cx="20.2" cy="5.7" r="2.25" fill="#FF5B4D"/>
+    </symbol>
+    <symbol id="rising-reeds-mono" viewBox="0 0 24 24">
+      <rect x="3.5" y="12" width="3.6" height="9" rx="1.8" fill="currentColor"/>
+      <rect x="9.2" y="8" width="3.6" height="13" rx="1.8" fill="currentColor"/>
+      <rect x="14.9" y="4" width="3.6" height="17" rx="1.8" fill="currentColor"/>
+      <circle cx="20.2" cy="5.7" r="2.25" fill="currentColor"/>
+    </symbol>
+
+    <style>
+      .cn { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+      .en { font-family: Inter, Arial, sans-serif; }
+      .label { fill: #17191C; font-size: 18px; font-weight: 700; }
+      .muted { fill: #72767E; font-size: 14px; }
+      .tiny { fill: #858A93; font-size: 12px; }
+      .rule { stroke: #DFE2E6; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1080" fill="#EEF0F3"/>
+  <text x="40" y="53" class="cn" fill="#17191C" font-size="30" font-weight="800">母品牌 Logo 方向对比</text>
+  <text x="40" y="82" class="cn" fill="#646A73" font-size="15">账号名已有当前首选但尚未正式启用；本轮只比较名称无关或可替换字标的图形符号</text>
+  <rect x="1428" y="31" width="132" height="38" rx="19" fill="#17191C"/>
+  <text x="1494" y="56" class="en" fill="#FFFFFF" font-size="15" font-weight="700" text-anchor="middle">v0.1 探索稿</text>
+
+  <text x="48" y="126" class="cn label">方向</text>
+  <text x="348" y="126" class="cn label">彩色版</text>
+  <text x="583" y="126" class="cn label">黑白版</text>
+  <text x="822" y="126" class="cn label">32 px 头像模拟</text>
+  <text x="1010" y="126" class="cn label">封面角标模拟</text>
+
+  <!-- Row 1: Open Frame -->
+  <g transform="translate(0 145)">
+    <rect x="40" y="0" width="1520" height="205" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="23" font-weight="800">01 开框点</text>
+    <text x="62" y="73" class="en muted">OPEN FRAME</text>
+    <text x="62" y="108" class="cn muted">框定问题</text>
+    <text x="62" y="130" class="cn muted">证据落点</text>
+    <text x="62" y="170" class="cn" fill="#315CFF" font-size="13" font-weight="700">当前首选</text>
+
+    <rect x="285" y="18" width="205" height="169" rx="14" fill="#F7F3EA"/>
+    <use href="#open-frame-color" x="341" y="50" width="96" height="96"/>
+
+    <rect x="515" y="18" width="102" height="169" rx="14" fill="#FFFFFF" stroke="#DADDE2"/>
+    <use href="#open-frame-mono" x="538" y="65" width="56" height="56" color="#111111"/>
+    <text x="566" y="151" class="cn tiny" text-anchor="middle">正黑</text>
+    <rect x="627" y="18" width="102" height="169" rx="14" fill="#17191C"/>
+    <use href="#open-frame-mono" x="650" y="65" width="56" height="56" color="#FFFFFF"/>
+    <text x="678" y="151" class="cn" fill="#D7DADE" font-size="12" text-anchor="middle">反白</text>
+
+    <circle cx="843" cy="87" r="52" fill="#F7F3EA" stroke="#D9DDE2"/>
+    <use href="#open-frame-color" x="827" y="71" width="32" height="32"/>
+    <text x="843" y="160" class="cn tiny" text-anchor="middle">图形实际 32 px</text>
+
+    <rect x="982" y="18" width="126" height="169" rx="13" fill="#F7F3EA" stroke="#E0DCD2"/>
+    <use href="#open-frame-color" x="994" y="30" width="20" height="20"/>
+    <text x="1097" y="43" class="en" fill="#666B73" font-size="8" text-anchor="end">工具与工作流 · 008</text>
+    <rect x="994" y="63" width="72" height="10" rx="5" fill="#17191C"/>
+    <rect x="994" y="79" width="94" height="10" rx="5" fill="#17191C"/>
+    <rect x="994" y="105" width="101" height="56" rx="8" fill="#DCE4FF"/>
+    <circle cx="1045" cy="133" r="18" fill="#315CFF" opacity=".2"/>
+    <text x="1135" y="67" class="cn" fill="#17191C" font-size="15" font-weight="700">复杂照片上加承载底块</text>
+    <text x="1135" y="93" class="cn muted">角标不抢主标题，只回答“谁做的”</text>
+    <text x="1135" y="119" class="cn muted">建议占封面宽度约 3%—5%</text>
+  </g>
+
+  <!-- Row 2: Open Grid -->
+  <g transform="translate(0 365)">
+    <rect x="40" y="0" width="1520" height="205" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="23" font-weight="800">02 未完格</text>
+    <text x="62" y="73" class="en muted">OPEN GRID</text>
+    <text x="62" y="108" class="cn muted">三个栏目</text>
+    <text x="62" y="130" class="cn muted">下一次实验</text>
+    <text x="62" y="170" class="cn" fill="#FF5B4D" font-size="13" font-weight="700">实验室叙事</text>
+
+    <rect x="285" y="18" width="205" height="169" rx="14" fill="#F7F3EA"/>
+    <use href="#open-grid-color" x="341" y="50" width="96" height="96"/>
+
+    <rect x="515" y="18" width="102" height="169" rx="14" fill="#FFFFFF" stroke="#DADDE2"/>
+    <use href="#open-grid-mono" x="538" y="65" width="56" height="56" color="#111111"/>
+    <text x="566" y="151" class="cn tiny" text-anchor="middle">正黑</text>
+    <rect x="627" y="18" width="102" height="169" rx="14" fill="#17191C"/>
+    <use href="#open-grid-mono" x="650" y="65" width="56" height="56" color="#FFFFFF"/>
+    <text x="678" y="151" class="cn" fill="#D7DADE" font-size="12" text-anchor="middle">反白</text>
+
+    <circle cx="843" cy="87" r="52" fill="#F7F3EA" stroke="#D9DDE2"/>
+    <use href="#open-grid-color" x="827" y="71" width="32" height="32"/>
+    <text x="843" y="160" class="cn tiny" text-anchor="middle">图形实际 32 px</text>
+
+    <rect x="982" y="18" width="126" height="169" rx="13" fill="#F7F3EA" stroke="#E0DCD2"/>
+    <use href="#open-grid-color" x="994" y="30" width="20" height="20"/>
+    <text x="1097" y="43" class="en" fill="#666B73" font-size="8" text-anchor="end">创作实验 · 001</text>
+    <rect x="994" y="63" width="88" height="10" rx="5" fill="#17191C"/>
+    <rect x="994" y="79" width="68" height="10" rx="5" fill="#17191C"/>
+    <rect x="994" y="104" width="47" height="57" rx="8" fill="#E8DFFC"/>
+    <rect x="1048" y="104" width="47" height="57" rx="8" fill="#FFDCD7"/>
+    <text x="1135" y="67" class="cn" fill="#17191C" font-size="15" font-weight="700">方格可外延成封面网格</text>
+    <text x="1135" y="93" class="cn muted">注意避免做成标准应用启动器</text>
+    <text x="1135" y="119" class="cn muted">圆点应保持固定位置与比例</text>
+  </g>
+
+  <!-- Row 3: Three Into One -->
+  <g transform="translate(0 585)">
+    <rect x="40" y="0" width="1520" height="205" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="23" font-weight="800">03 三束合流</text>
+    <text x="62" y="73" class="en muted">THREE INTO ONE</text>
+    <text x="62" y="108" class="cn muted">不同输入</text>
+    <text x="62" y="130" class="cn muted">清晰输出</text>
+    <text x="62" y="170" class="cn" fill="#7048C8" font-size="13" font-weight="700">动态最强</text>
+
+    <rect x="285" y="18" width="205" height="169" rx="14" fill="#F7F3EA"/>
+    <use href="#three-into-one-color" x="341" y="50" width="96" height="96"/>
+
+    <rect x="515" y="18" width="102" height="169" rx="14" fill="#FFFFFF" stroke="#DADDE2"/>
+    <use href="#three-into-one-mono" x="538" y="65" width="56" height="56" color="#111111"/>
+    <text x="566" y="151" class="cn tiny" text-anchor="middle">正黑</text>
+    <rect x="627" y="18" width="102" height="169" rx="14" fill="#17191C"/>
+    <use href="#three-into-one-mono" x="650" y="65" width="56" height="56" color="#FFFFFF"/>
+    <text x="678" y="151" class="cn" fill="#D7DADE" font-size="12" text-anchor="middle">反白</text>
+
+    <circle cx="843" cy="87" r="52" fill="#F7F3EA" stroke="#D9DDE2"/>
+    <use href="#three-into-one-color" x="827" y="71" width="32" height="32"/>
+    <text x="843" y="160" class="cn tiny" text-anchor="middle">图形实际 32 px</text>
+
+    <rect x="982" y="18" width="126" height="169" rx="13" fill="#F7F3EA" stroke="#E0DCD2"/>
+    <use href="#three-into-one-color" x="994" y="30" width="20" height="20"/>
+    <text x="1097" y="43" class="en" fill="#666B73" font-size="8" text-anchor="end">数据与财经 · 002</text>
+    <rect x="994" y="63" width="84" height="10" rx="5" fill="#17191C"/>
+    <rect x="994" y="79" width="99" height="10" rx="5" fill="#17191C"/>
+    <path d="M994 149 C1010 132 1022 150 1039 121 S1069 127 1095 104" fill="none" stroke="#D64032" stroke-width="4" stroke-linecap="round"/>
+    <text x="1135" y="67" class="cn" fill="#17191C" font-size="15" font-weight="700">静态角标不如动效直观</text>
+    <text x="1135" y="93" class="cn muted">适合三轨汇聚成片尾签名</text>
+    <text x="1135" y="119" class="cn muted">16 px 需另做减重版本</text>
+  </g>
+
+  <!-- Row 4: Rising Reeds -->
+  <g transform="translate(0 805)">
+    <rect x="40" y="0" width="1520" height="205" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="23" font-weight="800">04 晨笙信号</text>
+    <text x="62" y="73" class="en muted">RISING REEDS</text>
+    <text x="62" y="108" class="cn muted">晨光与笙管</text>
+    <text x="62" y="130" class="cn muted">数据与节奏</text>
+    <text x="62" y="170" class="cn" fill="#172554" font-size="13" font-weight="700">名称相关</text>
+
+    <rect x="285" y="18" width="205" height="169" rx="14" fill="#FFF7E8"/>
+    <use href="#rising-reeds-color" x="341" y="50" width="96" height="96"/>
+
+    <rect x="515" y="18" width="102" height="169" rx="14" fill="#FFFFFF" stroke="#DADDE2"/>
+    <use href="#rising-reeds-mono" x="538" y="65" width="56" height="56" color="#111111"/>
+    <text x="566" y="151" class="cn tiny" text-anchor="middle">正黑</text>
+    <rect x="627" y="18" width="102" height="169" rx="14" fill="#17191C"/>
+    <use href="#rising-reeds-mono" x="650" y="65" width="56" height="56" color="#FFFFFF"/>
+    <text x="678" y="151" class="cn" fill="#D7DADE" font-size="12" text-anchor="middle">反白</text>
+
+    <circle cx="843" cy="87" r="52" fill="#FFF7E8" stroke="#D9DDE2"/>
+    <use href="#rising-reeds-color" x="827" y="71" width="32" height="32"/>
+    <text x="843" y="160" class="cn tiny" text-anchor="middle">图形实际 32 px</text>
+
+    <rect x="982" y="18" width="126" height="169" rx="13" fill="#FFF7E8" stroke="#E4DDCF"/>
+    <use href="#rising-reeds-color" x="994" y="30" width="20" height="20"/>
+    <text x="1097" y="43" class="en" fill="#666B73" font-size="8" text-anchor="end">工具实测 · 008</text>
+    <rect x="994" y="63" width="94" height="10" rx="5" fill="#172554"/>
+    <rect x="994" y="79" width="73" height="10" rx="5" fill="#172554"/>
+    <rect x="994" y="107" width="101" height="54" rx="8" fill="#E3E9F7"/>
+    <circle cx="1077" cy="125" r="12" fill="#FF5B4D" opacity=".45"/>
+    <text x="1135" y="67" class="cn" fill="#17191C" font-size="15" font-weight="700">只有名称保留“晨笙”才成立</text>
+    <text x="1135" y="93" class="cn muted">避免添加刻度或行情基线</text>
+    <text x="1135" y="119" class="cn muted">太阳圆点在小尺寸不能消失</text>
+  </g>
+
+  <line x1="40" y1="1033" x2="1560" y2="1033" class="rule"/>
+  <text x="40" y="1058" class="cn" fill="#646A73" font-size="13">比较原则：先看 32 px 和黑白版，再看大图；本板仅供方向选择，不是最终品牌规范。</text>
+  <text x="1560" y="1058" class="en" fill="#8A8F97" font-size="12" text-anchor="end">2026-07-27 · deterministic SVG assets</text>
+</svg>
