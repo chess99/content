@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="3100" viewBox="0 0 2400 3100">
+  <title>AI 位图与确定性 SVG 封面对照板</title>
+  <desc>四个相同题目并排对比 AI 位图和确定性排版。探索对照，不代表发布定稿。</desc>
+  <defs>
+    <style>
+      .sans { font-family: "HarmonyOS Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif; }
+      .mono { font-family: "JetBrains Mono","SFMono-Regular",Consolas,monospace; }
+    </style>
+    <filter id="panel-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#000000" flood-opacity=".25"/>
+    </filter>
+    <clipPath id="g1-ai"><rect x="100" y="620" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g1-svg"><rect x="640" y="620" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g2-ai"><rect x="1260" y="620" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g2-svg"><rect x="1800" y="620" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g3-ai"><rect x="100" y="1850" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g3-svg"><rect x="640" y="1850" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g4-ai"><rect x="1260" y="1850" width="500" height="667" rx="22"/></clipPath>
+    <clipPath id="g4-svg"><rect x="1800" y="1850" width="500" height="667" rx="22"/></clipPath>
+  </defs>
+
+  <rect width="2400" height="3100" fill="#12151A"/>
+  <path d="M0 0H22V3100H0Z" fill="#4F74F5"/>
+  <path d="M1870 -30L2400 326V500L1660 0Z" fill="#4F74F5" opacity=".10"/>
+
+  <!-- 对照板标题 -->
+  <g transform="translate(86 72)">
+    <rect width="62" height="62" rx="18" fill="#F7F3EA"/>
+    <circle cx="22" cy="22" r="7" fill="#12151A"/>
+    <path d="M19 44H45V30" fill="none" stroke="#12151A" stroke-width="6"/>
+    <rect x="42" y="10" width="15" height="6" rx="3" fill="#E4573F"/>
+    <text class="sans" x="86" y="45" fill="#F7F3EA" font-size="42" font-weight="850">晨笙做东西</text>
+    <text class="mono" x="400" y="43" fill="#7F8792" font-size="25" letter-spacing="2">COVER STUDY / 01</text>
+  </g>
+  <text class="sans" x="86" y="232" fill="#F7F3EA" font-size="93" font-weight="920" letter-spacing="-4">AI 位图  vs  确定性排版</text>
+  <text class="sans" x="90" y="307" fill="#AEB5BF" font-size="31" font-weight="650">四个题目锁定文案和品牌语法，只比较主视觉制作方式</text>
+  <g transform="translate(1678 92)">
+    <rect width="632" height="92" rx="46" fill="#2A1A1B" stroke="#E4573F" stroke-width="3"/>
+    <circle cx="47" cy="46" r="14" fill="#E4573F"/>
+    <text class="sans" x="82" y="58" fill="#F7F3EA" font-size="31" font-weight="820">探索对照，不代表发布定稿</text>
+  </g>
+  <path d="M86 367H2314" stroke="#343A43" stroke-width="3"/>
+
+  <!-- 第一组：MD2IMG -->
+  <g filter="url(#panel-shadow)">
+    <rect x="60" y="430" width="1120" height="1160" rx="40" fill="#F7F3EA"/>
+  </g>
+  <g transform="translate(100 474)">
+    <rect width="74" height="74" rx="20" fill="#2457E6"/>
+    <text class="mono" x="37" y="50" text-anchor="middle" fill="#FFFFFF" font-size="31" font-weight="850">01</text>
+    <text class="sans" x="102" y="53" fill="#17191C" font-size="49" font-weight="900">MD2IMG</text>
+    <text class="sans" x="1000" y="50" text-anchor="end" fill="#6B7179" font-size="27" font-weight="700">工具产品</text>
+  </g>
+  <text class="sans" x="100" y="592" fill="#2457E6" font-size="29" font-weight="850">AI 位图 / IMAGE MODEL</text>
+  <text class="sans" x="640" y="592" fill="#17191C" font-size="29" font-weight="850">确定性版 / SVG</text>
+  <image href="ai/md2img-ai.png" x="100" y="620" width="500" height="667"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g1-ai)"/>
+  <image href="deterministic/md2img.svg" x="640" y="620" width="500" height="667"
+         preserveAspectRatio="xMidYMid meet" clip-path="url(#g1-svg)"/>
+  <!-- 浏览器把外部 SVG 当图片加载时会阻止其二级外链；在对照板中直接补回真实 UI。 -->
+  <image href="../../../topics/20260724-md2img-launch/images/02-workspace.png"
+         x="705.7" y="961.2" width="456.5" height="257"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g1-svg)"/>
+  <rect x="705.7" y="961.2" width="456.5" height="257" rx="13" fill="none" stroke="#17191C" stroke-width="2"/>
+  <g>
+    <rect x="671.5" y="978.4" width="57.4" height="57.4" rx="12" fill="#17191C"/>
+    <text class="mono" x="700.2" y="1015" fill="#F7F3EA" text-anchor="middle" font-size="20" font-weight="800">.md</text>
+    <path d="M728.9 1007H754.8M749.2 999L759.5 1007L749.2 1015" fill="none" stroke="#2457E6" stroke-width="5.5"/>
+  </g>
+  <rect x="100" y="620" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <rect x="640" y="620" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <g class="sans" transform="translate(100 1342)">
+    <circle cx="10" cy="0" r="10" fill="#2457E6"/>
+    <text x="32" y="10" fill="#17191C" font-size="30" font-weight="820">场景 · 质感 · 产品意象</text>
+    <circle cx="550" cy="0" r="10" fill="#17191C"/>
+    <text x="572" y="10" fill="#17191C" font-size="30" font-weight="820">字体 · 真实 UI · 结构控制</text>
+  </g>
+  <path d="M100 1415H1140" stroke="#D5D1C8" stroke-width="2"/>
+  <text class="sans" x="100" y="1480" fill="#6B7179" font-size="27" font-weight="680">锁定信息：免费 / Markdown 转图片 / 无水印·不登录·本地处理</text>
+
+  <!-- 第二组：A 股估值 -->
+  <g filter="url(#panel-shadow)">
+    <rect x="1220" y="430" width="1120" height="1160" rx="40" fill="#F7F3EA"/>
+  </g>
+  <g transform="translate(1260 474)">
+    <rect width="74" height="74" rx="20" fill="#D64032"/>
+    <text class="mono" x="37" y="50" text-anchor="middle" fill="#FFFFFF" font-size="31" font-weight="850">02</text>
+    <text class="sans" x="102" y="53" fill="#17191C" font-size="49" font-weight="900">A股估值</text>
+    <text class="sans" x="1000" y="50" text-anchor="end" fill="#6B7179" font-size="27" font-weight="700">数据解释</text>
+  </g>
+  <text class="sans" x="1260" y="592" fill="#D64032" font-size="29" font-weight="850">AI 位图 / IMAGE MODEL</text>
+  <text class="sans" x="1800" y="592" fill="#17191C" font-size="29" font-weight="850">确定性版 / SVG</text>
+  <image href="ai/a-share-valuation-ai.png" x="1260" y="620" width="500" height="667"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g2-ai)"/>
+  <image href="deterministic/a-share-valuation.svg" x="1800" y="620" width="500" height="667"
+         preserveAspectRatio="xMidYMid meet" clip-path="url(#g2-svg)"/>
+  <rect x="1260" y="620" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <rect x="1800" y="620" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <g class="sans" transform="translate(1260 1342)">
+    <circle cx="10" cy="0" r="10" fill="#D64032"/>
+    <text x="32" y="10" fill="#17191C" font-size="30" font-weight="820">测量装置 · 纸面质感</text>
+    <circle cx="550" cy="0" r="10" fill="#17191C"/>
+    <text x="572" y="10" fill="#17191C" font-size="30" font-weight="820">精确数字 · 矢量曲线</text>
+  </g>
+  <path d="M1260 1415H2300" stroke="#D5D1C8" stroke-width="2"/>
+  <text class="sans" x="1260" y="1480" fill="#6B7179" font-size="27" font-weight="680">锁定信息：A股贵不贵 / 接近80% / 但还没到极端</text>
+
+  <!-- 第三组：Content Workflow -->
+  <g filter="url(#panel-shadow)">
+    <rect x="60" y="1660" width="1120" height="1160" rx="40" fill="#F7F3EA"/>
+  </g>
+  <g transform="translate(100 1704)">
+    <rect width="74" height="74" rx="20" fill="#2457E6"/>
+    <text class="mono" x="37" y="50" text-anchor="middle" fill="#FFFFFF" font-size="31" font-weight="850">03</text>
+    <text class="sans" x="102" y="53" fill="#17191C" font-size="49" font-weight="900">Content Workflow</text>
+    <text class="sans" x="1000" y="50" text-anchor="end" fill="#6B7179" font-size="27" font-weight="700">方法系统</text>
+  </g>
+  <text class="sans" x="100" y="1822" fill="#2457E6" font-size="29" font-weight="850">AI 位图 / IMAGE MODEL</text>
+  <text class="sans" x="640" y="1822" fill="#17191C" font-size="29" font-weight="850">确定性版 / SVG</text>
+  <image href="ai/content-workflow-ai.png" x="100" y="1850" width="500" height="667"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g3-ai)"/>
+  <image href="deterministic/content-workflow.svg" x="640" y="1850" width="500" height="667"
+         preserveAspectRatio="xMidYMid meet" clip-path="url(#g3-svg)"/>
+  <rect x="100" y="1850" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <rect x="640" y="1850" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <g class="sans" transform="translate(100 2572)">
+    <circle cx="10" cy="0" r="10" fill="#2457E6"/>
+    <text x="32" y="10" fill="#17191C" font-size="30" font-weight="820">微缩工厂 · 空间叙事</text>
+    <circle cx="550" cy="0" r="10" fill="#17191C"/>
+    <text x="572" y="10" fill="#17191C" font-size="30" font-weight="820">斜向叠卡 · 流程层级</text>
+  </g>
+  <path d="M100 2645H1140" stroke="#D5D1C8" stroke-width="2"/>
+  <text class="sans" x="100" y="2710" fill="#6B7179" font-size="27" font-weight="680">锁定信息：把内容创作做成流水线 / 选题 → 研究 → 写作 → 审校 → 发布</text>
+
+  <!-- 第四组：林照晚 -->
+  <g filter="url(#panel-shadow)">
+    <rect x="1220" y="1660" width="1120" height="1160" rx="40" fill="#F7F3EA"/>
+  </g>
+  <g transform="translate(1260 1704)">
+    <rect width="74" height="74" rx="20" fill="#7048C8"/>
+    <text class="mono" x="37" y="50" text-anchor="middle" fill="#FFFFFF" font-size="31" font-weight="850">04</text>
+    <text class="sans" x="102" y="53" fill="#17191C" font-size="49" font-weight="900">林照晚</text>
+    <text class="sans" x="1000" y="50" text-anchor="end" fill="#6B7179" font-size="27" font-weight="700">角色作品</text>
+  </g>
+  <text class="sans" x="1260" y="1822" fill="#7048C8" font-size="29" font-weight="850">AI 位图 / IMAGE MODEL</text>
+  <text class="sans" x="1800" y="1822" fill="#17191C" font-size="29" font-weight="850">确定性版 / SVG</text>
+  <image href="ai/lin-zhaowan-ai.png" x="1260" y="1850" width="500" height="667"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g4-ai)"/>
+  <!-- 先放真实角色图，供外部 SVG 的透明品牌层叠加。 -->
+  <image href="../../../topics/20260726-ai-ideal-her/images/01-shore-main.png"
+         x="1800" y="1850" width="500" height="667"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#g4-svg)"/>
+  <image href="deterministic/lin-zhaowan.svg" x="1800" y="1850" width="500" height="667"
+         preserveAspectRatio="xMidYMid meet" clip-path="url(#g4-svg)"/>
+  <rect x="1260" y="1850" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <rect x="1800" y="1850" width="500" height="667" rx="22" fill="none" stroke="#D5D1C8" stroke-width="3"/>
+  <g class="sans" transform="translate(1260 2572)">
+    <circle cx="10" cy="0" r="10" fill="#7048C8"/>
+    <text x="32" y="10" fill="#17191C" font-size="30" font-weight="820">氛围融合 · 画面一体</text>
+    <circle cx="550" cy="0" r="10" fill="#17191C"/>
+    <text x="572" y="10" fill="#17191C" font-size="30" font-weight="820">原图保真 · 字标可编辑</text>
+  </g>
+  <path d="M1260 2645H2300" stroke="#D5D1C8" stroke-width="2"/>
+  <text class="sans" x="1260" y="2710" fill="#6B7179" font-size="27" font-weight="680">锁定信息：她叫林照晚 / 我用AI想象出的她 / 成年原创角色·AI生成</text>
+
+  <!-- 底部方法说明 -->
+  <g transform="translate(60 2900)">
+    <rect width="2280" height="134" rx="28" fill="#1C2026" stroke="#343A43" stroke-width="2"/>
+    <text class="sans" x="44" y="57" fill="#F7F3EA" font-size="31" font-weight="780">对照原则：同题、同信息、同品牌语法；只比较“生成场景”与“确定性编排”</text>
+    <text class="mono" x="44" y="101" fill="#7F8792" font-size="22" letter-spacing="1">SOURCE: brand/assets/covers/ai  ↔  brand/assets/covers/deterministic</text>
+    <text class="sans" x="2236" y="82" text-anchor="end" fill="#E4573F" font-size="29" font-weight="820">非发布定稿</text>
+  </g>
+</svg>
