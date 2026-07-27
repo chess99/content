@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">AI Logo 与确定性 SVG v0.1 概念比较</title>
+  <desc id="desc">逐方向比较开框点、未完格、三束合流和晨笙信号的 AI 位图概念与确定性 SVG，并检查 32 像素圆形头像和黑白表现。</desc>
+
+  <defs>
+    <style>
+      .cn { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+      .en { font-family: Inter, Arial, sans-serif; }
+      .header { fill: #17191C; font-size: 18px; font-weight: 700; }
+      .label { fill: #17191C; font-size: 14px; font-weight: 700; }
+      .body { fill: #646A73; font-size: 13px; }
+      .tiny { fill: #858A93; font-size: 11px; }
+    </style>
+    <filter id="grayscale" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
+    </filter>
+    <filter id="solid-ink" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0902  0 0 0 0 0.0980  0 0 0 0 0.1098  0 0 0 1 0"/>
+    </filter>
+    <clipPath id="clip-ai-32" clipPathUnits="userSpaceOnUse"><circle cx="745" cy="66" r="16"/></clipPath>
+    <clipPath id="clip-ai-large" clipPathUnits="userSpaceOnUse"><circle cx="745" cy="143" r="42"/></clipPath>
+    <clipPath id="clip-ai-bw" clipPathUnits="userSpaceOnUse"><circle cx="985" cy="100" r="38"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="1200" fill="#EEF0F3"/>
+  <text x="40" y="51" class="cn" fill="#17191C" font-size="30" font-weight="800">AI 位图概念 × 确定性 SVG</text>
+  <text x="40" y="80" class="cn" fill="#646A73" font-size="15">同一概念并排看气质、轮廓、小尺寸与去色结果；AI 图用于发现造型，SVG 用于精确复现</text>
+  <rect x="1388" y="30" width="172" height="40" rx="20" fill="#17191C"/>
+  <text x="1474" y="56" class="cn" fill="#FFFFFF" font-size="14" font-weight="700" text-anchor="middle">v0.1 概念比较</text>
+
+  <text x="48" y="128" class="cn header">方向</text>
+  <text x="287" y="128" class="cn header">AI 位图概念</text>
+  <text x="513" y="128" class="cn header">确定性 SVG</text>
+  <text x="710" y="128" class="cn header">32 px 圆形头像裁切</text>
+  <text x="948" y="128" class="cn header">黑白判断</text>
+  <text x="1185" y="128" class="cn header">本轮观察</text>
+
+  <!-- 01 Open Frame -->
+  <g transform="translate(0 145)">
+    <rect x="40" y="0" width="1520" height="225" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="22" font-weight="800">01 开框点</text>
+    <text x="62" y="73" class="en body">OPEN FRAME</text>
+    <rect x="62" y="99" width="74" height="26" rx="13" fill="#E7ECFF"/>
+    <text x="99" y="117" class="cn" fill="#315CFF" font-size="12" font-weight="700" text-anchor="middle">名称无关</text>
+
+    <rect x="230" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="ai/open-frame-ai.png" x="245" y="20" width="185" height="185" preserveAspectRatio="xMidYMid meet"/>
+    <rect x="460" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="svg/open-frame.svg" x="507" y="52" width="120" height="120"/>
+
+    <rect x="690" y="15" width="225" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <text x="745" y="37" class="en tiny" text-anchor="middle">AI</text>
+    <text x="851" y="37" class="en tiny" text-anchor="middle">SVG</text>
+    <image href="ai/open-frame-ai.png" x="719" y="40" width="52" height="52" clip-path="url(#clip-ai-32)"/>
+    <circle cx="745" cy="66" r="16" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="66" r="16" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-frame.svg" x="839" y="54" width="24" height="24"/>
+    <image href="ai/open-frame-ai.png" x="677" y="75" width="136" height="136" clip-path="url(#clip-ai-large)"/>
+    <circle cx="745" cy="143" r="42" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="143" r="42" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-frame.svg" x="819" y="111" width="64" height="64"/>
+    <text x="798" y="202" class="cn tiny" text-anchor="middle">上：实际 32 px　下：4× 检视裁切</text>
+
+    <rect x="930" y="15" width="220" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <image href="ai/open-frame-ai.png" x="923" y="38" width="124" height="124" clip-path="url(#clip-ai-bw)" filter="url(#grayscale)"/>
+    <circle cx="985" cy="100" r="38" fill="none" stroke="#C9CDD3"/>
+    <circle cx="1095" cy="100" r="38" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-frame.svg" x="1066" y="71" width="58" height="58" filter="url(#solid-ink)"/>
+    <text x="985" y="158" class="cn tiny" text-anchor="middle">AI 去色</text>
+    <text x="1095" y="158" class="cn tiny" text-anchor="middle">SVG 单色</text>
+    <rect x="981" y="174" width="118" height="22" rx="11" fill="#E9F5EE"/>
+    <text x="1040" y="189" class="cn" fill="#277A49" font-size="11" font-weight="700" text-anchor="middle">黑白结构：通过</text>
+
+    <text x="1175" y="55" class="cn label">AI 版更像一个完整容器</text>
+    <text x="1175" y="82" class="cn body">圆润、有重量，蓝点仍是清晰落点。</text>
+    <text x="1175" y="107" class="cn body">SVG 版更开放，但容易联想到对焦框。</text>
+    <text x="1175" y="147" class="cn" fill="#315CFF" font-size="13" font-weight="700">建议：抽取 AI 轮廓后再做几何减法</text>
+  </g>
+
+  <!-- 02 Open Grid -->
+  <g transform="translate(0 395)">
+    <rect x="40" y="0" width="1520" height="225" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="22" font-weight="800">02 未完格</text>
+    <text x="62" y="73" class="en body">OPEN GRID</text>
+    <rect x="62" y="99" width="74" height="26" rx="13" fill="#FFE9E6"/>
+    <text x="99" y="117" class="cn" fill="#D9483B" font-size="12" font-weight="700" text-anchor="middle">名称无关</text>
+
+    <rect x="230" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="ai/open-grid-ai.png" x="245" y="20" width="185" height="185" preserveAspectRatio="xMidYMid meet"/>
+    <rect x="460" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="svg/open-grid.svg" x="507" y="52" width="120" height="120"/>
+
+    <rect x="690" y="15" width="225" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <text x="745" y="37" class="en tiny" text-anchor="middle">AI</text>
+    <text x="851" y="37" class="en tiny" text-anchor="middle">SVG</text>
+    <image href="ai/open-grid-ai.png" x="719" y="40" width="52" height="52" clip-path="url(#clip-ai-32)"/>
+    <circle cx="745" cy="66" r="16" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="66" r="16" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-grid.svg" x="839" y="54" width="24" height="24"/>
+    <image href="ai/open-grid-ai.png" x="677" y="75" width="136" height="136" clip-path="url(#clip-ai-large)"/>
+    <circle cx="745" cy="143" r="42" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="143" r="42" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-grid.svg" x="819" y="111" width="64" height="64"/>
+    <text x="798" y="202" class="cn tiny" text-anchor="middle">上：实际 32 px　下：4× 检视裁切</text>
+
+    <rect x="930" y="15" width="220" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <image href="ai/open-grid-ai.png" x="923" y="38" width="124" height="124" clip-path="url(#clip-ai-bw)" filter="url(#grayscale)"/>
+    <circle cx="985" cy="100" r="38" fill="none" stroke="#C9CDD3"/>
+    <circle cx="1095" cy="100" r="38" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/open-grid.svg" x="1066" y="71" width="58" height="58" filter="url(#solid-ink)"/>
+    <text x="985" y="158" class="cn tiny" text-anchor="middle">AI 去色</text>
+    <text x="1095" y="158" class="cn tiny" text-anchor="middle">SVG 单色</text>
+    <rect x="981" y="174" width="118" height="22" rx="11" fill="#E9F5EE"/>
+    <text x="1040" y="189" class="cn" fill="#277A49" font-size="11" font-weight="700" text-anchor="middle">黑白结构：通过</text>
+
+    <text x="1175" y="55" class="cn label">AI 版的有机方块更有作者感</text>
+    <text x="1175" y="82" class="cn body">不规则曲面降低了“应用启动器”既视感。</text>
+    <text x="1175" y="107" class="cn body">SVG 版更清楚，但也更像标准组件。</text>
+    <text x="1175" y="147" class="cn" fill="#D9483B" font-size="13" font-weight="700">建议：优先矢量化 AI 版的四块轮廓</text>
+  </g>
+
+  <!-- 03 Three Into One -->
+  <g transform="translate(0 645)">
+    <rect x="40" y="0" width="1520" height="225" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="22" font-weight="800">03 三束合流</text>
+    <text x="62" y="73" class="en body">THREE INTO ONE</text>
+    <rect x="62" y="99" width="74" height="26" rx="13" fill="#EEE8FF"/>
+    <text x="99" y="117" class="cn" fill="#7048C8" font-size="12" font-weight="700" text-anchor="middle">名称无关</text>
+
+    <rect x="230" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="ai/three-into-one-ai.png" x="245" y="20" width="185" height="185" preserveAspectRatio="xMidYMid meet"/>
+    <rect x="460" y="15" width="215" height="195" rx="14" fill="#F7F3EA" stroke="#E2DED5"/>
+    <image href="svg/three-into-one.svg" x="507" y="52" width="120" height="120"/>
+
+    <rect x="690" y="15" width="225" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <text x="745" y="37" class="en tiny" text-anchor="middle">AI</text>
+    <text x="851" y="37" class="en tiny" text-anchor="middle">SVG</text>
+    <image href="ai/three-into-one-ai.png" x="724" y="45" width="42" height="42" clip-path="url(#clip-ai-32)"/>
+    <circle cx="745" cy="66" r="16" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="66" r="16" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/three-into-one.svg" x="839" y="54" width="24" height="24"/>
+    <image href="ai/three-into-one-ai.png" x="691" y="89" width="108" height="108" clip-path="url(#clip-ai-large)"/>
+    <circle cx="745" cy="143" r="42" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="143" r="42" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/three-into-one.svg" x="819" y="111" width="64" height="64"/>
+    <text x="798" y="202" class="cn tiny" text-anchor="middle">上：实际 32 px　下：4× 检视裁切</text>
+
+    <rect x="930" y="15" width="220" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <image href="ai/three-into-one-ai.png" x="935" y="50" width="100" height="100" clip-path="url(#clip-ai-bw)" filter="url(#grayscale)"/>
+    <circle cx="985" cy="100" r="38" fill="none" stroke="#C9CDD3"/>
+    <circle cx="1095" cy="100" r="38" fill="#F7F3EA" stroke="#C9CDD3"/>
+    <image href="svg/three-into-one.svg" x="1066" y="71" width="58" height="58" filter="url(#solid-ink)"/>
+    <text x="985" y="158" class="cn tiny" text-anchor="middle">AI 去色</text>
+    <text x="1095" y="158" class="cn tiny" text-anchor="middle">SVG 单色</text>
+    <rect x="981" y="174" width="118" height="22" rx="11" fill="#E9F5EE"/>
+    <text x="1040" y="189" class="cn" fill="#277A49" font-size="11" font-weight="700" text-anchor="middle">黑白结构：通过</text>
+
+    <text x="1175" y="55" class="cn label">AI 版单一轮廓更有速度和力量</text>
+    <text x="1175" y="82" class="cn body">即使蓝色输出消失，三入一出仍成立。</text>
+    <text x="1175" y="107" class="cn body">SVG 彩色三线在 32 px 会更碎。</text>
+    <text x="1175" y="147" class="cn" fill="#7048C8" font-size="13" font-weight="700">建议：AI 版是本方向更好的矢量底稿</text>
+  </g>
+
+  <!-- 04 Rising Reeds -->
+  <g transform="translate(0 895)">
+    <rect x="40" y="0" width="1520" height="225" rx="18" fill="#FFFFFF"/>
+    <text x="62" y="48" class="cn" fill="#17191C" font-size="22" font-weight="800">04 晨笙信号</text>
+    <text x="62" y="73" class="en body">RISING REEDS</text>
+    <rect x="62" y="99" width="74" height="26" rx="13" fill="#E8ECF7"/>
+    <text x="99" y="117" class="cn" fill="#172554" font-size="12" font-weight="700" text-anchor="middle">名称相关</text>
+
+    <rect x="230" y="15" width="215" height="195" rx="14" fill="#FFF7E8" stroke="#E2DED5"/>
+    <image href="ai/rising-reeds-ai.png" x="245" y="20" width="185" height="185" preserveAspectRatio="xMidYMid meet"/>
+    <rect x="460" y="15" width="215" height="195" rx="14" fill="#FFF7E8" stroke="#E2DED5"/>
+    <image href="svg/rising-reeds.svg" x="507" y="52" width="120" height="120"/>
+
+    <rect x="690" y="15" width="225" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <text x="745" y="37" class="en tiny" text-anchor="middle">AI</text>
+    <text x="851" y="37" class="en tiny" text-anchor="middle">SVG</text>
+    <image href="ai/rising-reeds-ai.png" x="719" y="40" width="52" height="52" clip-path="url(#clip-ai-32)"/>
+    <circle cx="745" cy="66" r="16" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="66" r="16" fill="#FFF7E8" stroke="#C9CDD3"/>
+    <image href="svg/rising-reeds.svg" x="839" y="54" width="24" height="24"/>
+    <image href="ai/rising-reeds-ai.png" x="677" y="75" width="136" height="136" clip-path="url(#clip-ai-large)"/>
+    <circle cx="745" cy="143" r="42" fill="none" stroke="#C9CDD3"/>
+    <circle cx="851" cy="143" r="42" fill="#FFF7E8" stroke="#C9CDD3"/>
+    <image href="svg/rising-reeds.svg" x="819" y="111" width="64" height="64"/>
+    <text x="798" y="202" class="cn tiny" text-anchor="middle">上：实际 32 px　下：4× 检视裁切</text>
+
+    <rect x="930" y="15" width="220" height="195" rx="14" fill="#F8F9FA" stroke="#E0E3E7"/>
+    <image href="ai/rising-reeds-ai.png" x="923" y="38" width="124" height="124" clip-path="url(#clip-ai-bw)" filter="url(#grayscale)"/>
+    <circle cx="985" cy="100" r="38" fill="none" stroke="#C9CDD3"/>
+    <circle cx="1095" cy="100" r="38" fill="#FFF7E8" stroke="#C9CDD3"/>
+    <image href="svg/rising-reeds.svg" x="1066" y="71" width="58" height="58" filter="url(#solid-ink)"/>
+    <text x="985" y="158" class="cn tiny" text-anchor="middle">AI 去色</text>
+    <text x="1095" y="158" class="cn tiny" text-anchor="middle">SVG 单色</text>
+    <rect x="981" y="174" width="118" height="22" rx="11" fill="#E9F5EE"/>
+    <text x="1040" y="189" class="cn" fill="#277A49" font-size="11" font-weight="700" text-anchor="middle">黑白结构：通过</text>
+
+    <text x="1175" y="55" class="cn label">AI 版的弧形切口显著更独特</text>
+    <text x="1175" y="82" class="cn body">同时像笙管、信号和晨光，轮廓成熟。</text>
+    <text x="1175" y="107" class="cn body">SVG 直柱更接近普通统计图或音量条。</text>
+    <text x="1175" y="147" class="cn" fill="#172554" font-size="13" font-weight="700">建议：若保留“晨笙”，矢量化 AI 版</text>
+  </g>
+
+  <line x1="40" y1="1145" x2="1560" y2="1145" stroke="#D8DCE1"/>
+  <text x="40" y="1173" class="cn" fill="#646A73" font-size="13">判断提示：黑白通过只表示轮廓仍成立，不代表可直接把 AI 位图当正式 Logo；最终仍需人工重建曲线、留白和 16 px 版本。</text>
+  <text x="1560" y="1173" class="en" fill="#858A93" font-size="12" text-anchor="end">2026-07-27 · v0.1 concept comparison</text>
+</svg>
