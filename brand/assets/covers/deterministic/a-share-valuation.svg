@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <title>A 股估值确定性品牌封面样例</title>
+  <desc>以巴菲特指标为证据的“数据与财经”栏目封面。数字和折线均为可编辑矢量。</desc>
+  <defs>
+    <style>
+      .sans { font-family: "HarmonyOS Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif; }
+      .mono { font-family: "JetBrains Mono","SFMono-Regular",Consolas,monospace; }
+    </style>
+    <clipPath id="paper-clip"><rect width="1080" height="1440"/></clipPath>
+  </defs>
+
+  <rect width="1080" height="1440" fill="#F7F3EA"/>
+  <path d="M0 0H18V1440H0Z" fill="#D64032"/>
+
+  <!-- 临时母品牌锁定：最终名称和 Logo 确定后整体替换此组。 -->
+  <g transform="translate(72 58)">
+    <rect width="52" height="52" rx="15" fill="#17191C"/>
+    <circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
+    <path d="M16 36H37V25" fill="none" stroke="#F7F3EA" stroke-width="5"/>
+    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
+    <text class="sans" x="70" y="38" fill="#17191C" font-size="35" font-weight="800">晨笙做东西</text>
+  </g>
+  <g transform="translate(789 68)">
+    <rect width="16" height="16" rx="4" fill="#D64032"/>
+    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">数据与财经 · 01</text>
+  </g>
+  <path d="M72 138H1008" stroke="#CBD0D6" stroke-width="2"/>
+
+  <!-- 被裁切的巨大测量环，让数据封面不像标准报表。 -->
+  <g clip-path="url(#paper-clip)" opacity=".95">
+    <circle cx="1007" cy="522" r="286" fill="none" stroke="#E1DED6" stroke-width="64"/>
+    <path d="M1007 236A286 286 0 0 1 1235 694" fill="none" stroke="#D64032" stroke-width="64" stroke-linecap="butt"/>
+    <path d="M1007 214V267M1148 252L1122 298M1251 357L1205 383" stroke="#17191C" stroke-width="8"/>
+  </g>
+
+  <text class="sans" x="72" y="254" fill="#17191C" font-size="112" font-weight="900" letter-spacing="-5">A股贵不贵？</text>
+  <text class="sans" x="74" y="346" fill="#6E737A" font-size="34" font-weight="750">用巴菲特指标，先校准一个大概位置</text>
+
+  <g class="sans" transform="translate(66 430)">
+    <text x="0" y="126" fill="#17191C" font-size="76" font-weight="900">接近</text>
+    <text x="198" y="178" fill="#D64032" font-size="224" font-weight="950" letter-spacing="-12">80%</text>
+    <rect x="4" y="216" width="586" height="90" rx="4" fill="#17191C"/>
+    <text x="30" y="279" fill="#F7F3EA" font-size="50" font-weight="850">但还没到极端</text>
+  </g>
+
+  <g transform="translate(72 842)">
+    <path d="M0 0H936" stroke="#CBD0D6" stroke-width="2"/>
+    <text class="mono" x="0" y="43" fill="#777C83" font-size="23" font-weight="650">BUFFETT INDICATOR / 2003—2025</text>
+    <path d="M36 289
+             L78 317 L118 336 L160 348 L202 280 L243 105 L286 288
+             L326 218 L368 230 L410 285 L452 294 L494 304 L536 259
+             L578 205 L620 236 L662 214 L704 288 L746 247 L788 175
+             L830 187 L872 239 L914 249 L936 245"
+          fill="none" stroke="#285F87" stroke-width="12" stroke-linejoin="miter" stroke-linecap="square"/>
+    <circle cx="243" cy="105" r="18" fill="#17191C"/>
+    <circle cx="936" cy="245" r="22" fill="#D64032"/>
+    <path d="M243 72V20M936 212V160" stroke="#17191C" stroke-width="3"/>
+    <text class="sans" x="243" y="4" text-anchor="middle" fill="#17191C" font-size="27" font-weight="850">2007 · 124.3%</text>
+    <text class="sans" x="936" y="145" text-anchor="end" fill="#D64032" font-size="29" font-weight="850">2025 · 约80%</text>
+    <text class="mono" x="34" y="386" fill="#777C83" font-size="21">2003</text>
+    <text class="mono" x="936" y="386" text-anchor="end" fill="#777C83" font-size="21">2025</text>
+    <path d="M34 350H936" stroke="#CBD0D6" stroke-width="3"/>
+  </g>
+
+  <g class="sans" transform="translate(72 1321)">
+    <rect x="0" y="-35" width="10" height="35" fill="#D64032"/>
+    <text x="25" y="-8" fill="#17191C" font-size="27" font-weight="760">两种公开口径：77.5% / 79.5%</text>
+    <text x="936" y="-8" text-anchor="end" fill="#72777E" font-size="25" font-weight="650">做出来，再讲明白。</text>
+  </g>
+  <path d="M72 1360H1008" stroke="#CBD0D6" stroke-width="2"/>
+  <text class="mono" x="72" y="1400" fill="#878C92" font-size="20" letter-spacing="1">DATA EXPLAINS / NOT INVESTMENT ADVICE</text>
+</svg>

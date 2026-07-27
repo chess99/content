@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <title>Content Workflow 确定性品牌封面样例</title>
+  <desc>深色底、斜向叠卡构图的“工具与工作流”栏目封面。</desc>
+  <defs>
+    <style>
+      .sans { font-family: "HarmonyOS Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif; }
+      .mono { font-family: "JetBrains Mono","SFMono-Regular",Consolas,monospace; }
+    </style>
+    <filter id="card-shadow" x="-30%" y="-30%" width="170%" height="180%">
+      <feDropShadow dx="0" dy="26" stdDeviation="18" flood-color="#000000" flood-opacity=".34"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1440" fill="#17191C"/>
+  <path d="M0 0H18V1440H0Z" fill="#2457E6"/>
+  <path d="M729 -60L1080 194V380L580 16Z" fill="#2457E6" opacity=".13"/>
+
+  <!-- 深色反白版本仍沿用同一母品牌锁定。 -->
+  <g transform="translate(72 58)">
+    <rect width="52" height="52" rx="15" fill="#F7F3EA"/>
+    <circle cx="18" cy="18" r="6" fill="#17191C"/>
+    <path d="M16 36H37V25" fill="none" stroke="#17191C" stroke-width="5"/>
+    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
+    <text class="sans" x="70" y="38" fill="#F7F3EA" font-size="35" font-weight="800">晨笙做东西</text>
+  </g>
+  <g transform="translate(772 68)">
+    <rect width="16" height="16" rx="4" fill="#5E84FF"/>
+    <text class="sans" x="29" y="16" fill="#C9CDD3" font-size="25" font-weight="700">工具与工作流 · 02</text>
+  </g>
+  <path d="M72 138H1008" stroke="#41464D" stroke-width="2"/>
+
+  <text class="sans" x="72" y="242" fill="#A9C0FF" font-size="29" font-weight="800" letter-spacing="1">CODEX + SKILLS / 一套真的在用的系统</text>
+  <g class="sans" font-weight="900" letter-spacing="-5">
+    <text x="68" y="360" fill="#F7F3EA" font-size="104">我把内容创作</text>
+    <text x="68" y="475" fill="#F7F3EA" font-size="104">做成了</text>
+    <text x="64" y="618" fill="#5E84FF" font-size="150">流水线</text>
+  </g>
+
+  <!-- 斜向“输送带”：不是平均分栏，五张卡按流程叠压前进。 -->
+  <path d="M-70 1118C190 886 445 883 650 1000C824 1098 922 1069 1160 839"
+        fill="none" stroke="#2457E6" stroke-width="74" opacity=".23"/>
+  <path d="M-70 1118C190 886 445 883 650 1000C824 1098 922 1069 1160 839"
+        fill="none" stroke="#5E84FF" stroke-width="5" stroke-dasharray="18 22"/>
+
+  <g filter="url(#card-shadow)">
+    <g transform="translate(42 828) rotate(-11 101 137)">
+      <rect width="202" height="274" rx="26" fill="#F7F3EA"/>
+      <text class="mono" x="24" y="48" fill="#2457E6" font-size="27" font-weight="800">01</text>
+      <circle cx="156" cy="40" r="13" fill="#E4573F"/>
+      <text class="sans" x="24" y="148" fill="#17191C" font-size="46" font-weight="900">选题</text>
+      <path d="M24 188H166M24 211H126" stroke="#BFC4CA" stroke-width="7"/>
+    </g>
+    <g transform="translate(218 747) rotate(-4 101 137)">
+      <rect width="202" height="274" rx="26" fill="#F7F3EA"/>
+      <text class="mono" x="24" y="48" fill="#2457E6" font-size="27" font-weight="800">02</text>
+      <path d="M147 29L174 56M174 29L147 56" stroke="#2457E6" stroke-width="8"/>
+      <text class="sans" x="24" y="148" fill="#17191C" font-size="46" font-weight="900">研究</text>
+      <path d="M24 188H166M24 211H144M24 234H106" stroke="#BFC4CA" stroke-width="7"/>
+    </g>
+    <g transform="translate(404 804) rotate(5 101 137)">
+      <rect width="202" height="274" rx="26" fill="#2457E6"/>
+      <text class="mono" x="24" y="48" fill="#D8E3FF" font-size="27" font-weight="800">03</text>
+      <path d="M146 38H177M161 23V54" stroke="#F7F3EA" stroke-width="8"/>
+      <text class="sans" x="24" y="148" fill="#FFFFFF" font-size="46" font-weight="900">写作</text>
+      <path d="M24 188H166M24 211H133" stroke="#9BB5FF" stroke-width="7"/>
+    </g>
+    <g transform="translate(589 891) rotate(-3 101 137)">
+      <rect width="202" height="274" rx="26" fill="#F7F3EA"/>
+      <text class="mono" x="24" y="48" fill="#2457E6" font-size="27" font-weight="800">04</text>
+      <path d="M145 40L157 52L179 26" fill="none" stroke="#E4573F" stroke-width="8"/>
+      <text class="sans" x="24" y="148" fill="#17191C" font-size="46" font-weight="900">审校</text>
+      <path d="M24 188H166M24 211H117" stroke="#BFC4CA" stroke-width="7"/>
+    </g>
+    <g transform="translate(784 797) rotate(10 101 137)">
+      <rect width="202" height="274" rx="26" fill="#F7F3EA"/>
+      <text class="mono" x="24" y="48" fill="#2457E6" font-size="27" font-weight="800">05</text>
+      <path d="M146 52L178 20M178 20V50M178 20H148" fill="none" stroke="#2457E6" stroke-width="8"/>
+      <text class="sans" x="24" y="148" fill="#17191C" font-size="46" font-weight="900">发布</text>
+      <path d="M24 188H166M24 211H145M24 234H99" stroke="#BFC4CA" stroke-width="7"/>
+    </g>
+  </g>
+
+  <g transform="translate(72 1251)">
+    <rect width="688" height="66" rx="4" fill="#252A30"/>
+    <text class="mono" x="24" y="43" fill="#A9C0FF" font-size="24">idea → research → draft → review → publish</text>
+  </g>
+  <text class="sans" x="1008" y="1294" text-anchor="end" fill="#C9CDD3" font-size="25" font-weight="650">做出来，再讲明白。</text>
+  <path d="M72 1360H1008" stroke="#41464D" stroke-width="2"/>
+  <text class="mono" x="72" y="1400" fill="#757B83" font-size="20" letter-spacing="1">REUSABLE PROCESS / REAL OUTPUTS</text>
+</svg>

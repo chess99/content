@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <title>林照晚确定性品牌封面样例</title>
+  <desc>保留原始角色位图，由确定性字标、栏目和信息卡建立母品牌识别。</desc>
+  <defs>
+    <style>
+      .sans { font-family: "HarmonyOS Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif; }
+      .serif { font-family: "Noto Serif CJK SC","Source Han Serif SC","Songti SC",serif; }
+      .mono { font-family: "JetBrains Mono","SFMono-Regular",Consolas,monospace; }
+    </style>
+    <linearGradient id="bottom-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17191C" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#17191C" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#17191C" stop-opacity=".52"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#17191C" flood-opacity=".22"/>
+    </filter>
+    <clipPath id="photo-clip"><rect width="1080" height="1440"/></clipPath>
+  </defs>
+
+  <!-- 角色位图保持原貌；此 SVG 不尝试把摄影式人物自动描摹成矢量。 -->
+  <image href="../../../../topics/20260726-ai-ideal-her/images/01-shore-main.png"
+         x="0" y="0" width="1080" height="1440"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)"/>
+  <rect width="1080" height="1440" fill="url(#bottom-fade)"/>
+  <path d="M0 0H18V1440H0Z" fill="#7048C8"/>
+
+  <rect x="0" y="0" width="1080" height="144" fill="#F7F3EA" fill-opacity=".93"/>
+  <!-- 临时母品牌锁定。 -->
+  <g transform="translate(72 50)">
+    <rect width="52" height="52" rx="15" fill="#17191C"/>
+    <circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
+    <path d="M16 36H37V25" fill="none" stroke="#F7F3EA" stroke-width="5"/>
+    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
+    <text class="sans" x="70" y="38" fill="#17191C" font-size="35" font-weight="800">晨笙做东西</text>
+  </g>
+  <g transform="translate(817 60)">
+    <rect width="16" height="16" rx="4" fill="#7048C8"/>
+    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">创作实验 · 01</text>
+  </g>
+
+  <!-- 标题卡避开人物面部，以角色画面而不是模板成为第一视觉。 -->
+  <g filter="url(#soft-shadow)">
+    <path d="M58 954H698V1303H58Z" fill="#F7F3EA" fill-opacity=".94"/>
+    <path d="M58 954H74V1303H58Z" fill="#7048C8"/>
+  </g>
+  <text class="sans" x="108" y="1029" fill="#7048C8" font-size="28" font-weight="850" letter-spacing="1">我用 AI 想象出的她</text>
+  <text class="serif" x="104" y="1140" fill="#17191C" font-size="70" font-weight="700">她叫</text>
+  <text class="serif" x="101" y="1252" fill="#17191C" font-size="122" font-weight="800" letter-spacing="4">林照晚</text>
+
+  <g transform="translate(732 1266)">
+    <rect width="276" height="52" rx="26" fill="#17191C" fill-opacity=".86"/>
+    <circle cx="27" cy="26" r="8" fill="#A78BFA"/>
+    <text class="sans" x="48" y="35" fill="#F7F3EA" font-size="22" font-weight="720">成年原创角色 · AI生成</text>
+  </g>
+  <text class="sans" x="1008" y="1364" text-anchor="end" fill="#F7F3EA" font-size="25" font-weight="700">做出来，再讲明白。</text>
+  <text class="mono" x="72" y="1402" fill="#F7F3EA" fill-opacity=".78" font-size="19" letter-spacing="1">CHARACTER STUDY / CONSISTENCY FIRST</text>
+</svg>
