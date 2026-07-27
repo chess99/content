@@ -13,17 +13,19 @@
   <rect width="1080" height="1440" fill="#F7F3EA"/>
   <path d="M0 0H18V1440H0Z" fill="#D64032"/>
 
-  <!-- 临时母品牌锁定：最终名称和 Logo 确定后整体替换此组。 -->
+  <!-- 母品牌开框点：与 assets/logo/svg/open-frame.svg 使用相同几何。 -->
   <g transform="translate(72 58)">
-    <rect width="52" height="52" rx="15" fill="#17191C"/>
-    <circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
-    <path d="M16 36H37V25" fill="none" stroke="#F7F3EA" stroke-width="5"/>
-    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
-    <text class="sans" x="70" y="38" fill="#17191C" font-size="35" font-weight="800">晨笙做东西</text>
+    <g transform="scale(2.1666667)" fill="none" stroke="#17191C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 4H5.25C4.56 4 4 4.56 4 5.25V9"/>
+      <path d="M4 15v3.75C4 19.44 4.56 20 5.25 20H9"/>
+      <path d="M15 20h3.75c.69 0 1.25-.56 1.25-1.25V15"/>
+    </g>
+    <circle cx="28.1667" cy="23.4" r="6.7167" fill="#315CFF"/>
+    <text class="sans" x="70" y="38" fill="#17191C" font-size="36" font-weight="800">晨笙做东西</text>
   </g>
   <g transform="translate(789 68)">
     <rect width="16" height="16" rx="4" fill="#D64032"/>
-    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">数据与财经 · 01</text>
+    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">数据与财经 · 001</text>
   </g>
   <path d="M72 138H1008" stroke="#CBD0D6" stroke-width="2"/>
 
@@ -35,7 +37,7 @@
   </g>
 
   <text class="sans" x="72" y="254" fill="#17191C" font-size="112" font-weight="900" letter-spacing="-5">A股贵不贵？</text>
-  <text class="sans" x="74" y="346" fill="#6E737A" font-size="34" font-weight="750">用巴菲特指标，先校准一个大概位置</text>
+  <text class="sans" x="74" y="346" fill="#6E737A" font-size="38" font-weight="750">用巴菲特指标，先校准一个大概位置</text>
 
   <g class="sans" transform="translate(66 430)">
     <text x="0" y="126" fill="#17191C" font-size="76" font-weight="900">接近</text>
@@ -56,8 +58,8 @@
     <circle cx="243" cy="105" r="18" fill="#17191C"/>
     <circle cx="936" cy="245" r="22" fill="#D64032"/>
     <path d="M243 72V20M936 212V160" stroke="#17191C" stroke-width="3"/>
-    <text class="sans" x="243" y="4" text-anchor="middle" fill="#17191C" font-size="27" font-weight="850">2007 · 124.3%</text>
-    <text class="sans" x="936" y="145" text-anchor="end" fill="#D64032" font-size="29" font-weight="850">2025 · 约80%</text>
+    <text class="sans" x="243" y="4" text-anchor="middle" fill="#17191C" font-size="36" font-weight="850">2007 · 124.3%</text>
+    <text class="sans" x="936" y="145" text-anchor="end" fill="#D64032" font-size="38" font-weight="850">2025 · 约80%</text>
     <text class="mono" x="34" y="386" fill="#777C83" font-size="21">2003</text>
     <text class="mono" x="936" y="386" text-anchor="end" fill="#777C83" font-size="21">2025</text>
     <path d="M34 350H936" stroke="#CBD0D6" stroke-width="3"/>
@@ -65,7 +67,7 @@
 
   <g class="sans" transform="translate(72 1321)">
     <rect x="0" y="-35" width="10" height="35" fill="#D64032"/>
-    <text x="25" y="-8" fill="#17191C" font-size="27" font-weight="760">两种公开口径：77.5% / 79.5%</text>
+    <text x="25" y="-8" fill="#17191C" font-size="36" font-weight="760">两种公开口径：77.5% / 79.5%</text>
     <text x="936" y="-8" text-anchor="end" fill="#72777E" font-size="25" font-weight="650">做出来，再讲明白。</text>
   </g>
   <path d="M72 1360H1008" stroke="#CBD0D6" stroke-width="2"/>

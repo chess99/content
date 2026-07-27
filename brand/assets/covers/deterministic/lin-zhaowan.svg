@@ -24,35 +24,38 @@
          x="0" y="0" width="1080" height="1440"
          preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)"/>
   <rect width="1080" height="1440" fill="url(#bottom-fade)"/>
-  <path d="M0 0H18V1440H0Z" fill="#7048C8"/>
+  <path d="M0 0H18V1440H0Z" fill="#7A5CFA"/>
 
   <rect x="0" y="0" width="1080" height="144" fill="#F7F3EA" fill-opacity=".93"/>
-  <!-- 临时母品牌锁定。 -->
+  <!-- 母品牌开框点：与 assets/logo/svg/open-frame.svg 使用相同几何。 -->
   <g transform="translate(72 50)">
-    <rect width="52" height="52" rx="15" fill="#17191C"/>
-    <circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
-    <path d="M16 36H37V25" fill="none" stroke="#F7F3EA" stroke-width="5"/>
-    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
-    <text class="sans" x="70" y="38" fill="#17191C" font-size="35" font-weight="800">晨笙做东西</text>
+    <g transform="scale(2.1666667)" fill="none" stroke="#17191C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 4H5.25C4.56 4 4 4.56 4 5.25V9"/>
+      <path d="M4 15v3.75C4 19.44 4.56 20 5.25 20H9"/>
+      <path d="M15 20h3.75c.69 0 1.25-.56 1.25-1.25V15"/>
+    </g>
+    <circle cx="28.1667" cy="23.4" r="6.7167" fill="#315CFF"/>
+    <text class="sans" x="70" y="38" fill="#17191C" font-size="36" font-weight="800">晨笙做东西</text>
   </g>
   <g transform="translate(817 60)">
-    <rect width="16" height="16" rx="4" fill="#7048C8"/>
-    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">创作实验 · 01</text>
+    <rect width="16" height="16" rx="4" fill="#7A5CFA"/>
+    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">创作实验 · 001</text>
   </g>
 
   <!-- 标题卡避开人物面部，以角色画面而不是模板成为第一视觉。 -->
   <g filter="url(#soft-shadow)">
     <path d="M58 954H698V1303H58Z" fill="#F7F3EA" fill-opacity=".94"/>
-    <path d="M58 954H74V1303H58Z" fill="#7048C8"/>
+    <path d="M58 954H74V1303H58Z" fill="#7A5CFA"/>
   </g>
-  <text class="sans" x="108" y="1029" fill="#7048C8" font-size="28" font-weight="850" letter-spacing="1">我用 AI 想象出的她</text>
+  <text class="sans" x="108" y="1029" fill="#7A5CFA" font-size="36" font-weight="850" letter-spacing="1">我用 AI 想象出的她</text>
   <text class="serif" x="104" y="1140" fill="#17191C" font-size="70" font-weight="700">她叫</text>
   <text class="serif" x="101" y="1252" fill="#17191C" font-size="122" font-weight="800" letter-spacing="4">林照晚</text>
 
-  <g transform="translate(732 1266)">
-    <rect width="276" height="52" rx="26" fill="#17191C" fill-opacity=".86"/>
-    <circle cx="27" cy="26" r="8" fill="#A78BFA"/>
-    <text class="sans" x="48" y="35" fill="#F7F3EA" font-size="22" font-weight="720">成年原创角色 · AI生成</text>
+  <g transform="translate(650 1213)">
+    <rect width="358" height="104" rx="26" fill="#17191C" fill-opacity=".88"/>
+    <circle cx="28" cy="35" r="9" fill="#7A5CFA"/>
+    <text class="sans" x="52" y="48" fill="#F7F3EA" font-size="36" font-weight="760">成年原创角色</text>
+    <text class="sans" x="52" y="88" fill="#F7F3EA" font-size="36" font-weight="760">AI生成</text>
   </g>
   <text class="sans" x="1008" y="1364" text-anchor="end" fill="#F7F3EA" font-size="25" font-weight="700">做出来，再讲明白。</text>
   <text class="mono" x="72" y="1402" fill="#F7F3EA" fill-opacity=".78" font-size="19" letter-spacing="1">CHARACTER STUDY / CONSISTENCY FIRST</text>

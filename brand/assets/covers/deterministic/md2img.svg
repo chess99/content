@@ -16,33 +16,35 @@
   </defs>
 
   <rect width="1080" height="1440" fill="#F7F3EA"/>
-  <path d="M0 0H18V1440H0Z" fill="#2457E6"/>
+  <path d="M0 0H18V1440H0Z" fill="#315CFF"/>
 
-  <!-- 临时母品牌锁定：最终名称和 Logo 确定后整体替换此组。 -->
+  <!-- 母品牌开框点：与 assets/logo/svg/open-frame.svg 使用相同几何。 -->
   <g transform="translate(72 58)">
-    <rect width="52" height="52" rx="15" fill="#17191C"/>
-    <circle cx="18" cy="18" r="6" fill="#F7F3EA"/>
-    <path d="M16 36H37V25" fill="none" stroke="#F7F3EA" stroke-width="5" stroke-linecap="square"/>
-    <rect x="35" y="8" width="13" height="5" rx="2.5" fill="#E4573F"/>
-    <text class="sans" x="70" y="38" fill="#17191C" font-size="35" font-weight="800">晨笙做东西</text>
+    <g transform="scale(2.1666667)" fill="none" stroke="#17191C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 4H5.25C4.56 4 4 4.56 4 5.25V9"/>
+      <path d="M4 15v3.75C4 19.44 4.56 20 5.25 20H9"/>
+      <path d="M15 20h3.75c.69 0 1.25-.56 1.25-1.25V15"/>
+    </g>
+    <circle cx="28.1667" cy="23.4" r="6.7167" fill="#315CFF"/>
+    <text class="sans" x="70" y="38" fill="#17191C" font-size="36" font-weight="800">晨笙做东西</text>
   </g>
   <g transform="translate(772 68)">
-    <rect width="16" height="16" rx="4" fill="#2457E6"/>
-    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">工具与工作流 · 01</text>
+    <rect width="16" height="16" rx="4" fill="#315CFF"/>
+    <text class="sans" x="29" y="16" fill="#5F646B" font-size="25" font-weight="700">工具与工作流 · 001</text>
   </g>
   <path d="M72 138H1008" stroke="#CBD0D6" stroke-width="2"/>
 
-  <text class="sans" x="72" y="222" fill="#2457E6" font-size="28" font-weight="800" letter-spacing="1">吃顿饭回来，工具已经能用了</text>
+  <text class="sans" x="72" y="222" fill="#315CFF" font-size="36" font-weight="800" letter-spacing="1">吃顿饭回来，工具已经能用了</text>
   <g class="sans" fill="#17191C" font-weight="900" letter-spacing="-4">
     <text x="68" y="344" font-size="110">
-      <tspan fill="#2457E6">免费</tspan><tspan>的</tspan>
+      <tspan fill="#315CFF">免费</tspan><tspan>的</tspan>
     </text>
     <text x="68" y="472" font-size="124">Markdown</text>
     <text x="68" y="598" font-size="112">转图片工具</text>
   </g>
 
   <g transform="rotate(-3 592 1000)">
-    <rect x="108" y="716" width="986" height="555" rx="32" fill="#2457E6"/>
+    <rect x="108" y="716" width="986" height="555" rx="32" fill="#315CFF"/>
   </g>
   <g filter="url(#shadow)">
     <rect x="142" y="737" width="986" height="555" rx="28" fill="#FFFFFF"/>
@@ -55,17 +57,17 @@
   <g transform="translate(68 774)">
     <rect width="124" height="124" rx="26" fill="#17191C"/>
     <text class="mono" x="62" y="79" fill="#F7F3EA" text-anchor="middle" font-size="43" font-weight="800">.md</text>
-    <path d="M124 62H180" stroke="#2457E6" stroke-width="12"/>
-    <path d="M168 45L190 62L168 79" fill="none" stroke="#2457E6" stroke-width="12" stroke-linecap="square"/>
+    <path d="M124 62H180" stroke="#315CFF" stroke-width="12"/>
+    <path d="M168 45L190 62L168 79" fill="none" stroke="#315CFF" stroke-width="12" stroke-linecap="square"/>
   </g>
 
   <g class="sans" transform="translate(72 1324)" fill="#17191C">
-    <rect x="0" y="-31" width="12" height="12" rx="3" fill="#2457E6"/>
-    <text x="26" y="-18" font-size="28" font-weight="750">无水印</text>
-    <rect x="174" y="-31" width="12" height="12" rx="3" fill="#2457E6"/>
-    <text x="200" y="-18" font-size="28" font-weight="750">不登录</text>
-    <rect x="354" y="-31" width="12" height="12" rx="3" fill="#2457E6"/>
-    <text x="380" y="-18" font-size="28" font-weight="750">本地处理</text>
+    <rect x="0" y="-34" width="14" height="14" rx="3" fill="#315CFF"/>
+    <text x="28" y="-18" font-size="36" font-weight="750">无水印</text>
+    <rect x="190" y="-34" width="14" height="14" rx="3" fill="#315CFF"/>
+    <text x="218" y="-18" font-size="36" font-weight="750">不登录</text>
+    <rect x="382" y="-34" width="14" height="14" rx="3" fill="#315CFF"/>
+    <text x="410" y="-18" font-size="36" font-weight="750">本地处理</text>
     <text x="936" y="-18" text-anchor="end" fill="#72777E" font-size="25" font-weight="650">做出来，再讲明白。</text>
   </g>
   <path d="M72 1360H1008" stroke="#CBD0D6" stroke-width="2"/>
