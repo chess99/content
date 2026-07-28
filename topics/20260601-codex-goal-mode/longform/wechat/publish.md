@@ -2,9 +2,9 @@
 
 ## 文件
 
-- 公众号稿：`topics/20260601-codex-goal-mode/wechat/post.md`
-- 预览 HTML：`topics/20260601-codex-goal-mode/wechat/preview.html`
-- 封面：`topics/20260601-codex-goal-mode/wechat/cover.jpg`
+- 公众号稿：`topics/20260601-codex-goal-mode/longform/wechat/post.md`
+- 预览 HTML：`topics/20260601-codex-goal-mode/longform/wechat/preview.html`
+- 封面：`topics/20260601-codex-goal-mode/longform/wechat/cover.jpg`
 
 ## 标题
 
@@ -16,12 +16,12 @@ Codex Goal 适合什么任务？怎么写完成条件？以及它和 Claude Code
 
 ## 发布命令
 
-```bash
-node ~/code2/wx-publisher/dist/cli/index.js publish \
-  --file topics/20260601-codex-goal-mode/wechat/post.md \
-  --cover topics/20260601-codex-goal-mode/wechat/cover.jpg \
-  --theme default \
-  --title "Codex Goal：长期任务要先写完成条件" \
+```powershell
+npm --prefix D:\code\content-studio\apps\wx-publisher run dev -- publish `
+  --file topics/20260601-codex-goal-mode/longform/wechat/post.md `
+  --cover topics/20260601-codex-goal-mode/longform/wechat/cover.jpg `
+  --theme default `
+  --title "Codex Goal：长期任务要先写完成条件" `
   --digest "Codex Goal 适合什么任务？怎么写完成条件？以及它和 Claude Code /goal、/loop、Ralph Loop 的区别。"
 ```
 

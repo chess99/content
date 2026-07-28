@@ -9,11 +9,12 @@
 ### 小红书
 
 - 状态：素材已完成
-- 稿件：`xiaohongshu/post.md`
-- 发布图片：`xiaohongshu/images/`
-- 图片要求：`xiaohongshu/image-notes.md`
+- 稿件：`image-post/post.md`
+- 发布图片：`image-post/images/`
+- 图片要求：`image-post/image-plan.md`
+- 小红书执行说明：`image-post/xiaohongshu/execution-plan.md`
 
 ## 资产说明
 
 - `shared/source/` 保存未修改的中签原图副本。
-- `xiaohongshu/images/` 保存按发布顺序编号的最终图片。
+- `image-post/images/` 保存按发布顺序编号的最终图片。

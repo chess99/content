@@ -8,12 +8,12 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 已发布 | 2026-07-23 | `post.md` + `images/` | 待补 |
-| 抖音 | 已发布 | 2026-07-23 | `post.md` + `images/` | 待补 |
+| 小红书 | 已发布 | 2026-07-23 | `image-post/post.md` + `image-post/images/` | 待补 |
+| 抖音 | 已发布 | 2026-07-23 | `image-post/post.md` + `image-post/images/` | 待补 |
 
 ## 资产说明
 
 - 两个平台使用同一份正文和两张图片，不保存渠道副本。
-- `images/01-2017-vs-2026.png`：逐人对比图。
-- `images/02-wealth-change-summary.png`：变化总结图。
+- `image-post/images/01-2017-vs-2026.png`：逐人对比图。
+- `image-post/images/02-wealth-change-summary.png`：变化总结图。
 - 图片为 AI 辅助制图，榜单数字是公开资料的近似整理，不是个人资产审计。

@@ -1,0 +1,43 @@
+{
+  "title": "现在的 A 股贵不贵？",
+  "seriesLabel": "市场温度计 · 001",
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "voice": {
+    "provider": "fish-audio",
+    "name": "Fish S2.1 Pro Free / 自然流男",
+    "model": "s2.1-pro-free",
+    "referenceId": "29a7eea9ed484ef6b175da9bcfb49979",
+    "rate": 1.05,
+    "playbackRate": 1,
+    "audioSubdirectory": "audio-fish",
+    "audioExtension": "mp3",
+    "leadSeconds": 0.25,
+    "tailSeconds": 0.45
+  },
+  "brand": {
+    "tagline": "用数据校准判断",
+    "series": "市场温度计",
+    "issue": "001"
+  },
+  "cover": {
+    "titleLines": ["A 股不便宜", "但还没到极端"],
+    "stat": "接近 80%",
+    "statNote": "两种公开口径：77.5% / 79.5%",
+    "peakLabel": "2007 峰值 124.3%",
+    "currentLabel": "2025 约 80%"
+  },
+  "render": {
+    "engine": "remotion",
+    "codec": "h264",
+    "audioCodec": "aac"
+  },
+  "gates": {
+    "scriptApproved": true,
+    "previewApproved": true,
+    "allowAutoPublish": false
+  }
+}

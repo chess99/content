@@ -15,5 +15,8 @@ topics/**/wechat/status.md
 # Large local media and model files.
 topics/**/audio/
 topics/**/video/raw/
+topics/**/video/renders/
+topics/**/video/publish/*.mp4
+topics/**/video/publish/voice-samples/
 models/
 .venv*/

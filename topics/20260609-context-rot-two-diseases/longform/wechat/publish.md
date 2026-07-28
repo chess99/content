@@ -2,9 +2,9 @@
 
 ## 文件
 
-- 公众号稿：`topics/20260609-context-rot-two-diseases/wechat/post.md`
-- 预览 HTML：`topics/20260609-context-rot-two-diseases/wechat/preview.html`
-- 封面：`topics/20260609-context-rot-two-diseases/wechat/cover.jpg`
+- 公众号稿：`topics/20260609-context-rot-two-diseases/longform/wechat/post.md`
+- 预览 HTML：`topics/20260609-context-rot-two-diseases/longform/wechat/preview.html`
+- 封面：`topics/20260609-context-rot-two-diseases/longform/wechat/cover.jpg`
 
 ## 标题
 
@@ -16,12 +16,12 @@ Agent 越改越烂，可能不是上下文太长，而是错误前提进了 cont
 
 ## 发布命令
 
-```bash
-node ~/code2/wx-publisher/dist/cli/index.js publish \
-  --file topics/20260609-context-rot-two-diseases/wechat/post.md \
-  --cover topics/20260609-context-rot-two-diseases/wechat/cover.jpg \
-  --theme default \
-  --title "Agent 越改越烂，不一定是 context 太长" \
+```powershell
+npm --prefix D:\code\content-studio\apps\wx-publisher run dev -- publish `
+  --file topics/20260609-context-rot-two-diseases/longform/wechat/post.md `
+  --cover topics/20260609-context-rot-two-diseases/longform/wechat/cover.jpg `
+  --theme default `
+  --title "Agent 越改越烂，不一定是 context 太长" `
   --digest "Agent 越改越烂，可能不是上下文太长，而是错误前提进了 context。先判断太长还是太脏，再决定 compact、重开或隔离。"
 ```
 

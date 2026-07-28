@@ -2,8 +2,8 @@
 
 ## 文件
 
-- 公众号稿：`topics/20260624-ai-future-judgment/wechat/post.md`
-- 封面：`topics/20260624-ai-future-judgment/wechat/cover.jpg`
+- 公众号稿：`topics/20260624-ai-future-judgment/longform/wechat/post.md`
+- 封面：`topics/20260624-ai-future-judgment/longform/wechat/cover.jpg`
 
 ## 标题
 
@@ -15,10 +15,10 @@ AI 不会平均替代所有工作，而会先重写任务层、入门岗位和�
 
 ## 发布命令
 
-```bash
-wxp publish \
-  --file topics/20260624-ai-future-judgment/wechat/post.md \
-  --cover topics/20260624-ai-future-judgment/wechat/cover.jpg \
+```powershell
+npm --prefix D:\code\content-studio\apps\wx-publisher run dev -- publish `
+  --file topics/20260624-ai-future-judgment/longform/wechat/post.md `
+  --cover topics/20260624-ai-future-judgment/longform/wechat/cover.jpg `
   --theme default \
   --title "AI 普及后的未来判断：就业、分配、教育、资产与个体策略" \
   --digest "AI 不会平均替代所有工作，而会先重写任务层、入门岗位和中产路径。真正要准备的，是可迁移现金流能力与更少单点依赖。"

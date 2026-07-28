@@ -2,8 +2,8 @@
 
 ## 文件
 
-- 文章：`topics/20260527-ai-web-design-workflow/wechat/post.md`
-- 封面：`topics/20260527-ai-web-design-workflow/wechat/cover.jpg`
+- 文章：`topics/20260527-ai-web-design-workflow/longform/wechat/post.md`
+- 封面：`topics/20260527-ai-web-design-workflow/longform/wechat/cover.jpg`
 
 ## 标题
 
@@ -11,12 +11,12 @@
 
 ## 发布命令（在有白名单权限的环境执行）
 
-```bash
-wxp publish \
-  --file topics/20260527-ai-web-design-workflow/wechat/post.md \
-  --cover topics/20260527-ai-web-design-workflow/wechat/cover.jpg \
-  --theme warm-tech \
-  --title "让 AI 写出好看的网页，不是多写几个高级形容词" \
+```powershell
+npm --prefix D:\code\content-studio\apps\wx-publisher run dev -- publish `
+  --file topics/20260527-ai-web-design-workflow/longform/wechat/post.md `
+  --cover topics/20260527-ai-web-design-workflow/longform/wechat/cover.jpg `
+  --theme warm-tech `
+  --title "让 AI 写出好看的网页，不是多写几个高级形容词" `
   --digest "一次晨笙阅读移动端改版复盘：用 brainstorming 定方向，用 frontend-design 管审美，用 ui-ux-pro-max 打磨交互。"
 ```
 
@@ -25,7 +25,7 @@ wxp publish \
 ## 状态
 
 - `wechat/cover.jpg` 已生成并验证为 900×383。
-- `wx-publisher` 工具位置：`~/code2/wx-publisher`
+- `wx-publisher` 工具位置：`D:\code\content-studio\apps\wx-publisher`
 - ✅ 草稿已成功创建（2026-05-28）
 - media_id: `bpB07u_8H2Ns8YJAsyxW3cYnK3jOAoSBhwrZPoEH6opgggdgwnQBuo055cdvhwBW`
 - 主题：`warm-tech`

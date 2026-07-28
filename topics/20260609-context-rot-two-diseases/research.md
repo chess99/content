@@ -5,9 +5,9 @@
 - **原始视频**：`~/Downloads/上下文腐烂 (Context rot) 其实是两种病 大家都在抱怨 agent 越改越烂、开一个新对话就一次改对了 —— 这件事过去半年被反复说,叫 context rot。但我读了一堆论文之后发现,这个名字其实.mp4`
 - **视频元数据**：10 分 24 秒，1920x1080，30fps，单音轨。
 - **提取方法**：
-  - 用 `D:\code\content-workflows\tools\transcribe_video.py` 调用 `whisper.cpp` + `ggml-small` 模型重新做语音转写，结果见 `transcript-whisper.md`、`transcript-whisper.srt`、`transcript-whisper.txt`、`transcript-whisper.json`。
-  - 全画面每 10 秒采样一次，用 macOS Vision OCR 识别幻灯片文字，结果见 `frame-vision-ocr.md`。
-  - 底部字幕每 2 秒采样一次，用 macOS Vision OCR 识别口播字幕，去重后 230 行，结果见 `subtitle-vision-ocr.md`。
+  - 用 `D:\code\content-studio\tools\transcribe_video.py` 调用 `whisper.cpp` + `ggml-small` 模型重新做语音转写，结果见 `shared/transcript-whisper.md`、`shared/transcript-whisper.srt`、`shared/transcript-whisper.txt`、`shared/transcript-whisper.json`。
+  - 全画面每 10 秒采样一次，用 macOS Vision OCR 识别幻灯片文字，结果见 `shared/frame-vision-ocr.md`。
+  - 底部字幕每 2 秒采样一次，用 macOS Vision OCR 识别口播字幕，去重后 230 行，结果见 `shared/subtitle-vision-ocr.md`。
   - Whisper 语音稿能还原口播节奏，但专有名词有错词（如 Anthropic、Claude、Cursor、poisoning、context 等），写作时需要和字幕 OCR、画面 OCR 交叉核对。
 - **使用限制**：不要直接复用视频截图。需要配图时建议重画概念图或生成原创示意图。
 

@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "id": "source-worldbank",
+      "title": "Market capitalization of listed domestic companies (% of GDP) - China",
+      "publisher": "World Bank",
+      "url": "https://api.worldbank.org/v2/country/CHN/indicator/CM.MKT.LCAP.GD.ZS?format=json&per_page=100",
+      "publishedAt": "",
+      "accessedAt": "2026-07-26",
+      "localPath": "input/sources/worldbank-market-cap-to-gdp.json",
+      "notes": "用于 2003-2025 年历史序列；2025 年值约 79.54%。"
+    },
+    {
+      "id": "source-chinaclear",
+      "title": "中国证券登记结算统计年鉴 2025",
+      "publisher": "中国证券登记结算有限责任公司",
+      "url": "https://www.chinaclear.cn/zdjs/tjnb/202606/fd74b3ec98c248228a9f3a9304ff0dfe/files/2025%E5%B9%B4%E7%BB%9F%E8%AE%A1%E5%B9%B4%E6%8A%A5.pdf",
+      "publishedAt": "2026-06",
+      "accessedAt": "2026-07-26",
+      "localPath": "input/sources/chinaclear-2025-statistical-yearbook.pdf",
+      "notes": "PDF 第 5 页：沪深 A 股总市值 107.84 万亿元，北交所登记存管证券总市值 8694.42 亿元。"
+    },
+    {
+      "id": "source-nbs",
+      "title": "中华人民共和国 2025 年国民经济和社会发展统计公报",
+      "publisher": "国家统计局",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html",
+      "publishedAt": "2026-02-28",
+      "accessedAt": "2026-07-26",
+      "localPath": "input/sources/nbs-2025-statistical-communique.html",
+      "notes": "2025 年国内生产总值 1401879 亿元。"
+    }
+  ]
+}

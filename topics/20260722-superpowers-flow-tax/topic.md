@@ -9,17 +9,17 @@
 
 ## 资产
 
-- 通用文案：`post.md`
+- 通用文案：`image-post/post.md`
 - 研究与证据边界：`research.md`
-- 最终轮播图：`images/`
-- 生图原稿：`images/source/`
+- 最终轮播图：`image-post/images/`
+- 生图原稿：`image-post/source/`
 - A/B 反馈截图：`shared/evidence/superpowers-ab-test.png`
 
 ## 发布记录
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/` | — |
+| 小红书 | 待发布 | — | `image-post/post.md` + `image-post/images/` | — |
 
 ## 待补
 

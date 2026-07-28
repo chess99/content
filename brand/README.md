@@ -19,5 +19,5 @@
 
 - 可编辑的母稿与最终品牌资产在这里维护一份。
 - 所有 AI 位图均保留原始生成文件；发布时根据需要叠加确定性文字、Logo、真实 UI 与数据。
-- 具体主题使用的最终封面仍放在相应 `TOPIC_DIR/xiaohongshu/` 等渠道目录。
-- 通用渲染器、检查脚本和工作流放在 `D:\code\content-workflows`，不放在本目录。
+- 具体主题使用的最终封面仍放在相应内容形态目录，例如 `TOPIC_DIR/image-post/images/`。
+- 通用渲染器、检查脚本和工作流放在 `D:\code\content-studio`，不放在本目录。

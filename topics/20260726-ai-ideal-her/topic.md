@@ -26,11 +26,11 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/01-shore-main.png` | — |
-| 抖音图文 | 待发布 | — | `post.md` + `images/01-shore-main.png` | — |
+| 小红书 | 待发布 | — | `image-post/post.md` + `image-post/images/01-shore-main.png` | — |
+| 抖音图文 | 待发布 | — | `image-post/post.md` + `image-post/images/01-shore-main.png` | — |
 
 ## 资产
 
-- `post.md`：首次发布正文，包含接近原始版本的可复制 Prompt。
-- `images/01-shore-main.png`：海滩黄昏回眸主视觉，用于首次发布。
-- `images/02-character-reference.png`：角色多视角参考图，已入库，首发暂不使用。
+- `image-post/post.md`：首次发布正文，包含接近原始版本的可复制 Prompt。
+- `image-post/images/01-shore-main.png`：海滩黄昏回眸主视觉，用于首次发布。
+- `image-post/images/02-character-reference.png`：角色多视角参考图，已入库，首发暂不使用。

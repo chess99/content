@@ -39,21 +39,21 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `post.md` + `images/01-cover-v3.png` + `images/02-workspace.png` + `images/04-codex-process.png` + `images/03-social-card.png` | — |
-| 抖音图文 | 待发布 | — | `post.md` + `images/01-cover-v3.png` + `images/02-workspace.png` + `images/04-codex-process.png` | — |
+| 小红书 | 待发布 | — | `image-post/post.md` + `image-post/images/01-cover-v3.png` + `image-post/images/02-workspace.png` + `image-post/images/04-codex-process.png` + `image-post/images/03-social-card.png` | — |
+| 抖音图文 | 待发布 | — | `image-post/post.md` + `image-post/images/01-cover-v3.png` + `image-post/images/02-workspace.png` + `image-post/images/04-codex-process.png` | — |
 
 ## 资产
 
-- `post.md`：可直接复制发布的完整正文，末尾包含话题标签。
-- `images/01-cover-v3.png`：当前通用封面，用大字号标题传达核心信息，并保留工具界面作为产品证明；不含网址、搜索词或其他入口提示。
-- `images/01-cover-v2.png`：上一版封面，底部含域名，保留但不再作为首图。
-- `images/01-cover.png`：第一版封面，信息较完整，但缩略图中文字偏小，保留不再作为首图。
-- `images/02-workspace.png`：完整三栏工作台截图。
-- `images/03-social-card.png`：网站横版社交分享图，适合 X、即刻、朋友圈或链接预览。
-- `images/04-codex-process.png`：突出“吃饭回来已经完成”的 Codex 过程证据卡。
-- `images/05-tests-and-deployment.png`：突出三浏览器测试、构建和代码变更的证据卡。
+- `image-post/post.md`：可直接复制发布的完整正文，末尾包含话题标签。
+- `image-post/images/01-cover-v3.png`：当前通用封面，用大字号标题传达核心信息，并保留工具界面作为产品证明；不含网址、搜索词或其他入口提示。
+- `image-post/images/01-cover-v2.png`：上一版封面，底部含域名，保留但不再作为首图。
+- `image-post/images/01-cover.png`：第一版封面，信息较完整，但缩略图中文字偏小，保留不再作为首图。
+- `image-post/images/02-workspace.png`：完整三栏工作台截图。
+- `image-post/images/03-social-card.png`：网站横版社交分享图，适合 X、即刻、朋友圈或链接预览。
+- `image-post/images/04-codex-process.png`：突出“吃饭回来已经完成”的 Codex 过程证据卡。
+- `image-post/images/05-tests-and-deployment.png`：突出三浏览器测试、构建和代码变更的证据卡。
 - `shared/source/codex-build-longshot.png`：Codex 原始长截图，不直接公开发布。
-- `image-notes.md`：轮播顺序、发布前建议补充的真实素材和隐私检查。
+- `image-post/image-plan.md`：轮播顺序、发布前建议补充的真实素材和隐私检查。
 
 ## 发布前确认
 
