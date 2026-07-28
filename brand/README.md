@@ -9,6 +9,7 @@
 - `identity.md`：Logo、字标、色彩、字体和使用规则。
 - `cover-system.md`：封面母版、八类内容矩阵与 AI / 确定性版本的对照方法。
 - `visual-comparison.md`：本轮 Logo 与四组封面对照的判断、限制和下一步。
+- `research/xiaohongshu-benchmarks-20260728.md`：小红书对标账号、爆款笔记拆解与可执行选题。
 - `assets/logo/`：AI 位图探索、SVG 母稿、头像预览和对比板。
 - `assets/covers/ai/`：图片模型生成的完整构图探索稿。
 - `assets/covers/deterministic/`：可精确控制中文、数据和真实素材的 SVG 样例。
