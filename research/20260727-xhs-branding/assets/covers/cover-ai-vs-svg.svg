@@ -61,7 +61,7 @@
   <image href="deterministic/md2img.svg" x="640" y="620" width="500" height="667"
          preserveAspectRatio="xMidYMid meet" clip-path="url(#g1-svg)"/>
   <!-- 浏览器把外部 SVG 当图片加载时会阻止其二级外链；在对照板中直接补回真实 UI。 -->
-  <image href="../../../topics/20260724-md2img-launch/images/02-workspace.png"
+  <image href="../../../../topics/20260724-md2img-launch/image-post/images/02-workspace.png"
          x="705.7" y="961.2" width="456.5" height="257"
          preserveAspectRatio="xMidYMid slice" clip-path="url(#g1-svg)"/>
   <rect x="705.7" y="961.2" width="456.5" height="257" rx="13" fill="none" stroke="#17191C" stroke-width="2"/>
@@ -150,7 +150,7 @@
   <image href="ai/lin-zhaowan-ai.png" x="1260" y="1850" width="500" height="667"
          preserveAspectRatio="xMidYMid slice" clip-path="url(#g4-ai)"/>
   <!-- 先放真实角色图，供外部 SVG 的透明品牌层叠加。 -->
-  <image href="../../../topics/20260726-ai-ideal-her/images/01-shore-main.png"
+  <image href="../../../../topics/20260726-ai-ideal-her/image-post/images/01-shore-main.png"
          x="1800" y="1850" width="500" height="667"
          preserveAspectRatio="xMidYMid slice" clip-path="url(#g4-svg)"/>
   <image href="deterministic/lin-zhaowan.svg" x="1800" y="1850" width="500" height="667"
@@ -171,7 +171,7 @@
     <rect width="2280" height="185" rx="28" fill="#1C2026" stroke="#343A43" stroke-width="2"/>
     <text class="sans" x="44" y="57" fill="#F7F3EA" font-size="38" font-weight="820">构图方向探索（非单变量 A/B）</text>
     <text class="sans" x="44" y="105" fill="#AEB5BF" font-size="36" font-weight="680">AI 原稿与确定性稿在 UI、数据与场景上尚未完全归一</text>
-    <text class="mono" x="44" y="151" fill="#7F8792" font-size="22" letter-spacing="1">SOURCE: brand/assets/covers/ai  ↔  brand/assets/covers/deterministic</text>
+    <text class="mono" x="44" y="151" fill="#7F8792" font-size="22" letter-spacing="1">SOURCE: research/20260727-xhs-branding/assets/covers</text>
     <text class="sans" x="2236" y="103" text-anchor="end" fill="#E4573F" font-size="36" font-weight="820">非发布定稿</text>
   </g>
 </svg>

@@ -6,7 +6,7 @@
 
 **本轮产出**：账号级策略、命名候选、Logo 探索和 4 组封面对照样例；不批量修改旧帖、不自动发布
 
-> 命名状态已于 2026-07-30 重新打开；本文中的“晨笙做东西”是 v0.3 当时的探索结论。当前生效状态见 `BRAND.md`，新一轮候选比较见 `naming.md`。
+> 命名状态曾于 2026-07-30 重新打开，随后正式确定为“晨笙做东西”。本文保留 v0.3 的研究过程；当前生效状态见 `../../brand/BRAND.md`。
 
 ## 一句话结论
 
@@ -399,11 +399,11 @@ YouTube 官方资料给出更可靠的测试原则：
 
 ### 本地资产
 
-- `../topics/20260720-changxin-exit-plan/xiaohongshu/images/01-封面.png`
-- `../topics/20260723-dongxing-dinner-wealth/images/01-2017-vs-2026.png`
-- `../topics/20260724-md2img-launch/images/01-cover-v3.png`
-- `../topics/20260726-ai-ideal-her/images/01-shore-main.png`
-- `../topics/20260726-ai-ideal-her/images/02-character-reference.png`
+- `../../topics/20260720-changxin-exit-plan/image-post/images/01-封面.png`
+- `../../topics/20260723-dongxing-dinner-wealth/image-post/images/01-2017-vs-2026.png`
+- `../../topics/20260724-md2img-launch/image-post/images/01-cover-v3.png`
+- `../../topics/20260726-ai-ideal-her/image-post/images/01-shore-main.png`
+- `../../topics/20260726-ai-ideal-her/image-post/images/02-character-reference.png`
 - A 股视频输出中的 `BRAND.md`、`cover.png`、`REVIEW_WORKFLOW.md` 和 `final.mp4`。
 - `./naming.md`、`./identity.md`、`./cover-system.md` 和 `./assets/` 中的本轮品牌探索资产。
 

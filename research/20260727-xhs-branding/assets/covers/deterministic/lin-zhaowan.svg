@@ -20,7 +20,7 @@
   </defs>
 
   <!-- 角色位图保持原貌；此 SVG 不尝试把摄影式人物自动描摹成矢量。 -->
-  <image href="../../../../topics/20260726-ai-ideal-her/images/01-shore-main.png"
+  <image href="../../../../../topics/20260726-ai-ideal-her/image-post/images/01-shore-main.png"
          x="0" y="0" width="1080" height="1440"
          preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)"/>
   <rect width="1080" height="1440" fill="url(#bottom-fade)"/>

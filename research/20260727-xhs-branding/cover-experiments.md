@@ -38,8 +38,8 @@
 
 其中两张 SVG 通过仓库内相对路径引用真实位图：
 
-- MD2IMG：../../../../topics/20260724-md2img-launch/images/02-workspace.png
-- 林照晚：../../../../topics/20260726-ai-ideal-her/images/01-shore-main.png
+- MD2IMG：../../../../../topics/20260724-md2img-launch/image-post/images/02-workspace.png
+- 林照晚：../../../../../topics/20260726-ai-ideal-her/image-post/images/01-shore-main.png
 
 在仓库目录结构不变时可以直接渲染。若要把 SVG 单独复制到其他位置，应先导出 PNG，或将图片嵌入 SVG；不要发布一个已经失去外链图片的空壳文件。
 

@@ -49,7 +49,7 @@
   <g filter="url(#shadow)">
     <rect x="142" y="737" width="986" height="555" rx="28" fill="#FFFFFF"/>
     <!-- 真实界面资产；不要用生成模型伪造功能或中文。 -->
-    <image href="../../../../topics/20260724-md2img-launch/images/02-workspace.png"
+    <image href="../../../../../topics/20260724-md2img-launch/image-post/images/02-workspace.png"
            x="142" y="737" width="986" height="555"
            preserveAspectRatio="xMidYMid slice" clip-path="url(#ui-clip)"/>
     <rect x="142" y="737" width="986" height="555" rx="28" fill="none" stroke="#17191C" stroke-width="4"/>
