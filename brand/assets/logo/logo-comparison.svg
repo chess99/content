@@ -76,7 +76,7 @@
 
   <rect width="1600" height="1080" fill="#EEF0F3"/>
   <text x="40" y="53" class="cn" fill="#17191C" font-size="30" font-weight="800">母品牌 Logo 方向对比</text>
-  <text x="40" y="82" class="cn" fill="#646A73" font-size="15">账号名已有当前首选但尚未正式启用；本轮只比较名称无关或可替换字标的图形符号</text>
+  <text x="40" y="82" class="cn" fill="#646A73" font-size="15">账号全名尚未定稿；本轮只比较名称无关或可替换字标的图形符号</text>
   <rect x="1428" y="31" width="132" height="38" rx="19" fill="#17191C"/>
   <text x="1494" y="56" class="en" fill="#FFFFFF" font-size="15" font-weight="700" text-anchor="middle">v0.1 探索稿</text>
 
