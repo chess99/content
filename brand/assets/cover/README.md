@@ -1,16 +1,12 @@
-# 正式封面母版
+# 正式封面参考
 
-- `template-light.svg`：默认暖纸白母版。
-- `template-dark.svg`：仅在主视觉更适合深色背景时使用。
-- 同名 PNG：母版预览，不作为带占位文字的发布图。
+本目录不提供 SVG 或确定性封面母版。正式封面按照 `../../COVER.md` 由图片模型整张生成，中文标题、系列名、作者字标和近似 Logo 都属于模型画面的一部分。
 
-复制 SVG 到具体主题后再编辑：
+`references/` 中的四张图片用于向模型说明整体质感、构图和信息层级：
 
-1. 替换栏目名与独立编号。
-2. 按栏目替换 `accent-bar`、标题强调色和证据圆点：工具蓝 `#315CFF`、财经红 `#D64032`、创作紫 `#7A5CFA`。
-3. 替换两行标题；必要时调整字号，但不得小于 88 px。
-4. 用一个真实主视觉替换 `main-visual-placeholder`。
-5. 替换证据或限定，不需要时删除整个 `evidence-label`。
-6. 导出 PNG，在 270×360 下检查后放入主题的正式发布图片目录。
+- `tool-md2img.png`
+- `finance-a-share-valuation.png`
+- `workflow-content-factory.png`
+- `creative-lin-zhaowan.png`
 
-不要把占位文字直接发布。品牌短句不放在普通封面上。
+按主题选择最接近的一至两张作为参考，不要机械复刻，不要把它们当作可替换文字的底图。Logo 造型另参考 `../logo/mark-reference-ai.png`。
