@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440" role="img" aria-labelledby="title desc">
+  <title id="title">晨笙做东西浅色封面母版</title>
+  <desc id="desc">默认暖纸白封面，包含正式 Logo、作者字标、栏目编号、标题、主视觉和证据替换位。</desc>
+  <rect width="1080" height="1440" fill="#F7F3EA"/>
+  <rect id="accent-bar" x="72" y="202" width="14" height="1138" rx="7" fill="#315CFF"/>
+  <g transform="translate(70 58) scale(.92)">
+    <g fill="#172554">
+      <path d="M8 54.5V36.2C8 28.9 13.2 23 20.5 21.5v22.2c0 6.2-4.4 11.4-10.5 12.5A1.7 1.7 0 0 1 8 54.5Z"/>
+      <path d="M26 56.8V23.2C26 15.1 31.7 8.5 40 6.8v36.7c0 7.1-5 13.1-12.1 14.7A1.6 1.6 0 0 1 26 56.8Z"/>
+      <path d="M45 58V34.1c0-7.5 5.3-13.6 13-15.2v27c0 6.3-4.5 11.6-10.7 13A1.9 1.9 0 0 1 45 58Z"/>
+    </g>
+    <circle cx="51.5" cy="9.5" r="5.5" fill="#FF5B4D"/>
+  </g>
+  <text x="145" y="105" fill="#17191C" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800">晨笙做东西</text>
+  <text id="series-label" x="1008" y="104" text-anchor="end" fill="#17191C" font-family="Inter, Arial, Source Han Sans SC, sans-serif" font-size="27" font-weight="700">工具与工作流 · 001</text>
+  <line x1="72" y1="158" x2="1008" y2="158" stroke="#CBD0D6" stroke-width="2"/>
+  <text id="title-line-1" x="112" y="310" fill="#17191C" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="112" font-weight="900">这里写一个</text>
+  <text id="title-line-2" x="112" y="430" fill="#315CFF" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="112" font-weight="900">清楚的主标题</text>
+  <g id="main-visual-placeholder">
+    <rect x="112" y="520" width="896" height="650" rx="34" fill="#ECEEF2" stroke="#CBD0D6" stroke-width="3" stroke-dasharray="14 14"/>
+    <text x="560" y="820" text-anchor="middle" fill="#7F8792" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="38" font-weight="700">替换为一个主视觉</text>
+    <text x="560" y="876" text-anchor="middle" fill="#9AA0A9" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26">产品｜人物｜角色｜巨大数字｜真实证据</text>
+  </g>
+  <g id="evidence-label">
+    <rect x="112" y="1228" width="560" height="82" rx="16" fill="#17191C"/>
+    <circle cx="152" cy="1269" r="10" fill="#315CFF"/>
+    <text x="180" y="1282" fill="#F7F3EA" font-family="Source Han Sans SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700">这里写一个证据或适用限定</text>
+  </g>
+</svg>
