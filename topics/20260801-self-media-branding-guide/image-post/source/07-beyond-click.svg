@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <rect width="1080" height="1440" fill="#F7F3EA"/>
+  <g transform="translate(68 52)"><g transform="scale(.78)"><g fill="#172554"><path d="M8 54.5V36.2C8 28.9 13.2 23 20.5 21.5v22.2c0 6.2-4.4 11.4-10.5 12.5A1.7 1.7 0 0 1 8 54.5Z"/><path d="M26 56.8V23.2C26 15.1 31.7 8.5 40 6.8v36.7c0 7.1-5 13.1-12.1 14.7A1.6 1.6 0 0 1 26 56.8Z"/><path d="M45 58V34.1c0-7.5 5.3-13.6 13-15.2v27c0 6.3-4.5 11.6-10.7 13A1.9 1.9 0 0 1 45 58Z"/></g><circle cx="51.5" cy="9.5" r="5.5" fill="#FF5B4D"/></g><text x="64" y="38" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17191C">晨笙做东西</text></g>
+  <text x="1010" y="86" text-anchor="end" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#315CFF">工具与工作流</text>
+  <line x1="68" y1="142" x2="1012" y2="142" stroke="#CBD0D6" stroke-width="2"/>
+
+  <text x="70" y="278" font-family="Microsoft YaHei, sans-serif" font-size="88" font-weight="900" fill="#17191C">能点进来</text>
+  <text x="70" y="392" font-family="Microsoft YaHei, sans-serif" font-size="112" font-weight="900" fill="#315CFF">还要接得住</text>
+
+  <g transform="translate(70 485)" font-family="Microsoft YaHei, sans-serif">
+    <rect width="940" height="300" rx="38" fill="#172554"/>
+    <text x="42" y="60" font-size="24" font-weight="800" fill="#8EA7FF">一个频道自报个案</text>
+    <text x="42" y="142" font-family="Arial" font-size="80" font-weight="900" fill="#F7F3EA">4.6%</text>
+    <path d="M290 120h150" stroke="#FF5B4D" stroke-width="12" stroke-linecap="round"/><path d="M420 95l32 25-32 25" fill="none" stroke="#FF5B4D" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="480" y="142" font-family="Arial" font-size="80" font-weight="900" fill="#F7F3EA">5.6%</text>
+    <text x="42" y="216" font-size="30" font-weight="800" fill="#F7F3EA">科技产品封面加入 Tim 拿产品后，点入率上升</text>
+    <text x="42" y="264" font-size="24" fill="#C9D0E0">影视飓风自报；不是“露脸必涨 1%”的普遍规律</text>
+  </g>
+
+  <text x="70" y="870" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="900" fill="#17191C">真正要看的是这条链路</text>
+  <g transform="translate(70 925)" font-family="Microsoft YaHei, sans-serif">
+    <g><rect width="280" height="220" rx="34" fill="#FFFFFF" stroke="#CBD0D6" stroke-width="3"/><text x="32" y="58" font-family="Arial" font-size="26" font-weight="900" fill="#FF5B4D">01</text><text x="32" y="122" font-size="40" font-weight="900" fill="#17191C">封面承诺</text><text x="32" y="174" font-size="25" fill="#666B73">为什么值得点</text></g>
+    <path d="M300 110h50" stroke="#315CFF" stroke-width="8" stroke-linecap="round"/><path d="M338 94l18 16-18 16" fill="none" stroke="#315CFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(365 0)"><rect width="280" height="220" rx="34" fill="#FFFFFF" stroke="#CBD0D6" stroke-width="3"/><text x="32" y="58" font-family="Arial" font-size="26" font-weight="900" fill="#FF5B4D">02</text><text x="32" y="122" font-size="40" font-weight="900" fill="#17191C">首屏兑现</text><text x="32" y="174" font-size="25" fill="#666B73">进来先得到什么</text></g>
+    <path d="M665 110h50" stroke="#315CFF" stroke-width="8" stroke-linecap="round"/><path d="M703 94l18 16-18 16" fill="none" stroke="#315CFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(730 0)"><rect width="210" height="220" rx="34" fill="#315CFF"/><text x="30" y="58" font-family="Arial" font-size="26" font-weight="900" fill="#F7F3EA">03</text><text x="30" y="122" font-size="38" font-weight="900" fill="#F7F3EA">消费质量</text><text x="105" y="174" text-anchor="middle" font-size="21" fill="#E9EEFF">看完 · 收藏 · 关注</text></g>
+  </g>
+
+  <rect x="70" y="1195" width="940" height="142" rx="30" fill="#E9EEFF"/>
+  <text x="104" y="1250" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#315CFF">YOUTUBE 官方测试原则</text>
+  <text x="104" y="1303" font-family="Microsoft YaHei, sans-serif" font-size="31" font-weight="900" fill="#17191C">胜出版本看观看时长份额，不只看 CTR</text>
+  <text x="70" y="1385" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#666B73">来源：YouTube Test &amp; Compare 官方说明；个案来源见 research.md</text>
+  <text x="1010" y="1408" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#8B9097">07 / 09</text>
+</svg>

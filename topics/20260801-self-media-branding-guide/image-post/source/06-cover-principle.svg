@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <rect width="1080" height="1440" fill="#F7F3EA"/>
+  <g transform="translate(68 52)"><g transform="scale(.78)"><g fill="#172554"><path d="M8 54.5V36.2C8 28.9 13.2 23 20.5 21.5v22.2c0 6.2-4.4 11.4-10.5 12.5A1.7 1.7 0 0 1 8 54.5Z"/><path d="M26 56.8V23.2C26 15.1 31.7 8.5 40 6.8v36.7c0 7.1-5 13.1-12.1 14.7A1.6 1.6 0 0 1 26 56.8Z"/><path d="M45 58V34.1c0-7.5 5.3-13.6 13-15.2v27c0 6.3-4.5 11.6-10.7 13A1.9 1.9 0 0 1 45 58Z"/></g><circle cx="51.5" cy="9.5" r="5.5" fill="#FF5B4D"/></g><text x="64" y="38" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17191C">晨笙做东西</text></g>
+  <text x="1010" y="86" text-anchor="end" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#315CFF">工具与工作流</text>
+  <line x1="68" y1="142" x2="1012" y2="142" stroke="#CBD0D6" stroke-width="2"/>
+
+  <text x="70" y="278" font-family="Microsoft YaHei, sans-serif" font-size="88" font-weight="900" fill="#17191C">固定 5 件事</text>
+  <text x="70" y="390" font-family="Microsoft YaHei, sans-serif" font-size="110" font-weight="900" fill="#315CFF">放开主视觉</text>
+  <text x="72" y="460" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#666B73">成熟感来自相同语法下的变化，不是复制粘贴</text>
+
+  <g transform="translate(70 535)" font-family="Microsoft YaHei, sans-serif">
+    <rect width="430" height="690" rx="38" fill="#172554"/>
+    <text x="42" y="76" font-size="26" font-weight="800" fill="#8EA7FF">KEEP / 固定</text>
+    <text x="42" y="138" font-size="46" font-weight="900" fill="#F7F3EA">让人认出是你</text>
+    <g font-size="34" font-weight="800" fill="#F7F3EA">
+      <circle cx="58" cy="230" r="18" fill="#315CFF"/><text x="96" y="242">作者识别</text>
+      <circle cx="58" cy="320" r="18" fill="#315CFF"/><text x="96" y="332">栏目位置</text>
+      <circle cx="58" cy="410" r="18" fill="#315CFF"/><text x="96" y="422">字体层级</text>
+      <circle cx="58" cy="500" r="18" fill="#315CFF"/><text x="96" y="512">安全边距</text>
+      <circle cx="58" cy="590" r="18" fill="#FF5B4D"/><text x="96" y="602">一个证据点</text>
+    </g>
+  </g>
+
+  <g transform="translate(530 535)" font-family="Microsoft YaHei, sans-serif">
+    <rect width="480" height="690" rx="38" fill="#FFFFFF" stroke="#CBD0D6" stroke-width="3"/>
+    <text x="42" y="76" font-size="26" font-weight="800" fill="#FF5B4D">CHANGE / 变化</text>
+    <text x="42" y="138" font-size="46" font-weight="900" fill="#17191C">给点击一个理由</text>
+    <g transform="translate(42 195)">
+      <rect width="178" height="148" rx="26" fill="#E9EEFF"/><circle cx="89" cy="65" r="35" fill="#315CFF"/><path d="M40 132c8-34 30-50 49-50s41 16 49 50" fill="#315CFF"/><text x="89" y="186" text-anchor="middle" font-size="28" font-weight="800" fill="#17191C">一张脸</text>
+      <rect x="218" width="178" height="148" rx="26" fill="#FFF0ED"/><rect x="258" y="32" width="98" height="82" rx="14" fill="#FF5B4D"/><circle cx="337" cy="50" r="10" fill="#F7F3EA"/><text x="307" y="186" text-anchor="middle" font-size="28" font-weight="800" fill="#17191C">一个产品</text>
+      <rect y="235" width="178" height="148" rx="26" fill="#EFEAFF"/><text x="89" y="332" text-anchor="middle" font-family="Arial" font-size="72" font-weight="900" fill="#7A5CFA">68</text><text x="89" y="421" text-anchor="middle" font-size="28" font-weight="800" fill="#17191C">一个数字</text>
+      <rect x="218" y="235" width="178" height="148" rx="26" fill="#E9EEFF"/><path d="M252 340l48-72 34 42 27-20 23 50z" fill="#315CFF"/><circle cx="342" cy="270" r="18" fill="#FF5B4D"/><text x="307" y="421" text-anchor="middle" font-size="28" font-weight="800" fill="#17191C">一个强场景</text>
+    </g>
+  </g>
+
+  <rect x="70" y="1272" width="940" height="96" rx="26" fill="#315CFF"/>
+  <text x="540" y="1334" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="900" fill="#F7F3EA">固定的是识别，变化的是每条内容的主角</text>
+  <text x="1010" y="1408" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#8B9097">06 / 09</text>
+</svg>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <rect width="1080" height="1440" fill="#F7F3EA"/>
+  <g transform="translate(68 52)">
+    <g transform="scale(.78)">
+      <g fill="#172554">
+        <path d="M8 54.5V36.2C8 28.9 13.2 23 20.5 21.5v22.2c0 6.2-4.4 11.4-10.5 12.5A1.7 1.7 0 0 1 8 54.5Z"/>
+        <path d="M26 56.8V23.2C26 15.1 31.7 8.5 40 6.8v36.7c0 7.1-5 13.1-12.1 14.7A1.6 1.6 0 0 1 26 56.8Z"/>
+        <path d="M45 58V34.1c0-7.5 5.3-13.6 13-15.2v27c0 6.3-4.5 11.6-10.7 13A1.9 1.9 0 0 1 45 58Z"/>
+      </g><circle cx="51.5" cy="9.5" r="5.5" fill="#FF5B4D"/>
+    </g>
+    <text x="64" y="38" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17191C">晨笙做东西</text>
+  </g>
+  <text x="1010" y="86" text-anchor="end" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#315CFF">工具与工作流</text>
+  <line x1="68" y1="142" x2="1012" y2="142" stroke="#CBD0D6" stroke-width="2"/>
+
+  <text x="70" y="280" font-family="Microsoft YaHei, sans-serif" font-size="92" font-weight="900" fill="#17191C">你缺的不是</text>
+  <text x="70" y="390" font-family="Microsoft YaHei, sans-serif" font-size="112" font-weight="900" fill="#17191C">统一模板</text>
+  <text x="72" y="488" font-family="Microsoft YaHei, sans-serif" font-size="54" font-weight="800" fill="#315CFF">而是 3 个稳定答案</text>
+
+  <circle cx="540" cy="850" r="154" fill="#315CFF"/>
+  <text x="540" y="830" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="38" font-weight="700" fill="#F7F3EA">真正要统一的</text>
+  <text x="540" y="900" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="64" font-weight="900" fill="#F7F3EA">关注理由</text>
+
+  <g transform="translate(74 590) rotate(-4 170 130)">
+    <rect width="335" height="250" rx="34" fill="#FFFFFF" stroke="#17191C" stroke-width="4"/>
+    <text x="28" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#FF5B4D">01</text>
+    <text x="28" y="130" font-family="Microsoft YaHei, sans-serif" font-size="54" font-weight="900" fill="#17191C">谁做的？</text>
+    <text x="28" y="188" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#666B73">名字、脸、角色、声音</text>
+  </g>
+  <g transform="translate(672 596) rotate(4 166 130)">
+    <rect width="334" height="250" rx="34" fill="#FFFFFF" stroke="#17191C" stroke-width="4"/>
+    <text x="28" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#FF5B4D">02</text>
+    <text x="28" y="130" font-family="Microsoft YaHei, sans-serif" font-size="48" font-weight="900" fill="#17191C">为什么关注？</text>
+    <text x="28" y="188" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#666B73">持续得到什么</text>
+  </g>
+  <g transform="translate(330 1040) rotate(-1 210 125)">
+    <rect width="420" height="246" rx="34" fill="#172554"/>
+    <text x="30" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#FF5B4D">03</text>
+    <text x="30" y="128" font-family="Microsoft YaHei, sans-serif" font-size="38" font-weight="900" fill="#F7F3EA">下一条还有什么？</text>
+    <text x="30" y="188" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#D7DCE5">让期待可以重复</text>
+  </g>
+
+  <text x="70" y="1375" font-family="Microsoft YaHei, sans-serif" font-size="26" fill="#666B73">品牌化先回答问题，再决定颜色和模板。</text>
+  <text x="1010" y="1375" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#8B9097">02 / 09</text>
+</svg>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <rect width="1080" height="1440" fill="#17191C"/>
+  <g transform="translate(68 52)"><g transform="scale(.78)"><g fill="#F7F3EA"><path d="M8 54.5V36.2C8 28.9 13.2 23 20.5 21.5v22.2c0 6.2-4.4 11.4-10.5 12.5A1.7 1.7 0 0 1 8 54.5Z"/><path d="M26 56.8V23.2C26 15.1 31.7 8.5 40 6.8v36.7c0 7.1-5 13.1-12.1 14.7A1.6 1.6 0 0 1 26 56.8Z"/><path d="M45 58V34.1c0-7.5 5.3-13.6 13-15.2v27c0 6.3-4.5 11.6-10.7 13A1.9 1.9 0 0 1 45 58Z"/></g><circle cx="51.5" cy="9.5" r="5.5" fill="#FF5B4D"/></g><text x="64" y="38" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#F7F3EA">晨笙做东西</text></g>
+  <text x="1010" y="86" text-anchor="end" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#8FA8FF">工具与工作流</text>
+  <line x1="68" y1="142" x2="1012" y2="142" stroke="#41464D" stroke-width="2"/>
+
+  <text x="70" y="274" font-family="Microsoft YaHei, sans-serif" font-size="82" font-weight="900" fill="#F7F3EA">他们固定的是</text>
+  <text x="70" y="380" font-family="Microsoft YaHei, sans-serif" font-size="106" font-weight="900" fill="#5E84FF">识别锚点</text>
+  <text x="72" y="448" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#AEB5BF">不是每张封面长得一样</text>
+
+  <path d="M168 565V1190" stroke="#315CFF" stroke-width="14" stroke-linecap="round"/>
+  <g font-family="Microsoft YaHei, sans-serif">
+    <g transform="translate(120 560)">
+      <circle cx="48" cy="48" r="48" fill="#F6C945"/><text x="48" y="60" text-anchor="middle" font-size="34" font-weight="900" fill="#17191C">岛</text>
+      <text x="130" y="42" font-size="38" font-weight="900" fill="#F7F3EA">小岛大浪</text>
+      <text x="130" y="82" font-size="28" fill="#AEB5BF">颜色 + 印章 + 插画语言</text>
+    </g>
+    <g transform="translate(120 700)">
+      <circle cx="48" cy="48" r="48" fill="#FFFFFF"/><text x="48" y="60" text-anchor="middle" font-size="34" font-weight="900" fill="#17191C">Lin</text>
+      <text x="130" y="42" font-size="38" font-weight="900" fill="#F7F3EA">小Lin说</text>
+      <text x="130" y="82" font-size="28" fill="#AEB5BF">本人 + 巨大关键词</text>
+    </g>
+    <g transform="translate(120 840)">
+      <circle cx="48" cy="48" r="48" fill="#FF5B4D"/><text x="48" y="60" text-anchor="middle" font-size="30" font-weight="900" fill="#F7F3EA">2人</text>
+      <text x="130" y="42" font-size="38" font-weight="900" fill="#F7F3EA">老高與小茉</text>
+      <text x="130" y="82" font-size="28" fill="#AEB5BF">固定双人关系</text>
+    </g>
+    <g transform="translate(120 980)">
+      <circle cx="48" cy="48" r="48" fill="#315CFF"/><text x="48" y="60" text-anchor="middle" font-size="30" font-weight="900" fill="#F7F3EA">Tim</text>
+      <text x="130" y="42" font-size="38" font-weight="900" fill="#F7F3EA">影视飓风</text>
+      <text x="130" y="82" font-size="28" fill="#AEB5BF">人物 + 巨大产品 + 短钩子</text>
+    </g>
+    <g transform="translate(120 1120)">
+      <circle cx="48" cy="48" r="48" fill="#F6A6C9"/><text x="48" y="60" text-anchor="middle" font-size="32" font-weight="900" fill="#17191C">画</text>
+      <text x="130" y="42" font-size="38" font-weight="900" fill="#F7F3EA">蔡不菜</text>
+      <text x="130" y="82" font-size="28" fill="#AEB5BF">粉色 + 手绘 + 生活切片</text>
+    </g>
+  </g>
+
+  <rect x="708" y="570" width="302" height="610" rx="46" fill="#22262C" stroke="#41464D" stroke-width="3"/>
+  <text x="859" y="672" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="36" font-weight="800" fill="#F7F3EA">可重复的</text>
+  <text x="859" y="750" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="62" font-weight="900" fill="#5E84FF">身份</text>
+  <text x="859" y="824" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="62" font-weight="900" fill="#5E84FF">关系</text>
+  <text x="859" y="898" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="62" font-weight="900" fill="#5E84FF">语法</text>
+  <line x1="768" y1="946" x2="950" y2="946" stroke="#FF5B4D" stroke-width="8"/>
+  <text x="859" y="1020" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#D7DCE5">脸可以是锚点</text>
+  <text x="859" y="1066" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#D7DCE5">但不是唯一答案</text>
+
+  <text x="70" y="1370" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#8B9097">公开主页编辑观察，不是对照实验。</text>
+  <text x="1010" y="1370" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#8B9097">04 / 09</text>
+</svg>
