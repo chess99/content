@@ -39,7 +39,29 @@
 
 轮播图和文案采用的证据边界是：该数字比较 Superpowers v6 与旧版，而不是 Superpowers 与裸模型。原始发布链接尚未入库，补齐前不把它当作独立验证过的效果数据。
 
-## 5. 当前可支持的判断
+## 5. Claude Code 团队的“定期删除”经验
+
+2026-08-01 收录的 InfoQ 文章整理了 Claude Code 创始人 Boris Cherny 的访谈。与本主题直接相关的观点包括：
+
+- 每一代模型都不同，三个月前为旧模型设计的系统提示词，到下一代可能已经不再适用。
+- Opus 5 发布后，Claude Code 团队删除了超过 80% 的系统提示词；他们会通过先删除、再逐行加回的消融实验判断每条指令是否仍有价值。
+- Boris 建议 Claude Code 用户每隔六个月删除一次 `CLAUDE.md`、Skills 和 Hooks，观察新模型自己能做到什么。
+- 不要提前猜测模型需要哪些指令；先实际运行，只有看到模型反复在同一件事上失败时，才把相应指令加回来。
+- 他把“过度具体地规定每一步”和过度工程化视为现代模型的常见使用误区。
+
+来源：
+
+- [InfoQ：《Claude Code之父：每半年清空一次claude.md、skills和hooks，模型自己会想办法》](https://mp.weixin.qq.com/s/MEUMv2mJGNcS-rGl48f5FA)
+- [访谈视频](https://www.youtube.com/watch?v=qyPCVqFUyDo)
+- 入库证据摘记：`shared/evidence/20260801-infoq-claude-code-delete-skills.md`
+
+### 证据边界
+
+- 这是访谈观点和团队经验，不是针对 Superpowers 的直接对照实验。
+- “半年”是 Boris 给用户的维护建议，不宜写成所有 Skill 的统一有效期。
+- 它能佐证“模型升级会让旧脚手架贬值，流程需要重新消融验证”，不能单独证明 Superpowers 或 gstack 已经失效。
+
+## 6. 当前可支持的判断
 
 现有材料更适合支持一个克制的结论：
 
