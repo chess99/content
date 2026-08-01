@@ -14,7 +14,7 @@
 - 《三体》和庄颜只作为灵感背景简要带过，不复述完整剧情，也不复刻小说或影视角色形象。
 - 分享接近原始版本的自然语言 Prompt，只修正表达并补充成年、原创约束；不预设提问轮次、问题数量或详细执行流程。
 - 实测中，过度结构化的 Prompt 会诱导模型持续分轮追问，流程完整但容易令人失去耐心；原始 Prompt 更能让不同模型自行控制提问密度。
-- 首次发布只使用海滩回眸图，集中传达一个完整的心动瞬间，不加入对话过程截图。
+- 首次发布使用品牌封面和海滩回眸图，不加入对话过程截图；封面负责建立栏目与角色识别，原图负责呈现完整的心动瞬间。
 - 对话截图和角色参考图作为幕后资产保留，后续可用于“她是怎样被想象出来的”或 Prompt 复盘内容。
 - 发布时主动标注内容含 AI 生成。
 
@@ -26,11 +26,13 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 待发布 | — | `image-post/post.md` + `image-post/images/01-shore-main.png` | — |
-| 抖音图文 | 待发布 | — | `image-post/post.md` + `image-post/images/01-shore-main.png` | — |
+| 小红书 | 待发布 | — | `image-post/post.md` + `image-post/images/03-cover-lin-zhaowan-v2.png` + `image-post/images/01-shore-main.png` | — |
+| 抖音图文 | 待发布 | — | `image-post/post.md` + `image-post/images/03-cover-lin-zhaowan-v2.png` + `image-post/images/01-shore-main.png` | — |
 
 ## 资产
 
 - `image-post/post.md`：首次发布正文，包含接近原始版本的可复制 Prompt。
+- `image-post/images/03-cover-lin-zhaowan-v2.png`：按新版“晨笙信号” Logo 重做的 1080×1440 创作实验封面。
 - `image-post/images/01-shore-main.png`：海滩黄昏回眸主视觉，用于首次发布。
 - `image-post/images/02-character-reference.png`：角色多视角参考图，已入库，首发暂不使用。
+- `image-post/source/cover-lin-zhaowan-v2-raw.png`：模型生成原稿，保留其原始 1086×1448 尺寸。
