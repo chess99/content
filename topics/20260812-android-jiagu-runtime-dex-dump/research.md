@@ -43,9 +43,9 @@
 - `file_size` 大于头部且没有越过当前内存快照
 - 使用 DEX signature 或 SHA-256 去重
 
-实际得到 11 份文件，其中有三份重复的大型壳 DEX，也有极小候选。六份主要业务 DEX 的统计如下。
+实际得到 11 份文件，其中有三份重复的大型壳 DEX，也有极小候选。六份体积较大的有效 DEX 统计如下。它们不能统称为业务 DEX，按 class descriptor 统计后，只有 `dump-004` 包含目标包主体，其余主要承载框架与第三方依赖。
 
-| 文件 | 大小 | DEX 版本 | classes | methods |
+| 文件 | 大小 | DEX 版本 | class defs | method IDs |
 |---|---:|---:|---:|---:|
 | dump-000 | 3,851,504 | 039 | 6,248 | 30,654 |
 | dump-001 | 4,570,496 | 035 | 3,216 | 28,541 |
@@ -54,7 +54,20 @@
 | dump-006 | 7,294,868 | 035 | 5,727 | 50,024 |
 | dump-007 | 6,962,644 | 035 | 5,631 | 47,605 |
 
-所有 dump 一起输入 JADX 后生成约 18,027 个 Java 文件，`top.onepix.timeblock` 命名空间下有 613 个。JADX 报 215 个错误，核心记录页的类仍可阅读。
+按前两级包名统计 class descriptor 后，主要结果如下。
+
+| 文件 | 目标包类定义 | 主要命名空间 |
+|---|---:|---|
+| dump-000 | 0 | `org/chromium`、`com/google`、AndroidX |
+| dump-001 | 0 | `com/baidu`、`com/component`、`com/style` |
+| dump-004 | 2,575 | `top/onepix`、Kotlin 协程、Kotlin 反射、OkHttp |
+| dump-005 | 0 | Google、Jackson、Glide、百度、阿里、支付宝 |
+| dump-006 | 0 | Kotlin 反射、华为、小米、Mob、腾讯 |
+| dump-007 | 0 | AndroidX、Fly、Paging、Navigation |
+
+这里的 2,575 是 DEX `class_defs` 中目标命名空间的数量，包含内部类、合成类及其他不会逐一生成顶级 Java 文件的定义。JADX 最终在 `top.onepix.timeblock` 目录生成 613 个 Java 文件，两种统计口径不应混用。
+
+所有 dump 一起输入 JADX 后生成约 18,027 个 Java 文件，`top.onepix.timeblock` 命名空间下有 613 个。JADX 报 215 个错误，核心记录页的类仍可阅读。表中的 method ID 来自 DEX `method_ids_size`，包含方法定义及外部方法引用，不代表方法实现数量。
 
 ## 核心业务证据
 
