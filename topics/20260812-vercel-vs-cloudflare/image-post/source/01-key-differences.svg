@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+    <rect width="1080" height="1440" fill="#F7F3EA"/>
+    <circle cx="982" cy="88" r="145" fill="#E8EDFF"/>
+    <circle cx="102" cy="1352" r="102" fill="#EEF0F2"/>
+    
+  <rect x="72" y="72" width="216" height="52" rx="26" fill="#E8EDFF"/><text x="180" y="108" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="650" fill="#315CFF" text-anchor="middle">部署平台选择</text>
+  <text x="72" y="190" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="60" font-weight="760" fill="#17191C" text-anchor="start">Vercel 还是 Cloudflare？</text>
+  <text x="72" y="258" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="650" fill="#315CFF" text-anchor="start">先看项目需要什么</text>
+  <line x1="72" y1="310" x2="1008" y2="310" stroke="#CBD0D6" stroke-width="2"/>
+
+  <rect x="72" y="358" width="452" height="828" rx="28" fill="#FFFDF8" stroke="#CBD0D6" stroke-width="2"/>
+  <rect x="556" y="358" width="452" height="828" rx="28" fill="#FFFDF8" stroke="#CBD0D6" stroke-width="2"/>
+  <rect x="72" y="358" width="452" height="12" rx="6" fill="#17191C"/>
+  <rect x="556" y="358" width="452" height="12" rx="6" fill="#315CFF"/>
+
+  <text x="112" y="450" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="47" font-weight="760" fill="#17191C" text-anchor="start">Vercel</text>
+  <text x="596" y="450" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="47" font-weight="760" fill="#315CFF" text-anchor="start">Cloudflare</text>
+
+  <text x="112" y="540" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="31" font-weight="650" fill="#17191C" text-anchor="start">Next.js 原生平台</text>
+  <text x="112" y="600" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="500" fill="#5F6671" text-anchor="start">完整 Node.js 支持更直接</text>
+  <text x="112" y="650" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="500" fill="#5F6671" text-anchor="start">更高的函数内存上限</text>
+
+  <text x="596" y="540" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="31" font-weight="650" fill="#17191C" text-anchor="start">Workers 边缘运行环境</text>
+  <text x="596" y="600" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="500" fill="#5F6671" text-anchor="start">静态资源请求免费且不限量</text>
+  <text x="596" y="650" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="500" fill="#5F6671" text-anchor="start">R2 免互联网出口流量费</text>
+
+  <line x1="112" y1="730" x2="484" y2="730" stroke="#CBD0D6" stroke-width="2"/>
+  <line x1="596" y1="730" x2="968" y2="730" stroke="#CBD0D6" stroke-width="2"/>
+  <text x="112" y="800" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="650" fill="#315CFF" text-anchor="start">常见场景</text>
+  <text x="112" y="865" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">标准 Next.js</text>
+  <text x="112" y="920" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">依赖完整 Node.js</text>
+  <text x="112" y="975" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">服务端计算较重</text>
+
+  <text x="596" y="800" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="650" fill="#315CFF" text-anchor="start">常见场景</text>
+  <text x="596" y="865" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">静态资源较多</text>
+  <text x="596" y="920" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">文件流量较多</text>
+  <text x="596" y="975" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="650" fill="#17191C" text-anchor="start">维护多个小站</text>
+
+  <rect x="72" y="1232" width="936" height="126" rx="28" fill="#17191C"/>
+  <text x="540" y="1312" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="650" fill="#FFFDF8" text-anchor="middle">两家都能上站，项目条件决定选择</text>
+
+  </svg>
