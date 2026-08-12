@@ -1,5 +1,5 @@
 ---
-title: 静态反编译只剩 StubApp，我怎样从运行中的 360 加固 APK 抓回业务 DEX
+title: 360 加固 APK 的识别、运行时 DEX 恢复与常见坑
 date: 2026-08-12 22:54:51
 tags:
   - Android
@@ -11,15 +11,48 @@ pid: 124
 permalink: /posts/android-jiagu-runtime-dex-dump/
 ---
 
-这次研究的样本是 BlockyTime 2.19.28。直接把 APK 丢给 JADX，业务代码几乎没有出现。Manifest 里的 Application 是 `com.stub.StubApp`，包里同时存在四个 ABI 的 `libjiagu`。最终我在 API 34 x86_64 userdebug 模拟器里让应用走到目标页面，从进程内存恢复出多份业务 DEX。合并反编译后共有约 18,027 个 Java 文件，其中 613 个位于应用自身命名空间。
+一个 APK 的 Manifest 把 Application 指向 `com.stub.StubApp`，JADX 只反编译出 6 个 Java 文件，包内还出现一组 `libjiagu`。静态分析到这里，基本可以判断业务 DEX 被壳接管了。下一步的难点有三个，先确认壳的家族特征，再触发业务代码加载，最后从一堆内存候选中找出能用的 DEX。
 
-恢复结果没有变回原始工程，JADX 仍报告 215 个错误。它已经足够回答这次复刻最棘手的问题。截图里，左侧时间标签和右侧时间块像一张网格，源码显示它们是两个独立触摸区。左侧 `TimeScrollView` 拖动小时窗口，右侧 `BlockLayout` 拖选时间块。把两者写进同一个手势控件，会得到一个外观接近、用起来完全不同的页面。
+本文用一个 Android 14 样本走完这条路线。静态反编译只剩壳，直接从 VDEX 抽出的 15 MB DEX 仍然只有 4 个类。切换到 x86_64 userdebug 环境并读取运行进程后，共找到 11 份 DEX 候选。去掉重复壳和极小文件，再按包名识别业务与依赖，JADX 最终生成约 18,027 个 Java 文件，目标应用目录下有 613 个。
+
+这套方法适用于业务代码会以标准 DEX 形态进入 ART 的样本。方法级解密、DEX 虚拟化和大规模 native 化可能不会留下可直接切出的完整文件，文末会单独说明边界。
 
 <!-- more -->
 
-## 样本和研究边界
+```text
+APK 静态信号
+    ↓
+确认壳家族与 ABI
+    ↓
+userdebug 环境触发代码加载
+    ↓
+/proc/<pid>/maps 定位可读映射
+    ↓
+/proc/<pid>/mem 扫描并按 file_size 回读
+    ↓
+头部校验与内容哈希去重
+    ↓
+class descriptor 分类
+    ↓
+JADX 与 smali 抽查恢复质量
+```
 
-样本来自一台已授权测试设备。研究期间只创建合成记录，目标是理解兼容行为与交互状态机，再做独立重写。我没有触碰账号、支付、凭据或用户私有数据，也不会发布 APK、DEX、内存快照和反编译源码。
+## 先确认 APK 是否加壳
+
+判断不能只看 JADX 有没有报错。正常 APK 也可能经过混淆，类名会变短，控制流会变难读，但 Manifest 组件、业务包和大量方法通常还在。壳接管入口后，常见现象是外层 DEX 很大，实际类数却极少，Application 也被替换为壳入口。
+
+这个样本有四组相互印证的信号。
+
+1. Manifest 中的 Application 为 `com.stub.StubApp`。
+2. APK 内包含 `libjiagu.so`、`libjiagu_a64.so`、`libjiagu_x86.so` 和 `libjiagu_x64.so`。
+3. 常规 JADX 输出只有 6 个 Java 文件，目标业务包没有展开。
+4. 外层 DEX 后续统计只有 4 个 class definition 和 190 个 method ID，与 19.6 MB 的 APK 规模明显不相称。
+
+`StubApp` 与 `libjiagu_*` 的组合符合 360 加固家族的常见特征，因此本文称它为 360 加固风格样本。仅靠这些文件名无法断定服务版本、加固选项和壳的具体构建号。需要精确识别时，还应继续比对 so 导出、字符串、壳入口实现与已知样本指纹。
+
+静态分析仍然值得做。它可以确认包名、版本、组件、权限、资源、壳入口和支持的 ABI。尤其要把 `lib/<abi>/` 看清楚。动态环境的架构不在壳支持范围内时，应用可能安装成功却无法完成解密，后面的内存扫描自然也拿不到目标代码。
+
+本次样本的基本信息如下。
 
 | 字段 | 值 |
 |---|---|
@@ -29,149 +62,283 @@ permalink: /posts/android-jiagu-runtime-dex-dump/
 | APK 大小 | `19,589,546` 字节 |
 | SHA-256 | `24236856A84308C97E27838B938769C51EFE38E8B57BE5E95AF8162F0607BAD3` |
 
-## 静态证据只能把问题指向壳
+记录样本哈希很重要。壳厂商、应用版本或渠道包只要变化，入口、so、加载时机和内存布局都可能跟着变化。没有哈希，后续复现实验时很容易把不同 APK 当成同一个样本。
 
-Manifest 中的 Application 为 `com.stub.StubApp`。APK 还带着 `libjiagu.so`、`libjiagu_a64.so`、`libjiagu_x86.so` 和 `libjiagu_x64.so`。常规 JADX 输出只留下壳类和少量工具类，这些特征与 360 加固风格吻合。
+## 合法 DEX 不等于业务 DEX
 
-到这里可以确定业务代码没有以普通 `classes.dex` 的形式等待反编译。静态证据没有说明它何时解密、从哪里加载，也没有保证运行后一定能找到完整 DEX。下一步仍要靠运行环境验证。
+静态路线里最容易误判的是 OAT 与 VDEX。这个样本安装后在应用 OAT 目录生成了 `runtime-base.vdex`，大小为 15,203,852 字节。从偏移 64 处能读到合法 DEX 头，头部声明的 `file_size` 为 15,203,540。按这个长度截取后，JADX 也能正常打开。
 
-## 从 VDEX 抽出来的还是壳
+结果只有 4 个 class definition 和 190 个 method ID，命名空间集中在 `com.stub` 与 `com.tianyu`。它仍然是壳。这里的 method ID 包含当前 DEX 定义的方法及其引用的外部方法，不能当成方法实现数量。
 
-我先查了应用的 OAT 目录，找到一个 15,203,852 字节的 `runtime-base.vdex`。其中一段 DEX 从偏移 64 开始，头部声明的 `file_size` 为 15,203,540。按头部长度抽取后，文件可以被 JADX 打开，输出却只有约 4 个类和 190 个方法。
+这一步给出了一个很实用的判断。DEX magic、合法头部、很大的文件体积和反编译器能打开，只能证明文件格式成立。判断业务代码是否已经恢复，还要继续看下面几项。
 
-这个结果排除了一条看起来很省事的路线。文件大、带合法 DEX 头、能进反编译器，都不能证明业务方法在里面。后面从内存拿到的三份 15,203,540 字节 DEX 也是同一批壳内容。
+- `class_defs_size` 与 `method_ids_size` 是否匹配应用规模
+- 目标包名是否出现在 type descriptor 与字符串池中
+- Manifest 组件对应的类能否找到
+- 是否出现 Activity、Fragment、Controller、Model 等业务层次
+- 关键资源名、接口路径或领域词是否能与应用行为对应
 
-## 先把运行环境弄对
+如果 DEX 有十几 MB，`class_defs_size` 却只有个位数，优先把它看成壳、填充文件或特殊容器，不要因为体积大就给它贴上业务 DEX 的标签。
 
-最初的模拟器使用 Google Play production 镜像。执行 `adb root` 后只得到下面这行回复。
+## 动态环境先解决权限和 ABI
+
+第一套实验环境使用 API 34 x86_64 Google Play production 镜像。执行 `adb root` 后，adbd 直接拒绝提权。
 
 ```text
 adbd cannot run as root in production builds
 ```
 
-这不是某个 dump 脚本的兼容问题。继续换脚本也无法获得 `/proc/<pid>/mem` 的读取权限。我随后下载 Google APIs x86_64 的 API 34 userdebug 镜像，校验包的 SHA-1 与官方 XML 一致。新环境显示 `userdebug/dev-keys`，`ro.debuggable=1`，`adb root` 可以把 adbd 提升到 root。
+这类镜像适合接近普通用户设备的行为测试，不适合直接读取其他进程的 `/proc/<pid>/mem`。换 Frida 脚本或调整 ADB 参数不会改变 adbd 的构建属性。
 
-原版 APK 在这个 x86_64 环境里正常安装。通过隐私协议并进入完整记录页后，目标业务已经真实执行，延迟加载的类也有机会进入进程。壳是否支持当前 ABI、应用能否走到目标页面，这两项要在读内存前确认。否则得到一片空白时，很难分清是脚本错了，还是业务代码从未加载。
+后来换成 Google APIs x86_64 userdebug 镜像，镜像包的 SHA-1 与官方仓库 XML 一致。启动后可以用下面几条命令确认环境。
 
-## 从进程映射里找 DEX
-
-root 环境下可以读取 `/proc/<pid>/maps`，每一行会给出地址范围、权限和映射来源。再按这些地址从 `/proc/<pid>/mem` 读取内容，就能检查 ART 当前持有的内存。
-
-我的第一版脚本很粗暴。它把所有可读映射逐个写到磁盘，最终产生 1077 个文件，总量约 850,788,352 字节。路线因此得到验证，磁盘里也塞满了共享库、堆、字体和大量重复页。扫描时间与误报随之上升。
-
-第二轮会按下面的顺序缩小范围。
-
-1. 先处理路径或名称明确指向 DEX、VDEX、OAT 和 ART 的映射。
-2. 再看应用私有目录、壳 so 附近和具有执行权限的匿名区域。
-3. 目标页面操作一遍后，对比前后新增或变化的匿名可读映射。
-4. 大映射分块读取，块与块之间保留至少一个 DEX 头长度的重叠，避免 magic 或头部跨边界。
-5. 只有前面都没有结果时，才扩大到全部可读区域。
-
-本次全量快照已经存在，我便直接在这些文件里找 `dex\n035\0` 和 `dex\n039\0`。magic 只能产生候选，后面还要校验 `header_size`、endian tag 与 `file_size`。最小扫描逻辑可以写成下面这样。
-
-```python
-import struct
-
-DEX_MAGIC = (b"dex\n035\0", b"dex\n039\0")
-
-def find_dex(blob):
-    for magic in DEX_MAGIC:
-        start = 0
-        while True:
-            offset = blob.find(magic, start)
-            if offset < 0:
-                break
-
-            file_size, header_size, endian = struct.unpack_from(
-                "<III", blob, offset + 0x20
-            )
-
-            if (
-                header_size == 0x70
-                and endian == 0x12345678
-                and file_size >= 0x70
-                and offset + file_size <= len(blob)
-            ):
-                yield blob[offset:offset + file_size]
-
-            start = offset + 1
+```bash
+adb root
+adb shell id
+adb shell getprop ro.build.type
+adb shell getprop ro.debuggable
+adb shell getprop ro.product.cpu.abi
 ```
 
-这段代码只演示已获授权进程内存快照的头部识别。实用脚本还要处理读取权限、不可读页、跨块边界、校验和、重复 DEX 与损坏头部。本次实际按 DEX signature 和 SHA-256 去重。
+本次环境返回 root、`userdebug`、`ro.debuggable=1` 和 `x86_64`。APK 中正好包含 x86 与 x86_64 对应的 `libjiagu`，应用能够通过启动流程并进入主要页面。
 
-## 十一份候选里哪些是业务代码
+应用能启动还不够。很多壳会按需加载代码，应用自己的动态模块也可能延迟初始化。dump 前应当把准备研究的页面和功能实际操作一遍，再通过 `pidof` 确认目标进程仍在运行。如果应用有独立进程，还要检查 Manifest 中的 `android:process`，避免只盯着主进程。
 
-扫描共切出 11 份文件。里面有重复壳 DEX，也有只有数百或数千字节的极小候选。六份主要文件的规模如下。
+## 从 maps 找范围，再从 mem 取内容
 
-| 文件 | 大小 | DEX 版本 | classes | methods |
-|---|---|---|---|---|
-| dump-000 | 3,851,504 | 039 | 6,248 | 30,654 |
-| dump-001 | 4,570,496 | 035 | 3,216 | 28,541 |
-| dump-004 | 6,531,532 | 035 | 4,602 | 32,665 |
-| dump-005 | 6,694,200 | 035 | 4,987 | 50,196 |
-| dump-006 | 7,294,868 | 035 | 5,727 | 50,024 |
-| dump-007 | 6,962,644 | 035 | 5,631 | 47,605 |
+目标进程启动后，先拿 PID 和内存映射。
 
-把这些 DEX 一起交给 JADX 后，输出约 18,027 个 Java 文件。`top.onepix.timeblock` 命名空间下共有 613 个，记录页相关的 `TimeScrollView`、`BlockLayout`、`LineBlockView`、`RecordController` 和 `DayDataHandler` 都能找到。
+```bash
+PACKAGE=top.onepix.timeblock
+PID=$(adb shell pidof "$PACKAGE")
+adb shell "cat /proc/$PID/maps" > maps.txt
+```
 
-JADX 的 215 个错误主要说明部分方法无法可靠还原。排查交互时没有必要等到错误清零。类的字段、常量、触摸分支、回调接口与控制器调用能彼此印证，已经可以重建目标状态机。
-
-## 一张网格其实有两个触摸区
-
-复刻版曾遇到一个很直接的问题。手指在时间条上滑动时，控件开始选择时间块，那么用户还怎么拖动时间条。原版没有这种冲突。
-
-恢复出的布局关系给出了答案。
+`maps` 每行包含地址范围、读写执行权限、文件偏移和映射来源。一个典型范围类似下面这样。
 
 ```text
-记录页横向触摸区
-┌────────────────┬──────────────────────────────┐
-│ TimeScrollView │ BlockLayout                  │
-│ 左侧时间标签   │ 右侧时间块                   │
-│ 纵向拖动       │ 拖动选择                     │
-│ 调整 hours     │ 单格双击清除                 │
-└────────────────┴──────────────────────────────┘
+70000000-70400000 r--p 00000000 00:00 0
 ```
 
-两个 View 从命中区域开始就分开了。手指落在左侧窄栏，事件进入 `TimeScrollView.onTouchEvent`。手指落在右侧网格，事件由 `BlockLayout` 的触摸监听器处理。原版没有在同一片区域里猜测用户想滚动还是想选择。
+地址区间换算出起点和长度后，可以从 `/proc/<pid>/mem` 按范围读取。实验脚本需要跳过没有读权限的区域，同时限制单次读取大小。直接让 `dd` 把超大映射一次拉完，容易遇到读取失败、磁盘膨胀和后续扫描过慢。
 
-### 左侧时间栏怎样拖动
+本次第一版脚本把所有可读、大小在 0x70 到 64 MB 之间的映射都转储了。最终得到超过 1000 个文件，总量约 811 MiB。DEX 确实在里面，噪声也很可观，字体、共享库、堆页和重复映射占了绝大部分。
 
-`TimeScrollView` 固定绘制 19 行。按下时保存 `downY`，移动时根据当前纵坐标和起点的差更新 offset，再换算 hours。hours 被限制在 1 到 6。松手或收到取消事件后，视图用动画吸附到最近一行，并通过 `hourChanged(hours)` 通知控制器。
+更合适的扫描顺序如下。
 
-它改变的是一天怎样投影到当前 19 行，不直接选择任何时间块。手势状态可以简化为下面这段伪代码。
+1. 优先处理路径或名称指向 `.dex`、`.vdex`、`.oat` 与 ART 的映射。
+2. 检查应用私有目录和壳 so 附近的映射。
+3. 在进入目标功能前后各保存一份 `maps`，关注新增或尺寸发生变化的匿名可读区。
+4. 对大范围分块扫描，相邻窗口保留至少 0x70 字节重叠。命中合法头后，按 `file_size` 从候选虚拟地址重新读取完整 DEX。
+5. 前面没有结果时，再扩大到全部可读映射。
 
-```kotlin
-when (event.actionMasked) {
-    DOWN -> downY = event.y
-    MOVE -> {
-        offset = event.y - downY
-        hours = (startHours - offset / itemHeight)
-            .toInt()
-            .coerceIn(1, 6)
-        invalidate()
-    }
-    UP, CANCEL -> snapToRowAndNotify()
-}
+匿名映射不能直接排除。壳可能把解密结果放进匿名内存，再通过 ART 接口加载。只扫描带 `.dex` 路径的行虽然省事，也可能恰好漏掉需要的那一份。
+
+## DEX magic 之后还要校验头部
+
+标准 DEX 头以 `dex\n035\0`、`dex\n039\0` 等 magic 开始。不同 Android 版本还会出现其他三位版本号，扫描器不应只写死本次样本里的 035 和 039。找到候选 magic 后，至少还要读取三个字段。
+
+| 偏移 | 字段 | 本次校验 |
+|---|---|---|
+| `0x20` | `file_size` | 不小于 `0x70`，且切片不越界 |
+| `0x24` | `header_size` | 等于 `0x70` |
+| `0x28` | `endian_tag` | 等于 `0x12345678` |
+
+下面的 Python 脚本直接读取已授权测试进程。它按 `maps` 中的可读范围分块扫描，发现合法头后再从原虚拟地址回读 `file_size` 指定的完整候选。运行前需要执行 `adb root`，并把应用操作到需要分析的功能。
+
+```python
+import hashlib
+import re
+import struct
+import subprocess
+import sys
+from pathlib import Path
+
+MAP_LINE = re.compile(
+    r"^([0-9a-f]+)-([0-9a-f]+)\s+([r-][w-][x-][ps])\s+"
+)
+DEX_MAGIC = re.compile(rb"dex\n[0-9]{3}\x00")
+CHUNK_SIZE = 8 * 1024 * 1024
+MAX_DEX_SIZE = 256 * 1024 * 1024
+
+
+def adb(serial, *args, binary=False, check=True):
+    target = ["-s", serial] if serial else []
+    result = subprocess.run(
+        ["adb", *target, *args],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=check,
+    )
+    return result.stdout if binary else result.stdout.decode().strip()
+
+
+def read_memory(serial, pid, address, size):
+    command = (
+        f"dd if=/proc/{pid}/mem bs=4096 "
+        f"iflag=skip_bytes,count_bytes skip={address} count={size} "
+        "2>/dev/null"
+    )
+    data = adb(
+        serial, "exec-out", command, binary=True, check=False
+    )
+    return data if len(data) == size else None
+
+
+def main(package, serial=None):
+    if not re.fullmatch(r"[A-Za-z0-9_.]+", package):
+        raise ValueError("invalid package name")
+
+    pid_text = adb(serial, "shell", "pidof", package)
+    if not pid_text:
+        raise RuntimeError("target process is not running")
+    pid = pid_text.split()[0]
+
+    maps_text = adb(serial, "shell", f"cat /proc/{pid}/maps")
+    Path("maps.txt").write_text(maps_text, encoding="utf-8")
+    output_dir = Path("dex")
+    output_dir.mkdir(exist_ok=True)
+
+    seen_addresses = set()
+    seen_hashes = set()
+
+    for line in maps_text.splitlines():
+        match = MAP_LINE.match(line)
+        if not match or not match.group(3).startswith("r"):
+            continue
+
+        map_start = int(match.group(1), 16)
+        map_end = int(match.group(2), 16)
+        window_start = map_start
+
+        while window_start < map_end:
+            window_size = min(
+                CHUNK_SIZE + 0x70, map_end - window_start
+            )
+            blob = read_memory(
+                serial, pid, window_start, window_size
+            )
+            if blob is None:
+                window_start += CHUNK_SIZE
+                continue
+
+            for magic in DEX_MAGIC.finditer(blob):
+                address = window_start + magic.start()
+                if address in seen_addresses:
+                    continue
+                seen_addresses.add(address)
+
+                if magic.start() + 0x70 > len(blob):
+                    continue
+                file_size, header_size, endian = struct.unpack_from(
+                    "<III", blob, magic.start() + 0x20
+                )
+                if not (
+                    0x70 <= file_size <= MAX_DEX_SIZE
+                    and header_size == 0x70
+                    and endian == 0x12345678
+                ):
+                    continue
+
+                dex = read_memory(serial, pid, address, file_size)
+                if dex is None:
+                    continue
+                digest = hashlib.sha256(dex).hexdigest()
+                if digest in seen_hashes:
+                    continue
+                seen_hashes.add(digest)
+                output_dir.joinpath(f"{digest}.dex").write_bytes(dex)
+
+            window_start += CHUNK_SIZE
+
+
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
 ```
 
-### 右侧网格怎样选择
+保存为 `dump_runtime_dex.py`。只有一台 ADB 设备时，通过 `python dump_runtime_dex.py top.onepix.timeblock` 运行。多台设备同时连接时，再传入 serial，例如 `python dump_runtime_dex.py top.onepix.timeblock emulator-5554`。脚本会保存 `maps.txt`，并把按 SHA-256 命名的候选写进 `dex` 目录。
 
-`BlockLayout` 同样固定为 19 行，每一行是一个 `LineBlockView`。DOWN 保存起点，并让各行记录手势开始时的选区。MOVE 与 UP 调用 `toggleLineView`，把起点和当前位置转成矩形，再与每行、每格的矩形求交。
+这仍是一份最小实现。它假设完整 DEX 可以从候选起始地址连续读取，也没有处理 DEX checksum 与 signature 修复、跨映射候选、CompactDex 和被壳改写的头部。校验失败不能立即说明候选无用，有些壳会故意破坏头字段。这时可以结合 map 范围、ART 对象和修复工具继续判断。
 
-拖动跨越多行时，起始行从落点选到行尾，中间行全部覆盖，末行从行首选到终点。`LineBlockView` 用 `tempSelected` 保存初始选区，覆盖过程采用 toggle 语义。手指回拖时，格子能恢复手势开始前的状态，不会只增不减。
+本次最初按 DEX header 内的 20 字节 signature 去重，最终仍切出三份内容完全相同的壳 DEX。进一步计算整文件 SHA-256 后，三份文件的哈希一致。原因很简单，去重表只在单轮扫描中生效，后续重复执行脚本时又生成了新编号。稳定工具应扫描现有输出并使用内容哈希做幂等去重。
 
-同一格连续点击还有单独分支。两次落点命中同一 block，时间间隔满足 40 毫秒到 300 毫秒，组件便调用 `onDoubleClickBlock`。控制器随后清除该块，并把操作加入撤销记录。填充事件后，`updateBlocks` 会调用 `cancelSelect` 清理临时选择。
+## 十一份候选怎样分类
 
-### 十九行怎样表示二十四小时
+这次内存扫描得到 11 份候选。单看文件大小，很容易把六份 3.8 MB 到 7.3 MB 的 DEX 全部叫作业务 DEX。解析 `class_defs` 的 type descriptor 后，结构清楚得多。
 
-`DayDataHandler` 把全天数据投影成 19 行。首行压缩午夜到 hours 之前的时段，中间固定展示从 hours 开始的 17 个小时，末行承接剩余时段。hours 在 1 到 6 之间变化，所以左侧拖动时，首尾压缩范围和右侧每格对应的全天索引都会一起变化。
+| 文件 | 大小 | class defs | method IDs | 主要内容 |
+|---|---|---|---|---|
+| dump-000 | 3,851,504 | 6,248 | 30,654 | Chromium、Google、AndroidX |
+| dump-001 | 4,570,496 | 3,216 | 28,541 | 百度与组件代码 |
+| dump-004 | 6,531,532 | 4,602 | 32,665 | 目标包主体、Kotlin、OkHttp |
+| dump-005 | 6,694,200 | 4,987 | 50,196 | Google、Jackson、Glide、百度、阿里 |
+| dump-006 | 7,294,868 | 5,727 | 50,024 | Kotlin、华为、小米、Mob、腾讯 |
+| dump-007 | 6,962,644 | 5,631 | 47,605 | AndroidX、Paging、Navigation、Fly |
 
-`LineBlockView` 自己用 Canvas 绘制格子。单元间距为 1 dp，圆角为 4 dp，空块默认色为 `-3355444`。选择覆盖色为 `-7829368`，alpha 为 170，200 毫秒动画从格子中心向外扩散。相邻的同事件块会合并显示，宽度太小时省略文字。
+`dump-004` 的 4602 个 class definition 中，有 2575 个位于 `top/onepix` 命名空间。其余大 DEX 没有目标包类定义，主要是框架和第三方 SDK。三份 15,203,540 字节文件的 SHA-256 完全相同，每份都只有 4 个 class definition 和 190 个 method ID，可以归为重复壳 DEX。另有 284 字节与 3580 字节的极小 DEX，class definition 数分别为 1 和 3。
 
-这些常量适合拿来校正像素和动画，触摸分区与索引投影更早决定体验。若只照截图画 19 行，再让一个控件同时处理纵向滚动和块选择，后续怎样调手势阈值都会偏离原版。
+分类时可以直接解析 DEX，也可以先用 JADX、`dexdump` 或字符串搜索粗筛。最可靠的依据仍是 type descriptor，因为业务包名可能只以普通字符串形式出现在某个 SDK 里，单次文本命中会造成误判。
 
-## 下一次我会怎样缩短排查
+目标包的 DEX 也可能同时带着 Kotlin 标准库、协程或网络库，不能要求一个文件只出现业务命名空间。判断重点是目标包的 class definition 是否成规模，Manifest 组件能否对应上，以及包内是否形成可理解的结构。
 
-遇到类似样本，我会先记录壳特征、ABI 与静态 DEX 的类数，避免把大文件误认成业务代码。随后准备可控制的 userdebug 环境，让应用走完目标功能，再按显式 DEX 映射、应用私有映射、变化的匿名映射这个顺序读取内存。每个候选都校验 DEX 头和边界，以 signature 去重，然后把多份 DEX 一起交给 JADX。
+本次把有效 DEX 一起交给 JADX 后，输出约 18,027 个 Java 文件。目标目录下有 613 个 Java 文件，主要分布如下。
 
-这条路线也有清楚的失效条件。方法级解密、虚拟化和大规模 native 化可能不会留下可直接切出的完整 DEX。内存快照也不会还原变量名、注释、原始 Kotlin 结构和构建工程。对这次样本而言，读到 `TimeScrollView.onTouchEvent` 与 `BlockLayout.toggleLineView` 已经够了。它们把一次模糊的手感差异变成了两个可以分别实现和测试的触摸状态机。
+| 目录 | Java 文件数 |
+|---|---|
+| `fragments` | 220 |
+| `models` | 106 |
+| `activities` | 105 |
+| `views` | 78 |
+| `utils` | 63 |
+| `network` | 18 |
+
+DEX 中目标命名空间有 2575 个 class definition，JADX 只生成 613 个目标目录 Java 文件，两者没有矛盾。前者会计算内部类、匿名类、合成类和 Kotlin 编译产物，后者经常把这些定义合并进顶级源码文件。
+
+JADX 最终报告 215 个反编译错误。这不代表整批 dump 无效。审查恢复质量时，可以分三层看。
+
+- 类名、字段、继承关系、注解和字符串通常最先恢复
+- 方法签名、调用关系与普通控制流可以抽样核验
+- 报错方法、复杂协程状态机和反编译器标出的 bad code 需要回到 smali 或其他反编译器交叉检查
+
+若目标只是确认架构、组件关系或定位一段逻辑，部分方法报错往往可以接受。若要修改后重打包，每个相关方法都要继续下钻，不能把 JADX 生成的 Java 当作可直接编译的原始源码。
+
+## 常见失败怎样定位
+
+### JADX 只剩几个壳类
+
+先比较 APK 大小、DEX 类数与目标包是否存在，再检查 Manifest Application 和 native 库。确认加壳后停止在静态 Java 里硬找业务方法，把精力转到加载时机和运行环境。
+
+### VDEX 很大，反编译内容却很少
+
+读取 DEX header 中的 class 与 method 数量，并检查目标 type descriptor。体积只能说明容器大，不能说明业务代码多。
+
+### 内存里搜不到 DEX magic
+
+依次检查 ABI、应用是否完整启动、目标功能是否触发、PID 是否正确、是否存在独立进程、读取范围是否过窄。上述条件成立后仍没有结果，再考虑头部被抹除、compact dex、方法级解密、虚拟化或 native 化。
+
+### 找到很多 DEX，不知道哪份有用
+
+先按整文件哈希去重，再统计 `class_defs_size`、`method_ids_size` 和前两级包名。目标包成规模出现的文件优先，依赖 DEX 留着一起反编译，重复壳与极小空文件单独归档。
+
+### JADX 报错很多
+
+不要只看错误总数。先抽查目标包中的 Manifest 组件、控制器、模型和一个关键调用链。Java 无法还原的方法回到 smali，必要时用其他工具交叉反编译。错误集中在第三方依赖时，对业务分析的影响可能很小。
+
+## 一份可以复用的操作清单
+
+拿到新的 APK 后，可以按下面的顺序排查。
+
+1. 计算 APK 哈希，记录包名、版本、渠道和文件大小。
+2. 解出 Manifest，检查 Application、组件和独立进程。
+3. 列出 `lib/<abi>/`，比对壳特征与计划使用的运行架构。
+4. 统计外层 DEX 的 class definition、method ID 与目标包，区分混淆和壳接管。
+5. 安装到可控环境，验证 root、build type、debuggable 与 ABI。
+6. 启动应用并实际触发目标功能，重新确认所有相关 PID。
+7. 保存 `/proc/<pid>/maps`，按显式 DEX、应用私有映射、变化的匿名映射逐步扩大范围。
+8. 从 `/proc/<pid>/mem` 分块扫描，命中头部后按 `file_size` 回读完整候选。
+9. 扫描 DEX magic，校验头部与边界，使用整文件哈希去重。
+10. 解析 class descriptor，区分壳、业务、框架和第三方 SDK。
+11. 联合反编译所有相关 DEX，抽查组件、调用关系与 smali。
+12. 记录没有恢复的部分，判断是否存在延迟加载、头部破坏、方法级解密或虚拟化。
+
+这份样本最终停在标准 DEX 恢复阶段，业务包、组件层、数据层和依赖关系都已经出现。遇到同时带有 `StubApp`、`libjiagu_*` 等特征，并且业务代码以标准 DEX 进入 ART 的样本时，可以把这套顺序作为排查起点。壳文件名给出方向，运行时内存给出候选，DEX 结构和包分布负责确认结果。

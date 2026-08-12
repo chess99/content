@@ -3,18 +3,18 @@
 ## 主题定位
 
 - 目标读者为具备 Android 逆向基础的研究者与开发者。
-- 发布目的为分享一次 360 加固风格 APK 的动态拆壳过程，重点保留失败路线、证据判断和业务状态机分析。
+- 发布目的为分享一次 360 加固风格 APK 的动态拆壳过程，重点讲清壳识别、运行时 DEX 恢复、候选分类和常见排障。
 - 主系列为工具与工作流。
 - 研究边界为已授权设备上的兼容性和交互研究，只使用合成数据，不分发 APK、DEX 或原版代码。
 
 ## 第二版改稿
 
 - 改稿目标为面向逆向社区的通用拆壳教程，删除复刻和具体业务交互叙事。
-- 第二版草稿位于 `longform/rewrite/draft.md`，当前等待人工 review。
-- 线上文章继续保留原版，人工确认前不替换、不重新发布。
+- 第二版草稿与审校记录保留在 `longform/rewrite/`，正式稿位于 `longform/final.md`。
+- 第二版已经人工确认，并覆盖发布到原文章地址。
 
 ## 渠道计划
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 博客 | 已发布 | 2026-08-12 | `longform/blog/article.md` | https://blog.cearl.cc/posts/android-jiagu-runtime-dex-dump/ |
+| 博客 | 已发布，第二版覆盖 | 2026-08-12 | `longform/blog/article.md` | https://blog.cearl.cc/posts/android-jiagu-runtime-dex-dump/ |
