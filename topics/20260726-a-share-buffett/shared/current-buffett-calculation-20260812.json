@@ -1,0 +1,18 @@
+{
+  "date": "2026-08-12",
+  "shanghai_composite_close": 3946.68,
+  "a_share_market_cap_trillion_yuan": 130.740503488209,
+  "gdp_2025_trillion_yuan": 140.1879,
+  "gdp_2025_h1_trillion_yuan": 66.0536,
+  "gdp_2026_h1_trillion_yuan": 69.5704,
+  "rolling_four_quarter_gdp_trillion_yuan": 143.7047,
+  "current_estimate_percent": 90.9785855912917,
+  "simple_previous_year_gdp_estimate_percent": 93.2609044633731,
+  "sources": {
+    "market_cap": "https://push2delay.eastmoney.com/api/qt/clist/get",
+    "shanghai_composite": "https://push2delay.eastmoney.com/api/qt/stock/get?secid=1.000001&fields=f43,f58,f86",
+    "gdp_2025": "https://www.stats.gov.cn/xxgk/sjfb/tjgb2020/202602/t20260228_1962662.html",
+    "gdp_2025_h1": "https://www.stats.gov.cn/sj/zxfb/202507/t20250716_1960426.html",
+    "gdp_2026_h1": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202607/t20260716_1964142.html"
+  }
+}

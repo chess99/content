@@ -15,6 +15,8 @@
 - `video/publish/`：封面、字幕、来源说明、平台文案与本地最终成片。
 - `research.md`：小红书图文使用的最新世界银行数据、口径与判断。
 - `shared/world-bank-buffett-indicator-2006-2025.csv`：中美同口径年度数据。
+- `shared/eastmoney-market-cap-snapshot-20260812.json`：2026 年 8 月 12 日沪深北股票总市值原始快照。
+- `shared/current-buffett-calculation-20260812.json`：当下估值快照的 GDP 数据、算式和来源。
 - `image-post/`：小红书正文、图片方案、模型原稿与最终发布图。
 
 `video/publish/final.mp4` 作为本地最终资产保留，但按仓库大文件规则忽略，不进入普通 Git 历史。
