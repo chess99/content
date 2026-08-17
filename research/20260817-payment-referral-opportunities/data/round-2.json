@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "title": "支付入口产业研究第二轮补证",
+    "status": "第二轮补证完成，选题暂缓",
+    "collected_at": "2026-08-18",
+    "similarweb_credits_used": false,
+    "research_scope": [
+      "专业工具的产品、价格、团队、版本与分发",
+      "代表站点的连续访问趋势",
+      "Razorpay AI 影视课程的价格、交付与活动持续性"
+    ],
+    "content_produced": false
+  },
+  "framing_update": {
+    "withdrawn_direction": "AI 吃走了支付流量的大头，但独立开发者更值得看被 AI 遮住的专业小工具。",
+    "reason": "该方向过早限定受众，并把结构差异很大的公司、软件和课程压缩成单一的独立开发者机会。",
+    "current_position": "先把支付入口当作发现活跃收费产品的线索，展示统计、公司结构与行业差异；选题与标题另行讨论。"
+  },
+  "traffic_method": {
+    "requested_history": "6m",
+    "available_history": "3m",
+    "plan_limit": "当前 Similarweb 套餐的 6m 页面退回 1m 并提示升级。3m 页面可读取 2026 年 5—7 月汇总，未使用 credits。",
+    "monthly_inference": {
+      "june": "July / (1 + July MoM)",
+      "may": "3-month total - June - July",
+      "warning": "5 月和 6 月是由三个月合计与 7 月环比推导的近似值，不是 Similarweb 直接显示的月点。"
+    }
+  },
+  "traffic_trends": [
+    {
+      "domain": "roughanimator.com",
+      "cohort": "professional_tool",
+      "period": "May 2026 - Jul 2026",
+      "three_month_total": 101201,
+      "monthly_visits": {
+        "2026-05": 23319,
+        "2026-06": 31715,
+        "2026-07": 46167
+      },
+      "july_mom_pct": 45.57,
+      "monthly_values_are_inferred": true,
+      "channel_share_pct": {
+        "direct": 23.24,
+        "organic_search": 65.03,
+        "referrals": 4.5,
+        "organic_social": 4.36,
+        "gen_ai": 2.87
+      },
+      "source": "https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/3m?webSource=Total&key=roughanimator.com"
+    },
+    {
+      "domain": "adbappcontrol.com",
+      "cohort": "professional_tool",
+      "period": "May 2026 - Jul 2026",
+      "three_month_total": 848141,
+      "monthly_visits": {
+        "2026-05": 307792,
+        "2026-06": 267050,
+        "2026-07": 273299
+      },
+      "july_mom_pct": 2.34,
+      "monthly_values_are_inferred": true,
+      "july_channel_share_pct": {
+        "direct": 31.76,
+        "organic_search": 50.31,
+        "referrals": 7.78,
+        "organic_social": 7.53,
+        "gen_ai": 2.08,
+        "email": 0.54
+      },
+      "july_outgoing_to_payproglobal_pct": 87.26,
+      "july_outgoing_to_payproglobal_change_pct": 203.18,
+      "source": "https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/3m?webSource=Total&key=adbappcontrol.com"
+    },
+    {
+      "domain": "higgsfield.ai",
+      "cohort": "ai_product",
+      "period": "Jul 2026",
+      "three_month_total": null,
+      "monthly_visits": {
+        "2026-05": null,
+        "2026-06": null,
+        "2026-07": 31310000
+      },
+      "july_mom_pct": 16.8,
+      "monthly_values_are_inferred": false,
+      "source": "data/dataset.json"
+    },
+    {
+      "domain": "meshy.ai",
+      "cohort": "ai_product",
+      "period": "Jul 2026",
+      "three_month_total": null,
+      "monthly_visits": {
+        "2026-05": null,
+        "2026-06": null,
+        "2026-07": 11130000
+      },
+      "july_mom_pct": 17.07,
+      "monthly_values_are_inferred": false,
+      "source": "data/dataset.json"
+    },
+    {
+      "domain": "app.emergent.sh",
+      "cohort": "ai_product",
+      "period": "Jul 2026",
+      "three_month_total": null,
+      "monthly_visits": {
+        "2026-05": null,
+        "2026-06": null,
+        "2026-07": 8735000
+      },
+      "july_mom_pct": 28.12,
+      "monthly_values_are_inferred": false,
+      "source": "data/dataset.json"
+    },
+    {
+      "domain": "fal.ai",
+      "cohort": "ai_product",
+      "period": "Jul 2026",
+      "three_month_total": null,
+      "monthly_visits": {
+        "2026-05": null,
+        "2026-06": null,
+        "2026-07": 2380000
+      },
+      "july_mom_pct": -1.5,
+      "monthly_values_are_inferred": false,
+      "source": "data/dataset.json"
+    },
+    {
+      "domain": "bombich.com",
+      "cohort": "professional_tool",
+      "period": "Jul 2026 payment-side only",
+      "three_month_total": null,
+      "monthly_visits": null,
+      "july_mom_pct": null,
+      "payment_referral_share_change_pct": 97.97,
+      "source": "data/dataset.json"
+    },
+    {
+      "domain": "powerampapp.com",
+      "cohort": "professional_tool",
+      "period": "Jul 2026 payment-side only",
+      "three_month_total": null,
+      "monthly_visits": null,
+      "july_mom_pct": null,
+      "payment_referral_share_change_pct": 84.94,
+      "source": "data/dataset.json"
+    }
+  ],
+  "product_profiles": [
+    {
+      "product": "RoughAnimator",
+      "company_or_owner": "Jacob Kafka / WeirdHat",
+      "category": "hand-drawn frame-by-frame animation",
+      "platforms": ["iPad", "Android", "Mac", "Windows"],
+      "pricing": {
+        "model": "one_time_per_platform",
+        "price_usd_each": 7.99,
+        "cross_platform_purchase": false,
+        "desktop_trial": true
+      },
+      "refund_policy": "未找到桌面版产品专属公开退款条款；移动版受应用商店政策约束。",
+      "history": {
+        "website_since": 2014,
+        "ios_release_date": "2015-01-21",
+        "ios_current_version": "4.23",
+        "ios_current_version_release_date": "2026-03-14"
+      },
+      "team": {
+        "public_size": 1,
+        "founder": "Jacob Kafka",
+        "founder_background": "纽约自由动画师",
+        "public_business_statement": "官方 FAQ 称产品卖得足以支持他投入在产品上的时间。"
+      },
+      "store_signal": {
+        "store": "US App Store",
+        "rating": 4.63248,
+        "rating_count": 2925,
+        "price_usd": 7.99
+      },
+      "distribution": ["App Store", "Google Play", "direct desktop trial", "FastSpring", "organic search"],
+      "sources": [
+        "https://www.roughanimator.com/",
+        "https://www.roughanimator.com/faq/",
+        "https://itunes.apple.com/lookup?id=954718244&country=us"
+      ]
+    },
+    {
+      "product": "ADB AppControl",
+      "company_or_owner": "CyberCat Developer",
+      "category": "Android device and application management",
+      "platforms": ["Windows", "Android", "Android TV"],
+      "pricing": {
+        "model": "free_core_plus_one_time_extended",
+        "extended_local_price_cny_at_collection": 44.99,
+        "licensed_devices": "1 PC",
+        "expiration": "none",
+        "future_updates_included": true,
+        "paypro_product_id": 70795
+      },
+      "refund_policy": "购买后 14 天内、产品不能正常工作时可申请；已经激活且正常工作的数字产品可能被拒绝退款。",
+      "history": {
+        "project_since": 2020,
+        "current_windows_version": "1.8.6",
+        "changelog_versions_are_dated": false
+      },
+      "team": {
+        "public_size": 1,
+        "founder_or_developer": "CyberCat",
+        "public_user_statement": "官网称全球数百万用户使用过 ADB AppControl 项目的应用。"
+      },
+      "distribution": ["free website download", "Paid Extended upgrade", "PayPro Global", "YouTube", "GitHub", "organic search"],
+      "sources": [
+        "https://adbappcontrol.com/en/pc",
+        "https://adbappcontrol.com/en/pc/buy",
+        "https://adbappcontrol.com/en/about",
+        "https://adbappcontrol.com/en/pc/changelog.txt"
+      ]
+    },
+    {
+      "product": "Carbon Copy Cloner 7",
+      "company_or_owner": "Bombich Software, Inc.",
+      "category": "macOS backup",
+      "platforms": ["macOS", "iOS companion app"],
+      "pricing": {
+        "model": "one_time_license_with_paid_upgrades",
+        "personal_household_usd": 49.99,
+        "corporate_per_computer_usd": 49.99,
+        "pro_per_technician_usd": 125,
+        "full_trial_days": 30,
+        "maximum_upgrade_discount_pct": 50,
+        "ccc_mobile_price_usd": 0,
+        "ccc_mobile_unlimited_destination_type_iap_usd": 2.99
+      },
+      "history": {
+        "business_since": 2002,
+        "ccc7_release_date": "2024-05-09",
+        "ccc71_release_date": "2025-03-31",
+        "active_blog_posts_observed_through": "2026-07-28"
+      },
+      "team": {
+        "public_size": 5,
+        "members": ["Mike", "Sarah", "Rob", "Mark", "Nancy"],
+        "functions": ["founder and engineering", "operations", "support", "infrastructure and analytics", "administration and sales support"]
+      },
+      "mobile_store_signal": {
+        "store": "US App Store",
+        "app": "CCC Mobile Backup",
+        "rating": 4.09091,
+        "rating_count": 11,
+        "current_version": "1.3",
+        "current_version_release_date": "2024-10-01"
+      },
+      "distribution": ["30-day trial", "direct store", "upgrade offers", "support knowledge base", "official blog", "App Store"],
+      "sources": [
+        "https://bombich.com/about",
+        "https://bombich.com/store",
+        "https://bombich.com/press",
+        "https://bombich.com/blog",
+        "https://itunes.apple.com/lookup?id=6471621409&country=us"
+      ]
+    },
+    {
+      "product": "Poweramp",
+      "company_or_owner": "Poweramp Software Design / MaxMP",
+      "category": "Android local music player and equalizer",
+      "platforms": ["Android"],
+      "pricing": {
+        "model": "free_trial_then_one_time_lifetime_unlock",
+        "subscription": false,
+        "website_purchase_without_google_services": true,
+        "public_static_global_price_found": false
+      },
+      "history": {
+        "public_age_statement": "官网称产品已被 Android 用户使用多年。",
+        "current_beta_build": 1028,
+        "current_beta_features": ["major audio engine update", "USB Exclusive Driver", "DSD support"]
+      },
+      "team": {
+        "public_size": null,
+        "public_entity": "Poweramp Software Design (MaxMP)"
+      },
+      "store_signal": {
+        "official_claimed_google_play_reviews": "1M+",
+        "official_claimed_user_scope": "millions of Android users",
+        "independently_verified_in_round_2": false
+      },
+      "distribution": ["Google Play", "direct APK", "direct PayPro purchase", "official forum", "knowledge base", "third-party skins"],
+      "sources": [
+        "https://powerampapp.com/",
+        "https://forum.powerampapp.com/"
+      ]
+    }
+  ],
+  "razorpay_case": {
+    "domain": "aifilmmakers.in",
+    "root_home_status": 404,
+    "sitemap_lastmod": "2026-08-17",
+    "funnel_sitemap_count": 10,
+    "sitemap_url_count": 61,
+    "funnel_variants": [
+      "generic workshop",
+      "thank-you pages",
+      "YouTube channel versions",
+      "Abdul Hakkim",
+      "Ramesh Yadav",
+      "Dhruv",
+      "Rajjat Rangari",
+      "Vaishali Chotaliya",
+      "Aanjanii Saraf",
+      "AI music, ads, image/video, short-video and agent products"
+    ],
+    "current_generic_offer": {
+      "product": "2-day live AI Filmmaking Challenge",
+      "price_inr": 249,
+      "dates": ["2026-08-22", "2026-08-23"],
+      "time": "10:00-12:00",
+      "delivery": "Zoom live",
+      "promised_output": "build a first cinematic AI film live",
+      "bonuses": ["thumbnail templates", "client call material", "internal prompt tool"]
+    },
+    "localized_offers": [
+      {
+        "trainer": "Abdul Hakkim",
+        "language": "Tamil",
+        "price_inr": 99,
+        "dates": ["2026-08-22", "2026-08-23"]
+      },
+      {
+        "trainer": "Aanjanii Saraf",
+        "language": "Kannada",
+        "price_inr": 99,
+        "dates": ["2026-07-11", "2026-07-12"]
+      }
+    ],
+    "continuity_assessment": "recurring_cohort_front_end_funnel",
+    "continuity_evidence": [
+      "7 月和 8 月均保留明确批次",
+      "同一产品复制为多讲师、多语言、多价格和多渠道版本",
+      "通用页面已更新到采集日之后的下一场活动",
+      "落地页与感谢页成对存在，通用版本迭代到 V6"
+    ],
+    "revenue_warning": "99—249 卢比很可能只是获客前端。页面中的高客单服务、学生评价数和收入效果均为销售文案，本轮未独立验证。",
+    "sources": [
+      "https://www.aifilmmakers.in/sitemap.xml",
+      "https://www.aifilmmakers.in/ai-film-making-workshop-v6",
+      "https://www.aifilmmakers.in/lp",
+      "https://www.aifilmmakers.in/2-day-workshop-abdul-v2",
+      "https://www.aifilmmakers.in/aanjanii-kannada"
+    ]
+  },
+  "business_model_comparison": [
+    {
+      "model": "ultra_low_price_personal_software",
+      "example": "RoughAnimator",
+      "charge": "$7.99 one time per platform",
+      "main_distribution": "app stores, organic search, direct desktop sales"
+    },
+    {
+      "model": "free_core_paid_unlock",
+      "example": "ADB AppControl",
+      "charge": "one-time Extended license per PC",
+      "main_distribution": "search, website, YouTube, PayPro"
+    },
+    {
+      "model": "mature_micro_software_company",
+      "example": "Bombich / CCC",
+      "charge": "$49.99-$125 licenses plus upgrades",
+      "main_distribution": "trial, direct sales, support and content"
+    },
+    {
+      "model": "legacy_mobile_app",
+      "example": "Poweramp",
+      "charge": "free trial and lifetime unlock",
+      "main_distribution": "Google Play, APK, forum, direct purchase"
+    },
+    {
+      "model": "low_ticket_live_course_funnel",
+      "example": "AI Filmmakers",
+      "charge": "INR 99-249 per cohort front end",
+      "main_distribution": "trainers, localization, YouTube, Razorpay"
+    }
+  ],
+  "evidence_limits": [
+    "支付入口来源份额不是订单数、收入或利润。",
+    "站点访问量与环比不能给出付费转化率。",
+    "官方价格能解释收费模型，但不能给出成交量。",
+    "版本、团队和活动批次能证明持续经营，不能证明盈利。",
+    "官网用户量、评价数和客户案例属于企业自述，需和独立来源区分。",
+    "本轮只对 RoughAnimator 与 ADB AppControl 取得可用的三个月汇总；其余站点不得伪装成完整时间序列。"
+  ]
+}
