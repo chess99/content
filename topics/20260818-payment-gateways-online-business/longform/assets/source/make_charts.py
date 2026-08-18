@@ -7,10 +7,12 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
+from matplotlib.lines import Line2D
 
 
 OUT_DIR = Path(__file__).resolve().parents[1]
 FONT_PATH = Path(r"C:\Windows\Fonts\msyh.ttc")
+DPI = 144
 
 if FONT_PATH.exists():
     font_name = font_manager.FontProperties(fname=str(FONT_PATH)).get_name()
@@ -19,25 +21,30 @@ if FONT_PATH.exists():
 plt.rcParams.update(
     {
         "axes.unicode_minus": False,
-        "figure.facecolor": "#F7F4EE",
-        "axes.facecolor": "#F7F4EE",
-        "savefig.facecolor": "#F7F4EE",
-        "text.color": "#1D2A32",
-        "axes.labelcolor": "#52616A",
-        "xtick.color": "#66737A",
-        "ytick.color": "#1D2A32",
-        "axes.edgecolor": "#D5D0C7",
+        "figure.facecolor": "#FFFFFF",
+        "axes.facecolor": "#FFFFFF",
+        "savefig.facecolor": "#FFFFFF",
+        "text.color": "#17212B",
+        "axes.labelcolor": "#667085",
+        "xtick.color": "#667085",
+        "ytick.color": "#17212B",
+        "axes.edgecolor": "#D0D5DD",
     }
 )
 
 
 def add_header(fig, title, subtitle):
-    fig.text(0.075, 0.94, title, fontsize=25, fontweight="bold", ha="left", va="top")
-    fig.text(0.075, 0.892, subtitle, fontsize=12.5, color="#5F6D73", ha="left", va="top")
+    fig.text(0.075, 0.955, title, fontsize=28, fontweight="bold", ha="left", va="top")
+    fig.text(0.075, 0.905, subtitle, fontsize=16, color="#475467", ha="left", va="top")
 
 
 def add_footer(fig, text):
-    fig.text(0.075, 0.035, text, fontsize=9.5, color="#7A827F", ha="left", va="bottom")
+    fig.text(0.075, 0.02, text, fontsize=13.2, color="#667085", ha="left", va="bottom", linespacing=1.45)
+
+
+def save(fig, filename):
+    fig.savefig(OUT_DIR / filename, dpi=DPI)
+    plt.close(fig)
 
 
 def chart_three_lenses():
@@ -46,39 +53,52 @@ def chart_three_lenses():
     equal = np.array([17.1, 27.4, 10.8, 6.0, 11.3, 3.4])
     merchants = np.array([14.0, 14.3, 24.9, 11.2, 9.1, 6.1])
 
-    fig, ax = plt.subplots(figsize=(12, 7.2), dpi=160)
-    fig.subplots_adjust(left=0.245, right=0.95, top=0.79, bottom=0.15)
-    add_header(fig, "同一批来源，换一把尺子，答案就变了", "规模口径突出 AI，来源域名数量口径则突出开发工具与专业软件")
+    series = [
+        (signal, -0.23, "#D95D48", "支付活动信号｜看规模"),
+        (equal, 0.00, "#315E7D", "五个入口等权｜看平台结构"),
+        (merchants, 0.23, "#3E9182", "已分类来源域名｜看数量"),
+    ]
+
+    fig, ax = plt.subplots(figsize=(7.5, 10), dpi=DPI)
+    fig.subplots_adjust(left=0.35, right=0.96, top=0.72, bottom=0.20)
+    add_header(fig, "换一把尺，答案就变了", "同一批支付入口来源，三种口径回答三件不同的事")
+
+    legend_y = [0.855, 0.822, 0.789]
+    for (_, _, color, label), yy in zip(series, legend_y):
+        fig.add_artist(Line2D([0.08, 0.125], [yy, yy], transform=fig.transFigure, color=color, linewidth=6, solid_capstyle="round"))
+        fig.text(0.145, yy, label, fontsize=17, ha="left", va="center", color="#344054")
 
     y = np.arange(len(categories))
-    h = 0.22
-    colors = ["#D95D48", "#315E7D", "#3E9182"]
-    labels = ["按支付活动信号", "五个入口等权", "按已分类来源域名数"]
+    for values, offset, color, _ in series:
+        yy = y + offset
+        ax.hlines(yy, 0, values, color=color, linewidth=4.5, alpha=0.9)
+        ax.scatter(values, yy, s=130, color=color, edgecolor="white", linewidth=1.8, zorder=3)
+        for value, pos in zip(values, yy):
+            ax.text(value + 1.1, pos, f"{value:.1f}%", va="center", ha="left", fontsize=17, color="#17212B")
 
-    for values, offset, color, label in zip([signal, equal, merchants], [-h, 0, h], colors, labels):
-        bars = ax.barh(y + offset, values, height=h * 0.78, color=color, label=label)
-        for bar, value in zip(bars, values):
-            ax.text(value + 0.65, bar.get_y() + bar.get_height() / 2, f"{value:.1f}%", va="center", ha="left", fontsize=9.5, color="#26343A")
-
-    ax.set_yticks(y, categories, fontsize=11.5)
+    ax.set_yticks(y, categories, fontsize=18)
     ax.invert_yaxis()
-    ax.set_xlim(0, 62)
-    ax.set_xticks(np.arange(0, 61, 10), [f"{v}%" for v in range(0, 61, 10)])
-    ax.grid(axis="x", color="#D9D4CB", linewidth=0.8, alpha=0.8)
+    ax.set_xlim(0, 68)
+    ax.set_xticks(np.arange(0, 61, 10), [f"{v}%" for v in range(0, 61, 10)], fontsize=14.5)
+    ax.grid(axis="x", color="#EAECF0", linewidth=1.0)
     ax.set_axisbelow(True)
     for spine in ["top", "right", "left"]:
         ax.spines[spine].set_visible(False)
-    ax.tick_params(axis="y", length=0, pad=12)
-    ax.tick_params(axis="x", length=0, pad=8)
-    ax.legend(loc="lower right", bbox_to_anchor=(1.0, 1.025), ncol=3, frameon=False, fontsize=10.5, handlelength=1.4, columnspacing=1.8)
-    add_footer(fig, "仅展示六个主要类别。样本来自 2026 年 7 月五个专用支付入口。来源域名数口径排除了 125 个未分类域名。")
-    fig.savefig(OUT_DIR / "chart-01-three-lenses.png", bbox_inches="tight", pad_inches=0.08)
-    plt.close(fig)
+    ax.tick_params(axis="y", length=0, pad=14)
+    ax.tick_params(axis="x", length=0, pad=9)
+
+    add_footer(fig, "仅展示六个主要类别，各组不会合计到 100%。\n来源域名口径排除 125 个未分类域名。\n样本为 2026 年 7 月五个专用支付入口的已采集头部来源。")
+    save(fig, "chart-01-three-lenses.png")
 
 
 def chart_gateway_ecosystems():
     gateways = ["Stripe Checkout", "Stripe Payment Links", "FastSpring", "PayPro Global", "Razorpay Payment Pages"]
     categories = ["AI 产品", "创作和专业软件", "开发工具和基础设施", "教育和知识产品", "商业 SaaS 和生产力", "游戏和虚拟商品", "未识别", "其他已识别"]
+    category_display = {
+        "创作和专业软件": "专业软件",
+        "开发工具和基础设施": "开发工具",
+        "商业 SaaS 和生产力": "商业 SaaS",
+    }
     values = np.array(
         [
             [62.956, 3.903, 1.319, 2.277, 9.541, 8.222, 1.446, 10.336],
@@ -88,36 +108,43 @@ def chart_gateway_ecosystems():
             [0.0, 3.760, 0.328, 48.383, 9.956, 0.0, 33.044, 4.529],
         ]
     )
-    colors = ["#D95D48", "#3E9182", "#315E7D", "#7A68A6", "#C18B34", "#B85D78", "#A7AAA5", "#D8D2C8"]
+    rank_colors = ["#175CD3", "#4E7FD3", "#86A8DD", "#C3D2EB"]
 
-    fig, ax = plt.subplots(figsize=(12, 7.4), dpi=160)
-    fig.subplots_adjust(left=0.21, right=0.95, top=0.78, bottom=0.24)
-    add_header(fig, "换一个支付入口，生意就换了一批", "五个专用支付页的来源结构已经出现明显分化")
+    fig, ax = plt.subplots(figsize=(7.5, 13.5), dpi=DPI)
+    fig.subplots_adjust(left=0.08, right=0.96, top=0.82, bottom=0.15)
+    add_header(fig, "换个支付入口，生意就换了一批", "每个入口只展示占比最高的四类，所有横条使用同一把 0—80% 标尺")
 
-    y = np.arange(len(gateways))
-    left = np.zeros(len(gateways))
-    for idx, (category, color) in enumerate(zip(categories, colors)):
-        bars = ax.barh(y, values[:, idx], left=left, color=color, height=0.54, label=category)
-        for row, (bar, value) in enumerate(zip(bars, values[:, idx])):
-            if value >= 7.0:
-                text_color = "white" if idx <= 5 else "#27343A"
-                ax.text(left[row] + value / 2, bar.get_y() + bar.get_height() / 2, f"{value:.1f}%", ha="center", va="center", fontsize=9.4, color=text_color, fontweight="bold")
-        left += values[:, idx]
+    cursor = 0.0
+    bar_height = 0.46
+    bar_step = 0.82
+    group_gap = 1.25
 
-    ax.set_yticks(y, gateways, fontsize=11.5)
+    for gateway, row in zip(gateways, values):
+        ax.text(-34.5, cursor, gateway, fontsize=19.5, fontweight="bold", ha="left", va="center", color="#17212B")
+        order = np.argsort(row)[::-1][:4]
+        for rank, idx in enumerate(order):
+            yy = cursor + 0.72 + rank * bar_step
+            value = row[idx]
+            category = categories[idx]
+            ax.text(-34.5, yy, category_display.get(category, category), fontsize=16.5, ha="left", va="center", color="#475467")
+            ax.barh(yy, value, height=bar_height, color=rank_colors[rank])
+            ax.text(value + 1.0, yy, f"{value:.1f}%", fontsize=16.5, ha="left", va="center", color="#17212B")
+        cursor += 0.72 + 4 * bar_step + group_gap
+        ax.hlines(cursor - group_gap / 2, -34.5, 80, color="#EAECF0", linewidth=1.0)
+
+    ax.set_xlim(-36, 85)
+    ax.set_ylim(-0.6, cursor - 0.2)
     ax.invert_yaxis()
-    ax.set_xlim(0, 100)
-    ax.set_xticks(np.arange(0, 101, 20), [f"{v}%" for v in range(0, 101, 20)])
-    ax.grid(axis="x", color="#D9D4CB", linewidth=0.8, alpha=0.8)
+    ax.set_yticks([])
+    ax.set_xticks(np.arange(0, 81, 20), [f"{v}%" for v in range(0, 81, 20)], fontsize=14.5)
+    ax.grid(axis="x", color="#EAECF0", linewidth=1.0)
     ax.set_axisbelow(True)
     for spine in ["top", "right", "left"]:
         ax.spines[spine].set_visible(False)
-    ax.tick_params(axis="y", length=0, pad=10)
-    ax.tick_params(axis="x", length=0, pad=8)
-    ax.legend(loc="upper left", bbox_to_anchor=(0.0, -0.16), ncol=4, frameon=False, fontsize=9.5, handlelength=1.5, columnspacing=1.5)
-    add_footer(fig, "每条横条均按该入口清理后可归因的支付活动信号计算。其他已识别包含健康、内容、金融和通用数字产品等类别。")
-    fig.savefig(OUT_DIR / "chart-02-gateway-ecosystems.png", bbox_inches="tight", pad_inches=0.08)
-    plt.close(fig)
+    ax.tick_params(axis="x", length=0, pad=9)
+
+    add_footer(fig, "颜色深浅只表示入口内部排名，不代表行业类别。\n未展示类别仍计入原始结构。份额按清理后可归因的支付活动信号计算。\n这些数据不能解释平台选择的因果。")
+    save(fig, "chart-02-gateway-ecosystems.png")
 
 
 def chart_relative_momentum():
@@ -126,34 +153,33 @@ def chart_relative_momentum():
     effective_n = np.array([36, 66, 18, 15, 32, 9, 23, 24, 43, 7])
     new_n = np.array([11, 17, 2, 7, 6, 0, 6, 6, 3, 3])
 
-    fig, ax = plt.subplots(figsize=(12, 7.8), dpi=160)
-    fig.subplots_adjust(left=0.25, right=0.94, top=0.79, bottom=0.15)
-    add_header(fig, "AI 规模最大，专业软件的相对动量更高", "来源份额环比变化中位数只反映支付入口内的相对位置，不代表行业收入增速")
+    fig, ax = plt.subplots(figsize=(7.5, 11.2), dpi=DPI)
+    fig.subplots_adjust(left=0.37, right=0.95, top=0.80, bottom=0.18)
+    add_header(fig, "AI 规模最大，份额动量却接近零", "来源份额变化只反映支付入口内的相对位置，不代表行业收入增速")
 
     y = np.arange(len(categories))
-    colors = np.where(change >= 0, "#3E9182", "#B6574C")
-    ax.hlines(y, np.minimum(change, 0), np.maximum(change, 0), color=colors, linewidth=3, alpha=0.78)
-    sizes = 65 + effective_n * 2.5
-    ax.scatter(change, y, s=sizes, color=colors, edgecolor="#F7F4EE", linewidth=1.6, zorder=3)
+    colors = np.where(change >= 0, "#087A65", "#B42318")
+    ax.hlines(y, np.minimum(change, 0), np.maximum(change, 0), color=colors, linewidth=4.2, alpha=0.82)
+    ax.scatter(change, y, s=155, color=colors, edgecolor="white", linewidth=1.8, zorder=3)
 
-    for x, yy, n, new in zip(change, y, effective_n, new_n):
-        label_y = yy - 0.24 if x < 0 else yy
-        ax.text(x + 1.1, label_y, f"{x:+.1f}%   n={n}   新 {new}", va="center", ha="left", fontsize=9.7, color="#27343A")
+    for value, yy, n, new in zip(change, y, effective_n, new_n):
+        ax.text(value + 1.2, yy - 0.12, f"{value:+.1f}%", va="center", ha="left", fontsize=17, fontweight="bold", color="#17212B")
+        ax.text(58.5, yy + 0.18, f"样本 {n}｜新来源 {new}", va="center", ha="right", fontsize=14.5, color="#667085")
 
-    ax.axvline(0, color="#6D7778", linewidth=1.0)
-    ax.set_yticks(y, categories, fontsize=11.2)
+    ax.axvline(0, color="#98A2B3", linewidth=1.2)
+    ax.set_yticks(y, categories, fontsize=17)
     ax.invert_yaxis()
-    ax.set_xlim(-16, 56)
-    ax.set_xticks(np.arange(-10, 51, 10), [f"{v}%" for v in range(-10, 51, 10)])
-    ax.grid(axis="x", color="#D9D4CB", linewidth=0.8, alpha=0.8)
+    ax.set_xlim(-14, 60)
+    ax.set_xticks(np.arange(-10, 51, 10), [f"{v}%" for v in range(-10, 51, 10)], fontsize=14.5)
+    ax.grid(axis="x", color="#EAECF0", linewidth=1.0)
     ax.set_axisbelow(True)
     for spine in ["top", "right", "left"]:
         ax.spines[spine].set_visible(False)
-    ax.tick_params(axis="y", length=0, pad=12)
-    ax.tick_params(axis="x", length=0, pad=8)
-    add_footer(fig, "圆点大小与 n 均表示进入中位数计算的有效记录数。新表示没有上月变化值的新来源数量。小基数会放大变化。")
-    fig.savefig(OUT_DIR / "chart-03-relative-momentum.png", bbox_inches="tight", pad_inches=0.08)
-    plt.close(fig)
+    ax.tick_params(axis="y", length=0, pad=13)
+    ax.tick_params(axis="x", length=0, pad=9)
+
+    add_footer(fig, "样本为进入中位数计算的有效记录。\n新来源因没有上月变化值而被排除。\n不同类别的小基数、入口构成和缺失方式都会放大或压低变化。")
+    save(fig, "chart-03-relative-momentum.png")
 
 
 if __name__ == "__main__":

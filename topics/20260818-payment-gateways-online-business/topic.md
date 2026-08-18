@@ -1,6 +1,6 @@
 # 从支付入口看网上的人在卖什么
 
-- 主题状态：公众号与博客发布资产已准备，待创建草稿或部署
+- 主题状态：移动端新版发布资产已准备，原公众号草稿仍是旧版，博客待部署
 - 首次立项：2026-08-18
 - 主系列：数据与财经
 - 主要文体：行业分析
@@ -12,7 +12,7 @@
 ## 产物
 
 - 通用长文：`longform/final.md`
-- 正文图表：3 张，位于 `longform/assets/`
+- 正文图表：3 张移动优先纵图，位于 `longform/assets/`
 - 公众号发布资产：`longform/wechat/article.md`、`longform/wechat/cover.jpg`
 - 博客渠道稿：`longform/blog/article.md`
 
@@ -20,5 +20,5 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 博客 | 发布副本已准备，待部署 |  | `longform/blog/article.md` |  |
-| 公众号 | 发布资产已准备，待创建草稿 |  | `longform/wechat/article.md` + `longform/wechat/cover.jpg` |  |
+| 博客 | 移动端发布副本已更新，待部署 |  | `longform/blog/article.md` |  |
+| 公众号 | 移动端新版已准备，原草稿待替换 |  | `longform/wechat/article.md` + `longform/wechat/cover.jpg` |  |
