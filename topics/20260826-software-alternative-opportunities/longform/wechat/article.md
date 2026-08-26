@@ -1,15 +1,3 @@
----
-title: 别从零发明需求，独立开发者的「替代品」机会
-date: 2026-08-26 00:00:00
-tags:
-  - 独立开发
-  - 产品机会
-  - 软件出海
-  - SaaS
-categories: 工具与工作流
-permalink: /posts/software-alternative-opportunities/
----
-
 独立开发最贵的一步，常常发生在动手以前。软件能写出来，用户会不会迁过来，仍是两件事。
 
 AI 编程至少让一部分小工具的原型更快出现。获客、稳定性、合规、迁移和长期维护没有跟着一起变便宜。选什么需求，从哪里找第一批用户，用户为什么愿意离开现有产品，仍然决定项目能走多远。
@@ -17,8 +5,6 @@ AI 编程至少让一部分小工具的原型更快出现。获客、稳定性�
 成熟软件旁边藏着一条值得长期观察的路。它已经教育过用户，留下了搜索词、社区、工作流和历史数据。后来者可以从这些现成条件出发，寻找正在发生的迁移。
 
 这里借用的是经过验证的任务。代码、视觉、品牌和具体表达仍要自己做。
-
-<!-- more -->
 
 ## 两次寻找替代品的经历
 
@@ -28,9 +14,9 @@ AI 编程至少让一部分小工具的原型更快出现。获客、稳定性�
 
 成熟效率工具最费时间的部分，通常藏在功能清单之外。只做一个半价版本，很容易在这些长期边界里把开发成本重新交回去。
 
-另一个经历来自 BlockyTime 一类的时间记录工具。BlockyTime 不要求用户每次开始工作都启动计时，结束后再停止计时。它把一天切成时间块，用户随后快速回填做过什么。[BlockyTime 的 App Store 页面](https://apps.apple.com/us/app/blockytime-easy-time-tracker/id1086617993)至今仍把这套交互放在产品介绍里。
+另一个经历来自 BlockyTime 一类的时间记录工具。BlockyTime 不要求用户每次开始工作都启动计时，结束后再停止计时。它把一天切成时间块，用户随后快速回填做过什么。BlockyTime 的 App Store 页面至今仍把这套交互放在产品介绍里。
 
-我在 Android 上用过交互相近的工具。截至 2026 年 8 月 26 日，[AlternativeTo 的 BlockyTime 页面](https://alternativeto.net/software/blockytime/)只收录了一个 Android 替代品 Blocks Time Tracker。
+我在 Android 上用过交互相近的工具。截至 2026 年 8 月 26 日，AlternativeTo 的 BlockyTime 页面只收录了一个 Android 替代品 Blocks Time Tracker。
 
 这条目录记录能证明 Android 上存在对应产品，无法证明市场规模和付费意愿。它提供的是一个候选信号。用户已经理解某套工作流，原产品又长期缺席他的设备，开发者可以继续查搜索量、迁移帖、等待名单和真实付款。
 
@@ -52,11 +38,11 @@ AI 编程至少让一部分小工具的原型更快出现。获客、稳定性�
 
 表单早已是成熟品类。Tally 在 2020 年进入市场时，核心任务仍然是创建表单和收集回复。
 
-它从一开始就把编辑器做得更像写文档，用户可以直接输入问题。免费边界也放得很宽，官方 FAQ 至今写着可以[免费创建无限表单并收集无限回复](https://tally.so/help/faq)。
+它从一开始就把编辑器做得更像写文档，用户可以直接输入问题。免费边界也放得很宽，官方 FAQ 至今写着可以免费创建无限表单并收集无限回复。
 
-到 2026 年 4 月，Tally 官方披露产品已经跨过 **500 万美元 ARR**，团队 **11 人**，全程依靠自有收入发展。[官方复盘](https://blog.tally.so/the-road-from-4m-to-5m-arr/)可以证明这组经营结果。
+到 2026 年 4 月，Tally 官方披露产品已经跨过 **500 万美元 ARR**，团队 **11 人**，全程依靠自有收入发展。官方复盘可以证明这组经营结果。
 
-Tally 当前还提供[从 Typeform 导入表单](https://tally.so/help/how-to-import-forms-from-typeform)的功能。它能重建表单结构，历史提交不会随之进入，条件逻辑和部分集成也要重新检查。这项功能说明 Tally 现在重视迁移体验，现有材料不足以证明它推动了此前的增长。
+Tally 当前还提供从 Typeform 导入表单的功能。它能重建表单结构，历史提交不会随之进入，条件逻辑和部分集成也要重新检查。这项功能说明 Tally 现在重视迁移体验，现有材料不足以证明它推动了此前的增长。
 
 这个案例能支持的判断很有限，也很有用。成熟需求仍能容纳新产品，前提是后来者给出一组清楚的取舍，并且真的有人付钱。
 
@@ -64,7 +50,7 @@ Tally 当前还提供[从 Typeform 导入表单](https://tally.so/help/how-to-im
 
 Plausible 面对的是免费而强大的 Google Analytics。它没有追逐更多功能，而是把产品集中在简单、轻量、开源和隐私友好上。
 
-2022 年 6 月，Plausible 官方披露达到 **100 万美元 ARR**，当时团队只有 **4 人**，有 **7000 多名付费客户**，并保持独立和盈利。[这篇官方复盘](https://plausible.io/blog/open-source-saas)还记录了一个外部助推。奥地利和法国的数据保护机构先后对 Google Analytics 的使用作出不利判定，Plausible 随后看到了兴趣上升。这里的因果归属来自公司复盘，不能扩大成整个市场的统一结论。
+2022 年 6 月，Plausible 官方披露达到 **100 万美元 ARR**，当时团队只有 **4 人**，有 **7000 多名付费客户**，并保持独立和盈利。这篇官方复盘还记录了一个外部助推。奥地利和法国的数据保护机构先后对 Google Analytics 的使用作出不利判定，Plausible 随后看到了兴趣上升。这里的因果归属来自公司复盘，不能扩大成整个市场的统一结论。
 
 Google 有能力做一个更简单的统计面板。开源、自托管、欧盟基础设施和公司的数据立场牵涉产品方向与收入选择，短期加几个设置很难覆盖。小团队可以利用这种原厂不愿轻易改变的位置。
 
@@ -74,7 +60,7 @@ Google 有能力做一个更简单的统计面板。开源、自托管、欧盟�
 
 `X for Android`、`X for Windows`、`cloud to local`、`hosted to self-hosted` 和 `closed to open` 都是可扫描的信号。
 
-Things 的官方支持文档至今仍写着，Windows 和 Android 用户[无法直接在 Things 中创建任务](https://culturedcode.com/things/support/articles/7597548/)，只能借助 Microsoft To Do、Apple Reminders 或邮件绕行。这能证明平台缺口持续存在，用户数量和愿付金额还要另查。
+Things 的官方支持文档至今仍写着，Windows 和 Android 用户无法直接在 Things 中创建任务，只能借助 Microsoft To Do、Apple Reminders 或邮件绕行。这能证明平台缺口持续存在，用户数量和愿付金额还要另查。
 
 本地优先、自托管和自带模型密钥也一样。架构差异本身没有价值，离线、隐私、延迟、成本或数据控制中的某一项必须真实影响用户选择。
 
@@ -82,7 +68,7 @@ Things 的官方支持文档至今仍写着，Windows 和 Android 用户[无法�
 
 大产品不断增加协作、管理和企业能力，总会留下一批只想完成某个具体任务的人。
 
-Screen Studio 没有复制整套视频平台。它集中解决漂亮的产品演示和教程录制，把自动缩放、平滑鼠标移动、录制后调整光标、背景和版式做深。[官方产品页](https://screen.studio/)可以确认这些能力。
+Screen Studio 没有复制整套视频平台。它集中解决漂亮的产品演示和教程录制，把自动缩放、平滑鼠标移动、录制后调整光标、背景和版式做深。官方产品页可以确认这些能力。
 
 这类项目适合小团队的地方在于范围可控。被删掉的功能也可能正是用户付费的原因，所以减法同样要经过付款验证。
 
@@ -90,7 +76,7 @@ Screen Studio 没有复制整套视频平台。它集中解决漂亮的产品演
 
 产品消失会制造高意图窗口。Tuple 承接 Screenhero 消失后的远程结对编程需求，是一个常被引用的例子。
 
-[Indie Hackers 的二手整理](https://www.indiehackers.com/post/8-000-in-revenue-without-even-a-product-tuple-8f6bd50038)称，Tuple 在完整产品开放前获得约 **8000 美元销售额**，后来收入达到数百万美元。这份材料也写明，创始人已经经营软件工程师受众多年，产品发布前的邮件名单约有 **5000 人**。早期成交同时依赖停服需求和既有分发能力，不能只归功于 Screenhero 消失。
+Indie Hackers 的二手整理称，Tuple 在完整产品开放前获得约 **8000 美元销售额**，后来收入达到数百万美元。这份材料也写明，创始人已经经营软件工程师受众多年，产品发布前的邮件名单约有 **5000 人**。早期成交同时依赖停服需求和既有分发能力，不能只归功于 Screenhero 消失。
 
 这项混杂因素反而很有提醒价值。事件给出急迫性，开发者仍然需要触达用户的办法。
 
@@ -102,11 +88,11 @@ Screen Studio 没有复制整套视频平台。它集中解决漂亮的产品演
 
 ## 两个正在发生的事件样本
 
-Relay.app 已经进入关停尾声。截至 2026 年 8 月 26 日，免费账户的窗口已在 8 月 15 日结束，相关数据也已删除。付费账户可以使用到 9 月 14 日，并可导出工作流、序列、MCP server、AI 提示词、运行记录和表格。[Relay 官方关停页](https://relay.app/)列出了这些范围。
+Relay.app 已经进入关停尾声。截至 2026 年 8 月 26 日，免费账户的窗口已在 8 月 15 日结束，相关数据也已删除。付费账户可以使用到 9 月 14 日，并可导出工作流、序列、MCP server、AI 提示词、运行记录和表格。Relay 官方关停页列出了这些范围。
 
 现在仍可能服务的只剩付费账户，时间不足三周。若开发者手上已有付费用户，可以试做迁移检查器或直接提供人工迁移。若没有现成触达渠道，再做一个通用产品很可能赶不上窗口。这个例子适合展示事件信号怎样衰减，不适合当作长期项目推荐。
 
-Microsoft Publisher 的窗口更长。微软确认 Publisher 将在 **2026 年 10 月**结束生命周期。Microsoft 365 用户在 10 月 1 日后无法继续通过 Publisher 打开和编辑文件，永久版本支持将在 10 月 13 日结束。[微软的退役说明](https://support.microsoft.com/en-US/publisher/microsoft-publisher-will-no-longer-be-supported-after-october-2026)建议用户提前转换文件。
+Microsoft Publisher 的窗口更长。微软确认 Publisher 将在 **2026 年 10 月**结束生命周期。Microsoft 365 用户在 10 月 1 日后无法继续通过 Publisher 打开和编辑文件，永久版本支持将在 10 月 13 日结束。微软的退役说明建议用户提前转换文件。
 
 微软提供批量导出 PDF 的办法。把 PDF 再交给 Word 打开时，图形较多的页面可能改变版式。这个限制让 `.pub` 查看器、批量转换器和轻量编辑器显得值得研究，也同时暴露了兼容难度。
 
@@ -133,9 +119,9 @@ App Store 和 Google Play 的近期差评、官方更新日志里删除的能力
 
 ## 借需求，也要守住表达边界
 
-美国版权局的 [Circular 31](https://www.copyright.gov/circs/circ31.pdf)说明，在美国版权法框架下，版权不保护 idea、procedure、process、system 或 method of operation 本身，具体文字和图像等表达可以受到保护。这份材料不能替代针对商标、专利和不同司法地区的法律意见。
+美国版权局的 Circular 31说明，在美国版权法框架下，版权不保护 idea、procedure、process、system 或 method of operation 本身，具体文字和图像等表达可以受到保护。这份材料不能替代针对商标、专利和不同司法地区的法律意见。
 
-平台规则往往更直接。Apple 的 [App Review Guideline 4.1 Copycats](https://developer.apple.com/app-store/review/guidelines/)要求开发者自行提出产品创意，禁止简单复制热门 App，也禁止只改名称或界面后冒充自己的产品。未经许可，App 名称和图标中也不能使用其他开发者的图标、品牌或产品名。
+平台规则往往更直接。Apple 的 App Review Guideline 4.1 Copycats要求开发者自行提出产品创意，禁止简单复制热门 App，也禁止只改名称或界面后冒充自己的产品。未经许可，App 名称和图标中也不能使用其他开发者的图标、品牌或产品名。
 
 对独立开发者，比较稳妥的做法是借任务、借工作流、借已经被验证的需求。代码、视觉、品牌和具体表达自己完成。
 
@@ -146,3 +132,32 @@ App Store 和 Google Play 的近期差评、官方更新日志里删除的能力
 3. 我能否只接住这群人，并用预售、付款或真实迁移证明他们愿意来。
 
 三个问题有了证据，才值得写第一行代码。
+
+## 参考资料
+
+1. BlockyTime 的 App Store 页面
+   https://apps.apple.com/us/app/blockytime-easy-time-tracker/id1086617993
+2. AlternativeTo 的 BlockyTime 页面
+   https://alternativeto.net/software/blockytime/
+3. Tally 免费版 FAQ
+   https://tally.so/help/faq
+4. Tally 500 万美元 ARR 官方复盘
+   https://blog.tally.so/the-road-from-4m-to-5m-arr/
+5. Tally 的 Typeform 导入说明
+   https://tally.so/help/how-to-import-forms-from-typeform
+6. Plausible 100 万美元 ARR 官方复盘
+   https://plausible.io/blog/open-source-saas
+7. Things 的 Windows 和 Android 任务入口说明
+   https://culturedcode.com/things/support/articles/7597548/
+8. Screen Studio 产品页
+   https://screen.studio/
+9. Indie Hackers 的二手整理
+   https://www.indiehackers.com/post/8-000-in-revenue-without-even-a-product-tuple-8f6bd50038
+10. Relay 官方关停页
+   https://relay.app/
+11. 微软的退役说明
+   https://support.microsoft.com/en-US/publisher/microsoft-publisher-will-no-longer-be-supported-after-october-2026
+12. Circular 31
+   https://www.copyright.gov/circs/circ31.pdf
+13. App Review Guideline 4.1 Copycats
+   https://developer.apple.com/app-store/review/guidelines/
