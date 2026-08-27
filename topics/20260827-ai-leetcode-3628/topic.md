@@ -2,7 +2,8 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |------|------|----------|----------|------|
-| 博客 | 长文终稿待确认 | | `longform/final.md` | |
+| 博客 | 发布副本已同步，待部署 | | `longform/final.md` | |
+| 微信公众号 | 渠道稿与本地预览已完成，待创建草稿 | | `longform/wechat/article.md` + `longform/leetcode-profile-3628.png` | |
 
 ## 定位
 
@@ -21,3 +22,12 @@ AI 编程, LeetCode, 算法面试, agent, 长期任务, 工作流, 结果审计
 - 通用长文终稿：`longform/final.md`
 - 实验统计快照：`longform/experiment-report.md`
 - 实验结束时账号截图：`longform/leetcode-profile-3628.png`
+- 公众号渠道稿：`longform/wechat/article.md`
+- 公众号发布信息：`longform/wechat/publish-meta.md`
+- 公众号主题预览：`longform/wechat/preview.html`
+- 博客发布副本：`D:\code\blog\source\_posts\2026\08\20260827-ai-leetcode-3628.md`
+
+## 相关链接
+
+- 实验仓库：https://github.com/chess99/ai-leetcode-lab（当前 private，渠道稿暂不放外链）
+- LeetCode 账号：https://leetcode.cn/u/funcsama/
