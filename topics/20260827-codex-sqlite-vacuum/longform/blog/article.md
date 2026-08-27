@@ -1,8 +1,20 @@
-# Codex 吃了我 40GB C 盘？用 Claude 一条 Prompt 找回 26GB
+---
+title: Codex 日志数据库占满 C 盘：用 VACUUM INTO 找回 26GB
+date: 2026-08-27 00:00:00
+tags:
+  - Codex
+  - SQLite
+  - Windows
+  - 磁盘清理
+categories: 工具与工作流
+permalink: /posts/codex-sqlite-vacuum/
+---
 
 **导语：** 用了几个月 Codex 后，C 盘突然红了。SpaceSniffer 一扫，`.codex` 目录占了 40GB，其中 `logs_2.sqlite` 一个文件就接近 27GB。更离谱的是，库中约 97% 的页都在 freelist 里；压缩后，数据库只剩 742MB。本文记录从发现问题到用 Claude Code 一条 prompt 安全回收 26.1GB 的全过程，也解释 SQLite 为什么会出现这种现象。
 
 > 这是一次发生在 Windows 上的真实故障处理，数据来自 2026 年 8 月 27 日的本机快照。`logs_2.sqlite` 属于 Codex 当前版本的内部文件，路径和结构以后可能变化。下面采用的是 SQLite 层面的备份压缩方案；操作前要退出 Codex、保留原库，并完成前后校验。
+
+<!-- more -->
 
 ---
 
@@ -15,7 +27,7 @@ C:\Users\zcs\.codex\   → 40GB
   └── logs_2.sqlite    → 27GB  ← 最大单项
 ```
 
-![SpaceSniffer 扫描结果：用户目录中的 .codex 约占 40.5GB](assets/spacesniffer-codex-40gb-crop.png)
+![SpaceSniffer 扫描结果：用户目录中的 .codex 约占 40.5GB](/images/codex-sqlite-vacuum/spacesniffer-codex-40gb-crop.png)
 
 在此之前，我对 SQLite 文件膨胀几乎没有概念——不就是个日志数据库吗，能大到哪去？
 

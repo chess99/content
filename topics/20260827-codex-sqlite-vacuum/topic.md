@@ -2,8 +2,8 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |------|------|----------|----------|------|
-| 博客 | 待发布 | | `longform/post.md` | |
-| 微信公众号 | 待发布 | | `longform/post.md` | |
+| 博客 | 发布副本已同步，待部署 | | `longform/blog/article.md` | |
+| 微信公众号 | 草稿已创建，待后台复核发布 | | `longform/wechat/article.md` + `longform/wechat/cover.jpg` | |
 
 ## 定位
 
@@ -12,3 +12,11 @@
 ## 关键词
 
 SQLite, VACUUM, Codex, Claude Code, C 盘清理, freelist, 数据库压缩
+
+## 产物
+
+- 通用长文：`longform/post.md`
+- SpaceSniffer 发布裁图：`longform/assets/spacesniffer-codex-40gb-crop.png`
+- 博客渠道稿：`longform/blog/article.md`
+- 公众号渠道稿：`longform/wechat/article.md`
+- 公众号封面：`longform/wechat/cover.jpg`

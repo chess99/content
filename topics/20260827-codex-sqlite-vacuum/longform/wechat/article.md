@@ -1,5 +1,3 @@
-# Codex 吃了我 40GB C 盘？用 Claude 一条 Prompt 找回 26GB
-
 **导语：** 用了几个月 Codex 后，C 盘突然红了。SpaceSniffer 一扫，`.codex` 目录占了 40GB，其中 `logs_2.sqlite` 一个文件就接近 27GB。更离谱的是，库中约 97% 的页都在 freelist 里；压缩后，数据库只剩 742MB。本文记录从发现问题到用 Claude Code 一条 prompt 安全回收 26.1GB 的全过程，也解释 SQLite 为什么会出现这种现象。
 
 > 这是一次发生在 Windows 上的真实故障处理，数据来自 2026 年 8 月 27 日的本机快照。`logs_2.sqlite` 属于 Codex 当前版本的内部文件，路径和结构以后可能变化。下面采用的是 SQLite 层面的备份压缩方案；操作前要退出 Codex、保留原库，并完成前后校验。
@@ -15,7 +13,7 @@ C:\Users\zcs\.codex\   → 40GB
   └── logs_2.sqlite    → 27GB  ← 最大单项
 ```
 
-![SpaceSniffer 扫描结果：用户目录中的 .codex 约占 40.5GB](assets/spacesniffer-codex-40gb-crop.png)
+![SpaceSniffer 扫描结果：用户目录中的 .codex 约占 40.5GB](../assets/spacesniffer-codex-40gb-crop.png)
 
 在此之前，我对 SQLite 文件膨胀几乎没有概念——不就是个日志数据库吗，能大到哪去？
 
@@ -138,15 +136,15 @@ Codex 会删除超限或过期日志，SQLite 则把不再使用的整页放进 
 SQLite 把数据库文件划分为固定大小的页。本例的 `PRAGMA page_size` 返回 4096，也就是每页 4KB。表记录、索引和元信息都存储在页中，数据库文件大小大致等于页数乘以页大小。
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│  SQLite 数据库文件（简化示意）                                │
-│                                                              │
-│  [Page 1]  [Page 2]  [Page 3]  ...  [Page N]                │
-│   ↑         ↑         ↑               ↑                      │
-│   含文件头   数据页    数据页           当前文件末尾            │
-│                                                              │
-│  本例文件大小 = 7,041,670 × 4KB ≈ 26.86GiB                  │
-└──────────────────────────────────────────────────────────────┘
+SQLite 数据库文件
+    ↓
+Page 1：文件头和数据
+Page 2：数据或索引
+Page 3：数据或索引
+...
+Page N：当前文件末尾
+
+本例：7,041,670 × 4KB ≈ 26.86GiB
 ```
 
 第 1 页的开头包含数据库文件头，后续页面用于保存表、索引和其他结构。
@@ -157,11 +155,13 @@ SQLite 把数据库文件划分为固定大小的页。本例的 `PRAGMA page_si
 
 ```text
 删除前：
-[Page 1: used] [Page 2: used] [Page 3: used] [Page 4: used]
+Page 1—4 全部在使用
 
 删除后：
-[Page 1: used] [Page 2: FREE] [Page 3: FREE] [Page 4: used]
-               └────────────── freelist ──────────────┘
+Page 1：used
+Page 2：FREE  ┐
+Page 3：FREE  ┴─ freelist
+Page 4：used
 
 文件仍有 4 页，但其中 2 页可以复用。
 ```
@@ -213,25 +213,21 @@ Codex 删除旧记录
 ```text
 VACUUM INTO 的概念示意：
 
-  原库（27GB）                    新库（742MB）
-  ┌──────────────┐                ┌──────────────┐
-  │ Page 1: used │ ──重建──→       │ Page 1: used │
-  │ Page 2: FREE │   跳过          │ Page 2: used │
-  │ Page 3: FREE │   跳过          │ Page 3: used │
-  │ Page 4: used │ ──重建──→       │ Page 4: used │
-  │ ...          │                │ ...          │
-  └──────────────┘                └──────────────┘
+原库 27GB
+  ├─ used 页：写入新库
+  ├─ FREE 页：跳过
+  └─ 部分填充页：重新整理
+        ↓
+紧凑副本 742MB
 ```
 
 `VACUUM INTO` 会把逻辑内容写入一个全新的紧凑数据库，源库保持不变，因此也可以用于生成在线数据库备份。这次操作还包含行数核对、WAL/SHM 文件处理和原库替换。提前退出 Codex，可以避免校验期间产生新日志，也能确保不会替换一个仍在使用的数据库。
 
 ### 6. 三种空间回收方式对比
 
-| 方案 | 原理 | 优点 | 局限 |
-|------|------|------|------|
-| **`VACUUM` / `VACUUM INTO`** | 重建数据库并压紧页面 | 回收彻底，也能整理部分填充页 | 大库耗时；原地 VACUUM 需要额外空间 |
-| **`auto_vacuum=FULL`** | 每次事务提交时把空闲页移到文件末尾并截断 | 能持续归还尾部空闲空间 | 可能增加碎片；不会像 VACUUM 那样压紧部分填充页 |
-| **`auto_vacuum=INCREMENTAL`** | 建立可移动页面所需的指针信息，再由 `incremental_vacuum` 分批回收 | 可控制单次回收量 | 不会自动执行；应用必须主动调用 |
+- **`VACUUM` / `VACUUM INTO`**：重建数据库并压紧页面，回收最彻底，也能整理部分填充页；大库处理时间较长，原地 `VACUUM` 还需要额外空间。
+- **`auto_vacuum=FULL`**：每次事务提交时把空闲页移到文件末尾并截断，可以持续归还尾部空间；代价是可能增加碎片，也不会像 `VACUUM` 那样压紧部分填充页。
+- **`auto_vacuum=INCREMENTAL`**：先建立移动页面所需的指针信息，再由 `incremental_vacuum` 分批回收；单次回收量可控，但应用必须主动调用。
 
 `auto_vacuum` 模式通常在建表前确定；已有数据库也可以通过 `VACUUM` 重建后切换模式。Codex 管理着自己的内部数据库，手工改变模式可能与后续升级或应用逻辑冲突。对于这个已经使用 `INCREMENTAL` 的库，更合适的维护方式是：
 
@@ -260,19 +256,11 @@ VACUUM INTO 'D:\...'：
 
 ### 8. 总结
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│  现象：27GB 数据库中约 97% 的页位于 freelist                 │
-│                                                              │
-│  原因：Codex 删除旧日志，但未见执行 incremental_vacuum      │
-│                                                              │
-│  处理：退出 Codex → VACUUM INTO 到 D 盘 → 校验 → 替换       │
-│                                                              │
-│  结果：27GB → 742MB，释放 26.1GB，并保留原库备份             │
-│                                                              │
-│  预防：监控空闲页比例；异常时备份后压缩，并向 OpenAI 反馈     │
-└──────────────────────────────────────────────────────────────┘
-```
+- **现象**：27GB 数据库中约 97% 的页位于 freelist。
+- **原因**：Codex 删除旧日志，但未见执行 `incremental_vacuum`。
+- **处理**：退出 Codex，`VACUUM INTO` 到 D 盘，校验后替换。
+- **结果**：27GB 降到 742MB，释放 26.1GB，并保留原库备份。
+- **预防**：监控空闲页比例；异常时备份后压缩，并向 OpenAI 反馈。
 
 这次留下了一套很实用的判断方法：**SQLite 文件大小不等于当前有效数据量；先测 page count 和 freelist，再决定怎么处理。**
 
@@ -282,9 +270,26 @@ VACUUM INTO 'D:\...'：
 
 ## 参考资料
 
-- [OpenAI Docs：Codex Local 的本地历史、SQLite 数据与日志](https://learn.chatgpt.com/docs/hipaa-configuration#configure-managed-requirements-and-defaults)
-- [Codex 源码：SQLite 连接设置](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/sqlite.rs)
-- [Codex 源码：日志写入、淘汰与启动维护](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/runtime/logs.rs)
-- [SQLite 官方文档：VACUUM](https://sqlite.org/lang_vacuum.html)
-- [SQLite 官方文档：PRAGMA auto_vacuum](https://sqlite.org/pragma.html#pragma_auto_vacuum)
-- [SQLite 官方文档：The Freelist](https://sqlite.org/fileformat.html#the_freelist)
+OpenAI Docs：Codex Local 的本地历史、SQLite 数据与日志
+
+https://learn.chatgpt.com/docs/hipaa-configuration#configure-managed-requirements-and-defaults
+
+Codex 源码：SQLite 连接设置
+
+https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/sqlite.rs
+
+Codex 源码：日志写入、淘汰与启动维护
+
+https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/runtime/logs.rs
+
+SQLite 官方文档：VACUUM
+
+https://sqlite.org/lang_vacuum.html
+
+SQLite 官方文档：PRAGMA auto_vacuum
+
+https://sqlite.org/pragma.html#pragma_auto_vacuum
+
+SQLite 官方文档：The Freelist
+
+https://sqlite.org/fileformat.html#the_freelist
