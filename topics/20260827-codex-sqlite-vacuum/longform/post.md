@@ -62,9 +62,11 @@ COUNT(*)          144,249
 
 `id` 是自增主键。最高 ID 已接近 10 亿，而当前只保留 14.4 万行，说明这个库经历过大量写入，旧记录也在持续淘汰。具体清理周期不影响这次判断：真正占住磁盘的是淘汰后没有及时归还给文件系统的空间。
 
-## 问题原因（一句话版）
+## 问题原因
 
-删除日志后，SQLite 把不再使用的整页放进 freelist，供以后复用；这并不等于把空间立刻归还给 Windows。这个库虽然启用了 `auto_vacuum=INCREMENTAL`，但只有应用主动执行 `PRAGMA incremental_vacuum`，空闲尾页才会逐步返还给文件系统。实测的 683 万个 freelist 页说明，空间回收明显没有跟上日志淘汰。
+Codex 会删除超限或过期日志，SQLite 则把不再使用的整页放进 freelist，供后续写入复用；这并不等于把空间归还给 Windows。这个库启用了 `auto_vacuum=INCREMENTAL`，但只有应用主动执行 `PRAGMA incremental_vacuum`，空闲尾页才会逐步从数据库文件中移除。
+
+我另外核对了 Codex 是否执行过这条命令。本机应用版本为 `26.818.8289.0`；公开源码固定在 commit `2c4a95736bea64256a50f7b8506bd33c181cc85a`。源码会把可写连接设置为 `INCREMENTAL`，也会在日志超限及启动维护时执行删除，但仓库中没有 `incremental_vacuum` 的调用。本机保留的 SQL 执行日志同样记录了 `PRAGMA auto_vacuum = INCREMENTAL`，没有记录 `PRAGMA incremental_vacuum`。结合原库中 683 万个 freelist 页，可以判断：Codex 删除了旧日志，却没有主动把这些空闲页归还给文件系统。
 
 ## 处理方式（一句话版）
 
@@ -164,7 +166,7 @@ SQLite 把数据库文件划分为固定大小的页。本例的 `PRAGMA page_si
 
 `freelist_count` 只统计完全空闲的页面。一个页面即使删掉了部分记录，只要还保存着有效内容，就不会计入 freelist。`VACUUM` 在重建数据库时还会整理这些未填满的页面，因此压缩结果通常比“总页数减去 freelist 页数”的估算更小。
 
-`auto_vacuum=NONE` 会把空闲页留在文件中等待复用；`INCREMENTAL` 具备逐步回收文件尾部空闲页的能力，但要由应用主动触发。本例使用的是 `INCREMENTAL`，空间回收并没有自动发生。
+`auto_vacuum=NONE` 会把空闲页留在文件中等待复用；`INCREMENTAL` 具备逐步回收文件尾部空闲页的能力，但要由应用主动触发。本例使用的是 `INCREMENTAL`，Codex 只启用了这种能力，没有执行实际回收所需的 `incremental_vacuum`。
 
 ### 3. 文件为什么没有跟着数据一起变小
 
@@ -179,12 +181,12 @@ SQLite 把数据库文件划分为固定大小的页。本例的 `PRAGMA page_si
     ↓
 6,833,529 页进入 freelist
     ↓
-没有足量的 incremental_vacuum 回收尾页
+未见 Codex 执行 incremental_vacuum 回收尾页
     ↓
 文件仍保持约 27GB
 ```
 
-三种 auto-vacuum 模式处理空闲页的方式不同：`NONE` 保留空闲页供复用，`INCREMENTAL` 等待显式回收，`FULL` 在事务提交时尝试移动并截断尾部空闲页。本例虽然使用 `INCREMENTAL`，但回收速度没有跟上日志淘汰，文件最终停留在约 27GB。
+三种 auto-vacuum 模式处理空闲页的方式不同：`NONE` 保留空闲页供复用，`INCREMENTAL` 等待显式回收，`FULL` 在事务提交时尝试移动并截断尾部空闲页。本例虽然使用 `INCREMENTAL`，但 Codex 没有执行显式回收，文件因此停留在约 27GB。
 
 ### 4. Codex 日志场景为什么特别明显
 
@@ -193,9 +195,9 @@ SQLite 把数据库文件划分为固定大小的页。本例的 `PRAGMA page_si
 ```text
 高频写入日志
     +
-大量旧记录被淘汰
+Codex 删除旧记录
     +
-空闲页回收速度没有跟上
+未执行 incremental_vacuum
     =
 当前数据不多，但数据库文件很大
 ```
@@ -260,7 +262,7 @@ VACUUM INTO 'D:\...'：
 ┌──────────────────────────────────────────────────────────────┐
 │  现象：27GB 数据库中约 97% 的页位于 freelist                 │
 │                                                              │
-│  实测：auto_vacuum=INCREMENTAL，但空间回收没有跟上日志淘汰   │
+│  原因：Codex 删除旧日志，但未见执行 incremental_vacuum      │
 │                                                              │
 │  处理：退出 Codex → VACUUM INTO 到 D 盘 → 校验 → 替换       │
 │                                                              │
@@ -279,6 +281,8 @@ VACUUM INTO 'D:\...'：
 ## 参考资料
 
 - [OpenAI Docs：Codex Local 的本地历史、SQLite 数据与日志](https://learn.chatgpt.com/docs/hipaa-configuration#configure-managed-requirements-and-defaults)
+- [Codex 源码：SQLite 连接设置](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/sqlite.rs)
+- [Codex 源码：日志写入、淘汰与启动维护](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/runtime/logs.rs)
 - [SQLite 官方文档：VACUUM](https://sqlite.org/lang_vacuum.html)
 - [SQLite 官方文档：PRAGMA auto_vacuum](https://sqlite.org/pragma.html#pragma_auto_vacuum)
 - [SQLite 官方文档：The Freelist](https://sqlite.org/fileformat.html#the_freelist)
