@@ -1,0 +1,14 @@
+# Codex SQLite 空间膨胀与清理
+
+| 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
+|------|------|----------|----------|------|
+| 博客 | 待发布 | | `longform/post.md` | |
+| 微信公众号 | 待发布 | | `longform/post.md` | |
+
+## 定位
+
+技术经验分享：记录 Codex 日志数据库占用 27GB C 盘空间的问题发现、用 Claude Code 一条 prompt 安全压缩的全过程，以及 SQLite 空间膨胀机制的深入解析。
+
+## 关键词
+
+SQLite, VACUUM, Codex, Claude Code, C 盘清理, freelist, 数据库压缩
