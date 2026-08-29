@@ -15,7 +15,7 @@ permalink: /posts/android-decompiled-app-runnable-recovery/
 
 这次真的往下做了。
 
-最后的结果是一套新的 Android 模块。它可以和原应用同时安装，能够从干净目录构建，在 Android 14 模拟器上清数据冷启动，显示协议弹窗，初始化本地数据库，再进入记录、总结、计划和统计等核心页面。总结编辑器也完成了输入、复制、清空、粘贴和保存回归。
+最后的结果是一套新的 Android 模块。它可以和原应用同时安装，能够从干净目录构建，在 Android 14 模拟器上清数据冷启动，显示协议弹窗，初始化本地数据库，再进入记录、总结、计划和统计等核心页面。总结编辑器也完成了输入、复制、清空、粘贴和保存回归。最后又在一台 Android 真机上同时安装原版与恢复版，两个包都保留，恢复版能够冷启动到系统权限页。
 
 它依然有清楚的缺口。56 个外围 Activity 的入口还保留着壳层 native 声明，账号、支付、广告、推送和云服务也没有完整恢复。所以本文里的“能跑”，指核心离线功能已经能够独立运行。它不等于拿回了原始工程，更不等于整个应用已经恢复完整。
 
@@ -113,7 +113,15 @@ tasks.withType<JavaCompile>().configureEach {
 
 运行时 DEX 里可以找到业务侧的 `MainApplication`。它的 `onCreate` 依次初始化日志、Activity 生命周期监听、网络、皮肤、数据库、通知渠道、语言和自动记录服务。Manifest 因此改回业务 Application，Launcher 继续指向 `SplashActivity`。
 
-这一步还有个很实际的问题。恢复 APK 需要跟原应用同时装在测试设备上，方便左右对照。Android 用 applicationId 识别设备上的应用，相同 applicationId 的两个安装包不会成为两个并存应用。为了共存，恢复模块必须使用新的 applicationId。原签名不在研究材料里，这还意味着恢复包不能作为更新覆盖原应用。两项限制要分开处理。
+这一步还有个很实际的问题。恢复 APK 需要跟原应用同时装在测试设备上，方便左右对照。Android 在安装阶段并不理解“开发版”和“正式版”，它主要看 applicationId 与签名证书。
+
+- applicationId 相同、签名相同，两个 APK 属于同一应用身份，新包会走更新路径，但仍受版本号等安装规则约束。
+- applicationId 相同、签名不同，安装通常会因签名不兼容被拒绝，不会自动变成第二个应用。
+- applicationId 不同，才具备作为两个应用共存的前提。
+
+因此，只改签名不能解决共存问题。为了共存必须先改 applicationId；原签名不在研究材料里，则另外意味着恢复包也不能作为原应用的更新安装。两项限制要分开处理。
+
+这不是一条只存在于文档里的提醒。一次真机安装后，原版不再出现在设备上。等到用 PackageManager 复查时，原版和当时准备验证的恢复包都不在，现场状态已经不足以证明中间究竟发生了覆盖、卸载，还是安装链路中的其他操作。所以这里不把事故原因写死。能确定的是，此前的验收少了一条硬断言：安装恢复包以后，必须再次确认原版包仍在，而不是看到恢复版能启动就算通过。
 
 ```kotlin
 android {
@@ -126,7 +134,28 @@ android {
 }
 ```
 
-只改 applicationId 还不够。Manifest 里的自定义权限、广播权限和 FileProvider authority 也要检查。Provider 使用 `${applicationId}.fileprovider`，自定义权限也跟着恢复包名隔离。否则安装阶段可能直接冲突，或者运行到分享文件时才发现 authority 仍指向原应用。
+只改 applicationId 还不够。Manifest 里的自定义权限、广播权限和 FileProvider authority 都是设备级名字，也要一起检查。第一版恢复工程虽然已经使用 `.recovered` 包名，却还声明着原版的 `top.onepix.timeblock.permission.PUSH_WRITE_PROVIDER`。模拟器中先装着这版恢复包，再安装原版，PackageManager 给出了明确错误。
+
+```text
+INSTALL_FAILED_DUPLICATE_PERMISSION:
+Package top.onepix.timeblock attempting to redeclare permission
+top.onepix.timeblock.permission.PUSH_WRITE_PROVIDER
+already owned by top.onepix.timeblock.recovered
+```
+
+修复时，自定义权限和 Provider 都改用 Manifest placeholder。实验版的显示名也改成 `BlockyTime Recovered`，避免两个图标同名造成误操作。下面只列与命名隔离有关的属性，不是完整 Manifest 节点。
+
+```xml
+<permission
+    android:name="${applicationId}.permission.PUSH_WRITE_PROVIDER"
+    android:protectionLevel="signature" />
+
+<provider
+    android:name="top.onepix.timeblock.models.biz.ExportFileProvider"
+    android:authorities="${applicationId}.fileprovider" />
+```
+
+这类遗漏不会都表现为“覆盖原版”。它也可能在安装阶段直接冲突，或者运行到分享文件时才发现 authority 仍指向另一个应用。
 
 构建后可以先检查 APK，确认没有误装成原包名。
 
@@ -136,10 +165,28 @@ $Aapt = Get-ChildItem "$env:ANDROID_HOME\build-tools\*\aapt.exe" |
     Sort-Object FullName -Descending |
     Select-Object -First 1 -ExpandProperty FullName
 
-& $Aapt dump badging $Apk | Select-Object -First 1
+& $Aapt dump badging $Apk |
+    Select-String "^package:|^application-label:"
+& $Aapt dump permissions $Apk |
+    Select-String "top.onepix.timeblock.*permission"
 ```
 
-预期结果里应当出现 `top.onepix.timeblock.recovered`。如果还是原包名，先别安装，回头检查 applicationId、Manifest 中写死的权限名和 Provider。
+预期结果里应当出现包名 `top.onepix.timeblock.recovered`、显示名 `BlockyTime Recovered`，自定义权限也都应位于 `.recovered.permission.*` 下。如果还是原包名，或者权限仍占用原版命名空间，先别安装。
+
+修复后，我在模拟器上同时安装两版，再在真机上重复了一次。最后的通过信号不是桌面上看见两个相似图标，而是 PackageManager 同时列出两条记录。
+
+```powershell
+$Serial = "emulator-5554"
+adb -s $Serial shell pm list packages |
+    Select-String "^package:top.onepix.timeblock"
+```
+
+```text
+package:top.onepix.timeblock
+package:top.onepix.timeblock.recovered
+```
+
+真机上的恢复版随后完成冷启动，进入系统权限申请页，原版包仍然存在。安装前仍应先备份原版数据。包名隔离是防止误覆盖和命名冲突的措施，不是数据恢复方案；一旦误卸载原版，重新装回 APK 不会自动带回原来的应用沙箱数据。
 
 ## 编译器开始检查反编译质量
 
@@ -218,7 +265,7 @@ protected void onCreate(Bundle savedInstanceState) {
 |---|---|---|
 | 源码编译 | 从干净目录执行 Java 编译 | 没有语法、类型和残缺方法编译错误 |
 | APK 构建 | 执行 Debug assemble | 生成可安装 APK，资源与 native library 完成打包 |
-| 安装隔离 | 检查 applicationId 后安装 | 与原应用共存，不覆盖原包 |
+| 安装隔离 | 检查包名、权限与 Provider 后同机安装 | PackageManager 同时列出原版和恢复版 |
 | 冷启动 | 清除恢复应用数据后启动 Launcher | 协议弹窗正常出现，进程不退出 |
 | 数据库打开 | 同意协议并进入主页 | Room 数据库及 WAL、SHM 文件创建 |
 | 核心流程 | 逐页执行记录、总结、计划、统计和编辑保存 | 页面、数据和手势结果符合参照样本 |
@@ -236,6 +283,8 @@ $Apk = "legacy-app\build\outputs\apk\debug\legacy-app-debug.apk"
 
 .\gradlew.bat :legacy-app:clean :legacy-app:assembleDebug
 adb -s $Serial install -r $Apk
+adb -s $Serial shell pm list packages |
+    Select-String "^package:top.onepix.timeblock"
 adb -s $Serial shell pm clear $Package
 adb -s $Serial logcat -c
 adb -s $Serial shell am start -W -n "$Package/$Activity"
@@ -273,7 +322,7 @@ adb -s $Serial logcat -d -v threadtime --pid=$AppPid |
 
 这段命令只筛选启动时记录的目标 PID，并额外检查进程是否退出或重启。没有命中这些关键字仍然不能代替页面断言，不过它能抓到一批界面上不明显的失败。恢复协程若没有正常 resume、native library 若缺少当前 ABI、后台线程若在页面离开后崩溃，通常会在这里留下痕迹。
 
-本次最终构建使用 Android Studio JBR 17、Android Gradle Plugin 8.5.0、Gradle 8.7 和 compileSdk 34。`clean`、Java 编译与 Debug assemble 全部通过，API 34 x86_64 模拟器上的核心回归没有出现 FATAL、ANR、`UnsatisfiedLinkError` 或协程等待超时。
+本次最终构建使用 Android Studio JBR 17、Android Gradle Plugin 8.5.0、Gradle 8.7 和 compileSdk 34。`clean`、Java 编译与 Debug assemble 全部通过，API 34 x86_64 模拟器上的核心回归没有出现 FATAL、ANR、`UnsatisfiedLinkError` 或协程等待超时。原版与恢复版的共存安装同时在模拟器和真机上通过，真机恢复版冷启动没有覆盖原版。
 
 构建还有几条非阻塞警告。Manifest 中的 `extractNativeLibs` 需要后续按新版 AGP 处理。同一个 GIF native library 同时来自恢复文件和 Maven 依赖，当前 AGP 选择了应用内版本。另有三类 native library 无法 strip，最终按原样打包。这些问题没有挡住当前测试环境，换 AGP 或补测其他 ABI 时还得重新看。
 

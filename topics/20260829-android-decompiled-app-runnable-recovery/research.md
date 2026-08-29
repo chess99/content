@@ -42,6 +42,12 @@
 - 恢复工程使用 `top.onepix.timeblock.recovered` 作为 applicationId，显示名为 `BlockyTime Recovered`。自定义权限和 FileProvider authority 也按恢复包名隔离，允许与原应用并存比较。来源 `D:\code\BlockyTime-Recovered\README.md` 与 `docs/BUILD_STATUS.md`。
 - Android 官方文档区分 namespace 与 applicationId，并说明 applicationId 是设备和商店识别应用的唯一标识。来源 https://developer.android.com/build/configure-app-module#set-application-id
 - Manifest placeholder 可以注入 applicationId 等构建变量，适合处理 FileProvider authority 与自定义权限。来源 https://developer.android.com/build/manage-manifests#inject_build_variables_into_the_manifest
+- 真机曾在一次实验安装后不再显示原版。后续通过 `pm list packages` 检查时，原版与当时准备验证的恢复包都不在，只剩早期研究台 `research.blockytime.lab`。这个事后状态不足以证明中间究竟发生了覆盖、卸载还是其他安装操作，文章不能把事故原因写死。
+- 原版 APK 留存文件的 SHA-256 仍为 `24236856A84308C97E27838B938769C51EFE38E8B57BE5E95AF8162F0607BAD3`，签名验证通过，重新安装到真机后包名为 `top.onepix.timeblock`、版本为 `2.19.28`。
+- 第一版恢复 Manifest 虽已换 applicationId，却仍以 `top.onepix.timeblock.permission.*` 声明自定义权限。模拟器中原版安装实际失败，错误为 `INSTALL_FAILED_DUPLICATE_PERMISSION`，其中 `PUSH_WRITE_PROVIDER` 已被 `top.onepix.timeblock.recovered` 占用。这证明只检查 applicationId 不足以验收同机共存。
+- 将自定义权限改为 `${applicationId}.permission.*`，FileProvider 保持 `${applicationId}.fileprovider`，并把显示名改成 `BlockyTime Recovered` 后，模拟器可同时列出 `top.onepix.timeblock` 与 `top.onepix.timeblock.recovered`。
+- 同一修复 APK 随后在真机安装成功。PackageManager 同时列出原版和恢复版，恢复版冷启动进入系统权限页，原版仍保留。来源为 2026-08-29 本地 adb 安装与包状态检查记录，以及恢复仓库提交 `c2be7c5 fix: isolate recovered app from original install`。
+- 原版重装后 `firstInstallTime` 为 2026-08-29，研究目录未找到对应真机数据库备份。该事实只支持“原版本地数据没有随 APK 自动恢复”，不支持断言云端或用户其他位置没有备份。
 
 ---
 
