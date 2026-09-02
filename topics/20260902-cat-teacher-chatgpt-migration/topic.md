@@ -14,17 +14,14 @@
 
 - 小红书标题：ChatGPT 现在可能比我自己还了解我了
 - 首图主句：ChatGPT 现在可能比我自己还了解我了
-- 首图证据：它刚刚看完我十年日记
-- 实际图片数：5 张
-- 生产方式：真实截图与简洁信息图混合制作
+- 首图策略：只给完整钩子，不提前放答案；证据集中到第 2 张
+- 实际图片数：2 张
+- 生产方式：极简文字首图与真实截图拼接
 
 ## 图片顺序
 
 1. `image-post/images/01-chatgpt-knows-me.png`：ChatGPT 可能比我自己还了解我
-2. `image-post/images/02-ten-years-together.png`：十年记录可以同时参照
-3. `image-post/images/03-three-parts.png`：系统指令、资料库与项目记忆
-4. `image-post/images/04-migration-route.png`：猫猫老师的迁移路线
-5. `image-post/images/05-beyond-chatgpt.png`：从聊天框走向五感与随时出现
+2. `image-post/images/02-how-it-works.png`：项目设置、十年日记资料库与实际回复
 
 ## 渠道状态
 
