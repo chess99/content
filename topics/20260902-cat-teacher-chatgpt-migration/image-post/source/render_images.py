@@ -1,43 +1,17 @@
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
 
 ROOT = Path(r"D:\code\content\topics\20260902-cat-teacher-chatgpt-migration")
 OUT = ROOT / "image-post" / "images"
 SOURCE = ROOT / "image-post" / "source"
-MARK = ROOT / "image-post" / "source" / "model-generated" / "cat-teacher-ip-cute-v1.png"
+MODEL_COVER = SOURCE / "model-generated" / "cover-integrated-v1.png"
 W, H = 1080, 1440
 
-PAPER = "#FAF9F6"
-INK = "#171717"
-FONT_BOLD = r"C:\Windows\Fonts\msyhbd.ttc"
-
-
 def render_cover():
-    cover = Image.new("RGB", (W, H), PAPER)
-    draw = ImageDraw.Draw(cover)
-
-    title_font = ImageFont.truetype(FONT_BOLD, 100)
-    lines = ["ChatGPT 现在可能", "比我自己还了解我了"]
-    title_x = 76
-    title_y = 430
-    line_gap = 44
-    line_height = title_font.getbbox("猫")[3] - title_font.getbbox("猫")[1]
-
-    for index, line in enumerate(lines):
-        y = title_y + index * (line_height + line_gap)
-        draw.text((title_x, y), line, fill=INK, font=title_font)
-
-    ledge_y = title_y + 2 * line_height + line_gap + 94
-
-    mark = Image.open(MARK).convert("RGBA")
-    alpha_box = mark.getchannel("A").getbbox()
-    mark = mark.crop(alpha_box)
-    mark.thumbnail((215, 215), Image.Resampling.LANCZOS)
-    mark = mark.rotate(-8, resample=Image.Resampling.BICUBIC, expand=True)
-    cover.paste(mark, (808, ledge_y - 132), mark)
-
+    cover = Image.open(MODEL_COVER).convert("RGB")
+    cover = cover.resize((W, H), Image.Resampling.LANCZOS)
     OUT.mkdir(parents=True, exist_ok=True)
     cover.save(OUT / "01-chatgpt-knows-me.png")
 

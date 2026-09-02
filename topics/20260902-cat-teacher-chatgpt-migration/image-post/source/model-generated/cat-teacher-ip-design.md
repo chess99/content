@@ -27,6 +27,33 @@
 - 继承：保留黑色主体、橙色耳朵与橙色尾尖，让它能和完整母标互相认出来。
 - 变化：去掉聊天框和穿框动作，让这张封面先读文字，再偶然发现猫。
 
+## 整图生成版本
+
+- 文件：`cover-integrated-v1.png`
+- 参考：完整母标负责角色身份，小变体负责趴姿。
+- 构图：标题是绝对主体；猫趴在第一行左上方，身体由字面支撑，两只爪子自然垂下。
+- 结果：模型一次生成猫、标题与留白，不再把透明角色素材后期贴到文字附近。
+
+### 整图提示词
+
+```text
+Use case: ads-marketing
+Asset type: complete Xiaohongshu image-post cover, generated as one integrated composition rather than separate elements pasted together
+Canvas: portrait 3:4, intended final delivery 1080 × 1440; must remain readable at 270 × 360
+Input images: Image 1 is the established 猫猫老师 mascot identity reference; preserve its charcoal-black silhouette language, calm intelligent expression, warm orange inner ears and signature orange tail tip. Image 2 is a pose reference only: a cat resting with its front paws hanging down.
+Primary request: create a minimal editorial cover where the text is unquestionably the main subject. Integrate a small cute variant of the referenced black cat naturally into the upper-left edge of the title. The cat is physically supported: its torso rests on the top edge of the first text line and both paws visibly drape over that edge. It must not float in empty space. The cat should feel like it belongs to the typography, not like a separate logo pasted above it.
+Scene/backdrop: warm off-white empty background with generous breathing room
+Visual structure: one bold two-line title, left aligned, occupying most of the visual weight; the small cat rests naturally at the upper-left of the first line. No other visual blocks or explanation.
+Reading path: title first, cat discovered second
+Text (verbatim, exactly these two lines):
+“ChatGPT 现在可能”
+“比我自己还了解我了”
+Typography: very large heavy sans-serif, charcoal black, both lines identical font size and weight; the word ChatGPT must be fully visible and prominent; preserve every Chinese character exactly; no extra text
+Color palette: warm off-white, charcoal black, very small amount of warm orange only on the cat
+Constraints: generate the entire cover as one coherent image; cat small and secondary; clear believable contact/support between cat and title; clean normal anatomy; no floating pose; no watermark
+Avoid: marketing poster styling, AI-tech aesthetics, neon blue, gradients, glows, circuits, robot cat, cards, frames, speech bubbles, decorative icons, random lines, author name, page number, logo showcase, shadows, 3D, anime, chibi, clutter, misspelled Chinese, missing characters, extra characters
+```
+
 ### 小变体提示词
 
 ```text
