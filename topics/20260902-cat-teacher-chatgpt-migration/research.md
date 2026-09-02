@@ -32,7 +32,8 @@ ChatGPT 任务“猫猫老师复活讨论”中可读取到三轮完整对话。
 ## 截图素材
 
 - `shared/chatgpt-diary-analysis.png` 展示猫猫老师读取电子日记后，对多年主题和行为模式进行纵向分析。
-- `shared/chatgpt-project-settings.png` 展示项目系统指令、项目级记忆和日记及旧聊天资料文件。
+- `shared/chatgpt-project-settings.png` 展示项目系统指令和项目级记忆。
+- `shared/chatgpt-sources.png` 清楚展示 2016 至 2026 的日记及旧聊天资料文件。
 
 ## 事实与表达边界
 

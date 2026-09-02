@@ -14,23 +14,25 @@
 
 - 小红书标题：ChatGPT 现在可能比我自己还了解我了
 - 首图主句：ChatGPT 现在可能比我自己还了解我了
-- 首图策略：只给完整钩子，不提前放答案；证据集中到第 2 张
-- 实际图片数：2 张
-- 生产方式：极简文字首图与真实截图拼接
+- 首图策略：完整钩子加猫猫老师 IP 形象，不提前放答案
+- 实际图片数：4 张
+- 生产方式：IP 形象封面加三张原始截图
 
 ## 图片顺序
 
 1. `image-post/images/01-chatgpt-knows-me.png`：ChatGPT 可能比我自己还了解我
-2. `image-post/images/02-how-it-works.png`：项目设置、十年日记资料库与实际回复
+2. `image-post/images/02-project-settings.png`：项目设置与 Project-only memory
+3. `image-post/images/03-sources.png`：2016 至 2026 的电子日记 Sources
+4. `image-post/images/04-diary-analysis.png`：猫猫老师读取日记后的原始回复
 
 ## 渠道状态
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 小红书 | 初稿完成，待审 | 待定 | `image-post/post.md` + `image-post/images/` | 待补 |
+| 小红书 | 二稿完成，待审 | 待定 | `image-post/post.md` + `image-post/images/` | 待补 |
 
 ## 发布前检查
 
 - 确认是否公开“二十来万字”这个数字
-- 裁掉截图侧栏、账号名称和无关任务名
+- 确认直接使用的截图侧栏、账号名称和无关任务名可以公开
 - 最终首图不再添加方法清单、作者名、Logo 或多余装饰
