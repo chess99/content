@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-这是本次封面使用的第一版候选形象。用户确认后，再迁入 `brand/assets/` 作为长期正式资产。
+完整母标与封面小变体都仍是主题内候选。用户确认长期使用后，再迁入 `brand/assets/`。
 
 ## 核心母题
 
@@ -18,6 +18,26 @@
 - 保留方框缺口、穿框动作与橙色尾尖。
 - 不加入机器人、芯片、线路、霓虹蓝、博士帽、眼镜、书本和教师指示棒。
 - 不做宠物店式可爱 Logo，也不把猫改成幼猫或动漫角色。
+
+## 本次封面小变体
+
+- 文件：`cat-teacher-ip-cute-v1.png`
+- 姿势：猫趴在一个看不见的边缘上，两只前爪垂下，尾巴向上弯起。
+- 用法：只作为标题旁的附属视觉，可以轻微倾斜，不单独占一个展示区。
+- 继承：保留黑色主体、橙色耳朵与橙色尾尖，让它能和完整母标互相认出来。
+- 变化：去掉聊天框和穿框动作，让这张封面先读文字，再偶然发现猫。
+
+### 小变体提示词
+
+```text
+Use case: logo-brand
+Asset type: a tiny playful mascot attachment placed beside large Chinese title text on a Xiaohongshu cover
+Primary request: create a cute lightweight variant of the established black cat mascot. The cat lies over an invisible edge with its chin and body resting above it, both front paws dangling below, and its tail curling upward.
+Style/medium: minimal polished vector-like illustration, strong clean silhouette, expressive but restrained, suitable around 140 px
+Color palette: charcoal black with warm apricot inner ears, eyes, nose and tail tip
+Constraints: transparent RGBA background, no text, no frame, one cat, preserve the orange tail-tip signature, no watermark
+Avoid: robot, circuitry, neon blue, hat, glasses, books, speech bubble, paw-print icon, anime, chibi proportions, 3D, background, shadow
+```
 
 ## 内置图片工具提示词组
 
