@@ -82,6 +82,8 @@ Codex 会删除超限或过期日志，SQLite 则把不再使用的整页放进 
 
 我另外核对了 Codex 是否执行过这条命令。本机应用版本为 `26.818.8289.0`；公开源码固定在 commit `2c4a95736bea64256a50f7b8506bd33c181cc85a`。源码会把可写连接设置为 `INCREMENTAL`，也会在日志超限及启动维护时执行删除，但仓库中没有 `incremental_vacuum` 的调用。本机保留的 SQL 执行日志同样记录了 `PRAGMA auto_vacuum = INCREMENTAL`，没有记录 `PRAGMA incremental_vacuum`。结合原库中 683 万个 freelist 页，可以判断：Codex 删除了旧日志，却没有主动把这些空闲页归还给文件系统。
 
+Codex 官方仓库已有对应的 [Issue #35823](https://github.com/openai/codex/issues/35823)，截至 2026 年 9 月 3 日仍处于开放状态。本文这套办法主要用于磁盘已经告急时应急回收空间；如果暂时没有空间压力，不必急着手工处理内部数据库，保持 Codex 更新并等待官方修复即可。
+
 ## 处理方式（一句话版）
 
 当时 C 盘只剩约 3GB，不能在原盘执行普通 `VACUUM`。我改用 `VACUUM INTO` 在 D 盘生成紧凑副本，校验完整性和行数后，再替换原库。
@@ -297,6 +299,7 @@ VACUUM INTO 'D:\...'：
 - [OpenAI Docs：Codex Local 的本地历史、SQLite 数据与日志](https://learn.chatgpt.com/docs/hipaa-configuration#configure-managed-requirements-and-defaults)
 - [Codex 源码：SQLite 连接设置](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/sqlite.rs)
 - [Codex 源码：日志写入、淘汰与启动维护](https://github.com/openai/codex/blob/2c4a95736bea64256a50f7b8506bd33c181cc85a/codex-rs/state/src/runtime/logs.rs)
+- [Codex Issue #35823：logs_2.sqlite 未回收空闲页](https://github.com/openai/codex/issues/35823)
 - [SQLite 官方文档：VACUUM](https://sqlite.org/lang_vacuum.html)
 - [SQLite 官方文档：PRAGMA auto_vacuum](https://sqlite.org/pragma.html#pragma_auto_vacuum)
 - [SQLite 官方文档：The Freelist](https://sqlite.org/fileformat.html#the_freelist)
