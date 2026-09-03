@@ -2,7 +2,7 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |------|------|----------|----------|------|
-| 博客 | 发布副本已同步，待部署 | | `longform/final.md` | |
+| 博客 | 已发布 | 2026-08-27 | `longform/final.md` | https://blog.cearl.cc/posts/ai-leetcode-3628/ |
 | 微信公众号 | 渠道稿与本地预览已完成，待创建草稿 | | `longform/wechat/article.md` + `longform/leetcode-profile-3628.png` | |
 
 ## 定位
@@ -29,5 +29,6 @@ AI 编程, LeetCode, 算法面试, agent, 长期任务, 工作流, 结果审计
 
 ## 相关链接
 
-- 实验仓库：https://github.com/chess99/ai-leetcode-lab（当前 private，渠道稿暂不放外链）
+- 实验仓库：https://github.com/chess99/ai-leetcode-lab
+- 博客文章：https://blog.cearl.cc/posts/ai-leetcode-3628/
 - LeetCode 账号：https://leetcode.cn/u/funcsama/

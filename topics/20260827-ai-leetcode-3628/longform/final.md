@@ -100,7 +100,7 @@
 
 每次远程动作最后都会写进追加式事实日志，题目、Profile、时间、结果和代码 SHA-256 一项不少。旧记录不允许随手改，发现归因错误只能追加校正。实验结束时再重建统计，检查当前代码与 Accepted 代码是否一致，候选代码有没有漂移。
 
-最终审计里，3628 道题的当前代码与 Accepted 代码全部精确匹配。Accepted 哈希漂移为 0，candidate 哈希漂移为 0，待复盘组合也是 0。逐题记录保存在本地实验仓库，本文另附一份[实验统计快照](./experiment-report.md)。
+最终审计里，3628 道题的当前代码与 Accepted 代码全部精确匹配。Accepted 哈希漂移为 0，candidate 哈希漂移为 0，待复盘组合也是 0。逐题记录保存在 [GitHub 实验仓库](https://github.com/chess99/ai-leetcode-lab)，本文另附一份[实验统计快照](./experiment-report.md)。
 
 这几个零，比全站第 95 名更难拿。
 
