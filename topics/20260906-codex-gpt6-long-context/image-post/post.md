@@ -13,7 +13,7 @@ model_context_window = 1000000
 model_auto_compact_token_limit = 900000
 ```
 
-保存后重启 Codex，新建任务查看窗口大小。
+保存后重启 Codex，新建任务，在模型选择器中选 GPT-6 Astra，再查看窗口大小。这两行只调整上下文，不会自动切换模型。
 
 注意：填 100 万不代表实际能用满百万。目前社区 Astra 案例生效约 828K，具体以自己的窗口显示为准。
 

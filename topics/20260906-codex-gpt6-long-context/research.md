@@ -19,3 +19,11 @@
 ## 编辑决定
 
 不使用“Codex已支持完整百万上下文，开启即可用满”的标题。正文保留唯一必要限制：社区案例约828K，以实际窗口为准。不加入API价格与实验性记忆开关，避免分散这篇简单配置告知的重点。
+
+## 模型选择补充
+
+- 官方 https://developers.openai.com/codex/models 的 Configure your default local model：model项指定默认模型；未指定时使用推荐模型。模型选择器可用于选择可用模型。
+- 官方 https://learn.chatgpt.com/docs/config-file/config-basic：model与model_reasoning_effort分别是默认模型与推理强度配置，并非长上下文开关。
+- 社区#43015仅展示1000000/900000两行“相关非默认上下文设置”，环境表单独注明gpt-6-astra，不能推断完整配置没有model行。
+- 社区#41325展示了model="gpt-5.6-sol"及两行窗口设置；该模型行用于明确复现模型，不是开启窗口的必要开关。
+- 配文补充在模型选择器选择GPT-6 Astra；图片保留两行配置，不增加默认模型绑定。
