@@ -1,0 +1,8 @@
+Create a completely redesigned Chinese Xiaohongshu informational poster, 3:4 portrait, target 1080×1440. Exactly TWO visual regions, no other labels or footer. This is a simple announcement, restrained and sophisticated, no marketing decoration. Upper typography takes roughly 68 percent of compositional attention and area, lower configuration example roughly 32 percent. Off-white flat background, near-black ink, blue only to emphasize 百万. Exceptionally clean professional editorial typography with large, strong Chinese glyphs and calm generous spacing. Left-aligned with about 80px side margins, elegant deliberate line breaks. Do not reproduce an old dense fact sheet. Main upper typography EXACT text, each line:
+"Codex GPT-6"
+"百万上下文"
+"需手动配置开启"
+百万上下文 must be the largest visual element. First line smaller than second but substantial; third line clear and large. These three lines are a single upper title composition, not cards. Lower region: a simple code excerpt, visually subordinate but clearly legible, no container box, no fake screenshot, no line numbers, no caption, optionally one thin blue vertical rule. Exact code, each assignment must remain on a single line with actual ASCII underscores:
+"model_context_window = 1000000"
+"model_auto_compact_token_limit = 900000"
+No additional text whatsoever. No 258K, no 828K, no restart instructions, no dates, no sources, no disclaimer, no 非产品截图, no AI label, no logos, no watermark, no icons, no shadows, no gradient, no rounded cards. Upper title and lower code are the ONLY TWO parts. At thumbnail size the two main concepts 百万 and 手动 must immediately be clear.
