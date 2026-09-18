@@ -12,5 +12,5 @@
 
 | 渠道 | 状态 | 发布时间 | 使用版本 | 链接 |
 |---|---|---|---|---|
-| 博客 | 待发布 | - | `longform/final.md` + `longform/images/ai-memory-flow.png` | - |
+| 博客 | 待发布 | - | `longform/final.md` + `longform/assets/memory-overview.png` | - |
 | 公众号 | 草稿已创建 | 2026-09-18 | `longform/wechat/article.md` + `longform/wechat/cover.png` | 草稿箱 |
