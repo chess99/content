@@ -17,8 +17,8 @@
 ## 状态
 
 - 最新草稿已成功创建：2026-09-18
-- media_id：`bpB07u_8H2Ns8YJAsyxW3bxtxmK1t1WbWXyhZXa5BGjTiXHyxFfl4l0lfDdfsGfi`
+- media_id：`bpB07u_8H2Ns8YJAsyxW3YScSNd8-pPQAmpb8DbU7iNqhp3f33RlLySvntLtXA5c`
 - 主题：`default`
-- 封面：用户提供的本地配图已上传，未使用占位图
+- 封面：单独生成的无文字横向主题封面已上传，未使用正文配图或占位图
 - 正文图片：检测 1 张，上传 1 张
 - 后续：到微信公众号后台检查并手动发布
