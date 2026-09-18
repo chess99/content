@@ -1,0 +1,167 @@
+<section style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;max-width:677px;margin:0 auto;padding:0;background:#ffffff;color:#2b2f36;"><h1 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:26px;font-weight:700;color:#171a1f;line-height:1.42;margin:34px 0 26px;padding-bottom:10px;border-bottom:2px solid #111827;">从 ChatGPT 的记忆机制，聊一聊 AI 记忆的演变史</h1>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><em style="font-style:italic;color:#667085;">资料核对至 2026 年 9 月 18 日。</em></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">ChatGPT 的长期记忆，涉及两项持续进行的工作：从过去的交互中整理信息，为当前的问题准备背景。前一项决定它怎样理解用户和项目，后一项决定哪些过去的信息会影响这次回答。OpenAI 将其中的后台记忆综合机制称为 <strong style="font-weight:700;color:#111827;">Dreaming</strong>。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">沿着这两项工作往下拆，会遇到 AI 记忆发展的几条主要路线：会话缓存、摘要笔记、向量检索、分层记忆、时间知识图谱，以及能够自行更新的记忆系统。</section>
+<h2 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:700;color:#171a1f;line-height:1.5;margin:32px 0 18px;padding-bottom:6px;border-bottom:1px solid #d9dee7;">一、ChatGPT 的记忆机制</h2>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">1. 从保存信息，到后台综合</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2024 年 2 月，OpenAI 开始测试 ChatGPT 的记忆功能。用户可以明确要求它记住某件事，系统也会从交互中提取有用细节。这一阶段的核心是 <strong style="font-weight:700;color:#111827;">Saved Memories</strong>：将相对稳定的信息保存下来，供后续对话使用。例如，用户的职业背景、常用编程语言和回答偏好。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2025 年 4 月，ChatGPT 增加了引用历史聊天的能力。OpenAI 后来将背后的机制解释为第一版 Dreaming：系统在后台参考历史对话，综合有用的长期信息。2026 年 6 月 4 日发布的进一步升级，在官方版本对比中标为 <strong style="font-weight:700;color:#111827;">Dreaming V3</strong>。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这条演进路线可以概括为：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;"><strong style="font-weight:700;color:#111827;">2024：提取并保存具体信息。</strong><br>
+<strong style="font-weight:700;color:#111827;">2025：结合历史对话整理记忆。</strong><br>
+<strong style="font-weight:700;color:#111827;">2026：持续维护能够反映变化的记忆状态。</strong></section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这些升级逐渐完善了跨会话交流的连续性，并将一个更复杂的问题推到前台：人和项目都会变化，记忆也需要跟着变化。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">2. 存储：从原始记录生成记忆状态</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">可以把相关数据分成三层。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><strong style="font-weight:700;color:#111827;">原始来源层</strong>保存聊天、文件等材料。<strong style="font-weight:700;color:#111827;">记忆状态层</strong>保存从这些材料中整理出来的长期背景。<strong style="font-weight:700;color:#111827;">当前上下文层</strong>则是模型这次回答时实际获得的信息。ChatGPT 能利用哪些来源，取决于功能和授权；官方列出的来源包括历史聊天、保存的记忆、文件，以及已连接应用中的内容。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">以一个开发项目为例，假设历史里有三次讨论：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">3 月：准备开发网页版本。<br>
+4 月：网页版本暂缓，先验证命令行工具。<br>
+5 月：命令行版本已经上线，下一步收集用户反馈。</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">原始记录保留三次讨论各自的内容。面向后续工作的记忆状态，则应该突出当前阶段：命令行版本已上线，正在收集反馈；网页版本仍处于暂缓状态。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">如果下次讨论的是产品迭代，这份当前状态很有用。如果追问“为什么当时暂缓网页版本”，系统还需要找回当时的讨论依据。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">因此，长期记忆可以同时保留两种价值：<strong style="font-weight:700;color:#111827;">经过整理的当前状态，以及可以回溯的历史证据。</strong></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">将后台综合抽象成一次状态更新，可以写成：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">新记忆状态 = 综合（已有记忆、新增信息、当前时间）</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这是理解 Dreaming 的一个工程模型。与逐条追加相比，状态更新需要判断信息之间的关系：哪些是补充，哪些已经过期，哪些改变了原来的计划。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">时间本身也会影响记忆。OpenAI 在 Dreaming 的说明中，专门展示了系统如何随着行程结束，调整与旅行相关的记忆。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">落到具体设计上，“计划日期已经过去”和“计划已经执行”还需要分别处理。例如，一项发布计划到了截止日，可以退出待办状态；要记录成“已经发布”，则应结合实际进展。这一步决定记忆更新能否跟上现实。</section>
+<figure style="margin:20px 0;text-align:center;"><img src="../images/ai-memory-flow.png" alt="AI 记忆的信息流：来源、整理更新、相关内容选择与当前回答" style="max-width:100%;height:auto;display:block;margin:0 auto;border-radius:6px;"><figcaption style="margin:8px 0 0;color:#667085;font-size:13px;line-height:1.6;text-align:center;">AI 记忆的信息流：来源、整理更新、相关内容选择与当前回答</figcaption></figure>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><em style="font-style:italic;color:#667085;">图：记忆系统的信息流概念示意。后台整理与回答时使用，可以理解为两条相互配合的链路。</em></section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">3. 读取：给当前问题准备相关上下文</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">当用户发来新问题，系统需要选择有用的背景。ChatGPT 官方说明，它会在有助于回答时寻找相关上下文。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">仍然用前面的开发项目举例。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">问“接下来应该优先修什么”，重点是当前版本、用户反馈和已知问题。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">问“当时为什么没做网页版本”，重点就变成了历史讨论、决策依据，以及当时的人力和技术条件。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">同一个项目，两种问题，需要的记忆组合不同。这要求读取过程同时理解<strong style="font-weight:700;color:#111827;">当前意图</strong>与<strong style="font-weight:700;color:#111827;">信息的用途</strong>。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">从应用架构角度，可以把这个过程整理为：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">确定可使用的信息范围<br>
+↓<br>
+找到与当前问题有关的记忆和原始材料<br>
+↓<br>
+选择、排序并控制篇幅<br>
+↓<br>
+与当前对话及指令共同组成上下文<br>
+↓<br>
+交给模型生成回答</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这里有一个非常实际的设计目标：<strong style="font-weight:700;color:#111827;">用尽量少的上下文，保留完成当前任务所需的信息。</strong></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">如果每次提问都把完整历史交给模型，读取成本会随着历史长度增长。选择相关内容，可以减少重复处理，也让当前任务的重点更集中。开放的 API 文档同样将历史消息的传递、上下文容量和压缩列为会话状态管理的问题。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">4. 用户看到的摘要，处在什么位置？</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">ChatGPT 的 <strong style="font-weight:700;color:#111827;">Memory Summary</strong> 提供一份高层概览，方便用户查看和修正系统掌握的背景。回答下方的 <strong style="font-weight:700;color:#111827;">Sources</strong> 则可以展示参与个性化的具体来源，例如过去的聊天、记忆、文件或邮件。两者分别服务于“整体了解”和“追溯本次回答”；摘要与来源界面都会有所取舍。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这解释了一种常见体验：设置页只有几段概括，回答里却出现了更具体的旧信息。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">对记忆系统来说，一份摘要适合帮助用户快速检查“你现在怎样理解我”；具体日期、原话和决策过程，仍然可以通过历史来源提供。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">把原始资料、长期状态和展示摘要分开，也便于分别优化：原始资料追求保真，长期状态追求有效，界面摘要追求可读。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">5. Project-only：给记忆划定使用范围</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">ChatGPT 的 Project-only memory 将历史引用限制在项目内部：聊天可以引用同一项目里的其他对话，项目外的对话与已有保存记忆受到隔离；项目外的聊天也不能引用这个项目中的对话。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">它对应着记忆系统中的 <strong style="font-weight:700;color:#111827;">Scope</strong>，也就是信息的使用范围。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">假设同一个人同时管理客户甲和客户乙的项目。两边都有“产品改版”“预算”“上线时间”这些词，仅靠语义相似度，很容易找到另一边的材料。项目范围负责先限定哪些信息有资格被使用，再讨论相关性。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">从工程设计上，可以将用户、组织、项目、访问权限等条件作为记忆访问的约束。这样，个性化背景才能与具体工作场景绑定。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">至此，ChatGPT 的记忆机制可以用几个职责串起来：<strong style="font-weight:700;color:#111827;">保存来源、综合状态、选择上下文、提供追溯、限制范围。</strong></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">接下来要看的，是业界怎样把这些职责做成一套可运行的系统。</section>
+<h2 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:700;color:#171a1f;line-height:1.5;margin:32px 0 18px;padding-bottom:6px;border-bottom:1px solid #d9dee7;">二、业界 AI 记忆方案的演变</h2>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">AI 记忆的研究历史很长。1997 年的 LSTM 处理序列中的长期依赖；2014 年的 Neural Turing Machines 将神经网络与可读写的外部记忆结合。前者研究信息怎样沿序列保留，后者探索模型怎样操作外部存储。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">到了大语言模型应用中，工程重点转向跨轮次、跨会话和跨任务的信息管理。下面按技术重心梳理几条主要路线；实际产品经常将它们组合使用。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">1. 会话缓存：把前文继续交给模型</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">最直接的做法，是保存消息历史，并在下一轮请求里继续提供。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">用户先介绍需求，再补充约束，随后要求修改方案。模型通过同一份上下文，知道“这个方案”“上一版”“刚才那个条件”分别指什么。应用可以自行传递历史消息，也可以使用 API 提供的会话状态管理能力。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这种方案的优点是直接，原话和前后关系都保留得比较完整。随着对话变长，应用需要决定保留多少历史，以及怎样控制输入长度。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">常见的折中，是只保留最近若干轮。它很适合连续追问，但早期约束可能随着窗口移动而丢失。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">例如，用户一开始说“这次只能使用标准库”，经过多轮调试，这句话退出窗口，模型随后就可能建议安装第三方依赖。近期上下文很完整，任务最初的限制却已经缺席。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">长上下文模型扩大了可携带的信息量。同时，信息能否被有效利用仍然需要单独评估。2023 年的《Lost in the Middle》在其测试中发现，相关材料处于长上下文的不同位置，会影响模型表现。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这让下一类方案变得有价值：把重要状态单独整理出来。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">2. 摘要与文件：让长任务能够恢复</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">摘要记忆将长对话压缩成较短的状态描述，再把这份描述带入后续上下文。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">如果进一步将摘要保存成文件或数据库记录，它就可以跨会话使用。例如，一个开发助手可以维护这样的项目笔记：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">**当前目标：**验证命令行工具的付费需求。<br>
+**已有决定：**网页版本暂缓。<br>
+**技术约束：**先维持单机部署。<br>
+**待处理：**整理首批用户反馈。</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这类笔记承担着“任务检查点”的作用：会话中断之后，系统可以从明确的状态继续。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">Anthropic 在上下文工程的说明中，将 <strong style="font-weight:700;color:#111827;">Compaction</strong> 和 <strong style="font-weight:700;color:#111827;">Structured Note-taking</strong> 列为长任务管理方法。前者压缩已有对话，后者把关键状态写入上下文之外的持久笔记，在后续需要时读取。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">Markdown 在这里很实用。人和模型都容易阅读，文本可以直接修改，也便于通过版本差异检查发生了什么变化。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">文件式记忆还可以按内容拆开：项目概况、当前进度、决策记录分别保存。需要了解方向时读概况，需要追溯原因时读决策记录。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">它的主要代价在压缩过程。假设“由于客户尚未确认需求，暂缓开发移动端”被缩成“暂缓开发移动端”，原来的适用条件就丢失了。等客户确认需求之后，系统可能仍然坚持旧结论。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">因此，一份有用的任务摘要，最好保留<strong style="font-weight:700;color:#111827;">结论、原因、适用条件和未完成事项</strong>。只保存结果，恢复工作时往往还得重新问一遍为什么。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">3. RAG 与向量检索：从大量历史中按需召回</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">当资料多到无法逐份阅读，系统就需要检索。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2020 年的 RAG 论文，将语言模型与外部知识检索结合起来：先从知识索引中取得相关内容，再让生成模型利用这些内容回答问题。论文中的外部知识使用稠密向量索引组织。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">将这条路径用于长期记忆，可以得到一种清晰的实现：把历史对话或记忆文本切分、编码并建立索引；收到新问题后，检索相关片段，再放入当前上下文。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">向量编码将文本表示成一组数值，使系统能够依据语义关联寻找内容。用户问“上次为什么暂停那个功能”，即使历史中写的是“暂缓上线”，仍有机会被召回。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">在这种设计里，原始文本提供信息内容，向量索引提供一种查找方式。日期、项目、用户等元数据，还可以用于缩小搜索范围。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这一阶段解决了历史规模扩大的问题，却留下了一个关键难点：<strong style="font-weight:700;color:#111827;">语义相关性，只覆盖了记忆是否适用的一部分。</strong></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">假设检索同时找到了三条内容：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">早期讨论：准备采用方案 A。<br>
+后续决定：改用方案 B。<br>
+最近复盘：当初放弃 A 是正确的。</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">三条都与技术选型高度相关。要回答“项目现在用什么”，系统仍需识别决定的时间、状态与前后关系。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">因此，一套完整的记忆检索流程，还需要在召回之后处理排序、去重、时间有效性和冲突。向量检索为它提供候选材料，后续判断决定哪些材料应当进入答案。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">4. 分层记忆：让智能体管理上下文</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2023 年的 Generative Agents 和 MemGPT，分别展示了更主动的记忆管理方式。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">Generative Agents 保存智能体的经历，在检索时综合考虑相关性、重要性和最近访问情况；它还会把具体经历整理为更高层的反思，再将这些反思用于后续规划。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这里出现了两种不同粒度的内容：具体事件，以及从多个事件中概括出来的认识。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">例如，几次任务失败分别留下错误记录。进一步整理后，系统可能形成一条经验：“这个环境中的网络操作需要设置重试和超时。”事件记录便于追溯，经验概括便于复用。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">MemGPT 则借鉴操作系统的分层内存思想，将有限上下文与外部存储结合，并让模型通过工具调用管理信息的移动。当前需要的信息留在上下文里，更长的历史和归档材料保存在外部，之后按需取回。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这使模型参与到更多决策中：哪条信息值得保留，什么时候需要查询历史，当前上下文里哪些内容已经可以移出。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">相应地，系统的性能开始取决于两方面：模型完成任务的能力，以及模型管理记忆的能力。保存错误、读取遗漏、过早压缩，都可能影响后续任务。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">5. 可更新记忆：把写入过程做成数据维护</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">到了 Mem0 这类方案，记忆写入被明确拆成“提取”和“更新”。新信息先形成候选记忆，再与已有内容比较，由模型选择新增、更新、删除或保持不变。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这里有一个很实用的细节：<strong style="font-weight:700;color:#111827;">写入之前，也需要检索。</strong></section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">当用户说“这个项目已经转向企业客户”，系统先查找已有的项目定位，才能判断这条信息怎样修改原状态。直接追加会留下多个版本，未来每次读取都要重新理解它们之间的关系。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">可以把一次写入理解为：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">提取候选信息<br>
+↓<br>
+找到已有的相关记忆<br>
+↓<br>
+判断补充、重复或冲突<br>
+↓<br>
+执行更新并保存结果</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这条流程让记忆库逐渐承担起状态管理职责。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">工程上的难点也随之具体化。多条新消息同时到达时，后台任务可能拿着旧版本写回，覆盖刚刚更新的信息。可以使用版本号、顺序队列或合并检查来控制这类冲突。原始记录与整理结果分开保存，也方便在摘要出错时重新生成。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">从这个角度看，记忆系统同时包含语言理解和数据一致性问题。模型负责判断信息之间的语义关系，应用负责让更新结果可靠地保存下来。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">6. 知识图谱与时间：保存关系怎样变化</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">当记忆涉及多个人、多个项目和不断变化的关系，图结构开始发挥作用。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2025 年的 Zep 论文介绍了以 Graphiti 为核心的时间知识图谱：从对话和业务数据中提取实体、关系，并维护历史关联。它区分事件时间与系统获知信息的时间，也记录事实的有效区间。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">举一个简化例子：</section>
+<blockquote style="margin:22px 0;padding:12px 0 12px 16px;background:#ffffff;border-left:3px solid #111827;border-top:1px solid rgba(17,24,39,0.06);border-bottom:1px solid rgba(17,24,39,0.06);color:#667085;font-size:15px;line-height:1.82;">
+<section data-wxp-paragraph="true" style="margin:0;color:#667085;font-size:15px;line-height:1.82;background:transparent;">小林 —— 负责 —— 项目 A<br>
+项目 A —— 属于 —— 部门 B<br>
+小周 —— 管理 —— 部门 B</section>
+</blockquote>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">问“项目 A 的负责人是谁”，只需查询直接关系。问“项目 A 所属部门由谁管理”，则要沿着关系继续查找。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">如果小林在 5 月离开项目，系统还需要处理两个问题：“现在谁负责”和“4 月时谁负责”。给关系加入有效期，就能保留这段变化。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">时间图谱中的另一个细节也很重要。假设 5 月 20 日才收到通知：负责人从 5 月 1 日起已经变更。那么“事情何时发生”和“系统何时知道”就是两个时间。前者用于重建业务历史，后者用于解释当时掌握了哪些信息。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">同在 2025 年提出的 A-MEM，选择了另一种组织方式：借鉴卡片笔记系统，为记忆建立描述、关键词和连接，并在新记忆加入时更新相关笔记。它强调记忆组织结构能够随内容增长而演化。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">关系型记忆的价值，是让系统更容易沿着人物、事件、项目和时间进行追溯。它也会增加提取与维护成本，因此适合与原始文本和检索索引配合。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">7. 混合架构：把文件、检索和后台综合接起来</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">发展到这里，可以看到几种技术各自承担的角色。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><strong style="font-weight:700;color:#111827;">文本和文件</strong>承载可读内容，适合保存项目概况、笔记和经验。<strong style="font-weight:700;color:#111827;">向量索引</strong>负责按语义寻找候选材料。<strong style="font-weight:700;color:#111827;">关系结构与时间字段</strong>组织事实之间的联系。<strong style="font-weight:700;color:#111827;">后台综合</strong>则持续整理这些材料，形成便于后续使用的状态。前面几类公开方案，分别展示了这些能力。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这也解释了 Markdown、向量数据库和知识图谱之间的关系：它们处在不同层面，适合组合。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">一个具体例子是 Claude 的记忆工具。模型通过文件式操作请求读取、创建或修改记忆；真正执行操作的是应用。官方文档允许开发者将记忆路径映射到实际目录，也可以映射到数据库中的键。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">模型看到的接口、进入上下文的文本格式，以及后台存储方式，可以各自选择。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">综合这些方案，一套长期运行的记忆系统，可以按三条工作链路来设计。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><strong style="font-weight:700;color:#111827;">写入链路</strong>处理刚刚发生的事：记录来源，提取有价值的信息，检查重复和冲突，将变化保存下来。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><strong style="font-weight:700;color:#111827;">读取链路</strong>服务当前任务：限定权限和项目范围，检索相关内容，检查时间与状态，组织成模型能够有效使用的上下文。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;"><strong style="font-weight:700;color:#111827;">整理链路</strong>处理持续积累的问题：合并重复记录，压缩过长历史，刷新项目状态，把经过验证的经验整理成可复用内容。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">三条链路可以采用不同的节奏。当前回答需要低延迟，复杂的历史整理可以分离到后台。这样，系统能够一边服务新任务，一边维护长期信息。</section>
+<h3 style="font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#171a1f;line-height:1.48;margin:28px 0 14px;">8. 经验记忆：保存经过验证的做事方法</h3>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">事实和偏好之外，长期工作的智能体还需要保存操作经验。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">2023 年的 Reflexion 将任务反馈整理成文字反思，在后续尝试中读取和利用。Voyager 则在 Minecraft 环境中积累可执行的技能代码，使已获得的能力能够保存和复用。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">它们展示了另一种记忆对象：某件事应该怎样完成，哪些步骤有效，过去的失败提供了什么线索。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">对于长期协作的开发助手，这类记忆可能包括项目的测试入口、一次故障的排查过程，以及某种修复方法的适用条件。对研究助手，则可能包括清洗数据的规则、已经排除的假设和经过验证的实验流程。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">这类内容越接近真实工作，越需要附带条件和验证结果。一条经验应当回答：在哪个环境中有效，依据是什么，环境变化之后是否需要重新检查。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">从会话缓存到持续维护的记忆系统，AI 正在获得一套更完整的工作连续性：保留任务状态，找回决策依据，处理已经发生的变化，复用经过验证的方法。</section>
+<section data-wxp-paragraph="true" style="font-size:16px;line-height:1.82;margin:0 0 16px 0;color:#2b2f36;">当用户再次说“接着上次的项目做”，一个成熟的助手应该能够找到上次停下的位置，知道哪些决定仍然有效，带着必要的背景直接继续工作。</section></section>
