@@ -1,0 +1,17 @@
+{
+  "figures": [
+    {"id":"pipeline","kind":"flow","title":"AIHOT：从材料到公开内容","note":"api 统一读取 · web 服务端渲染 · 计算留在 worker","rows":[
+      {"label":"采集与判重","detail":"RSS / 网页 / JSON / X / 公众号 / 推送"},
+      {"label":"判断与结构化","detail":"宽召回预筛 → 两次评分 ∥ 分类、事实、证据"},
+      {"label":"中文写作","detail":"标题、摘要、阅读价值 · 严格基于当前材料"},
+      {"label":"Fact → Story","detail":"同一次发生归并 · 后续进展保留 · 计算热度"},
+      {"label":"统一公开读取层","detail":"网页 / RSS / API / MCP · 日报、周报、月报"}
+    ]},
+    {"id":"sources","kind":"bars","title":"18 个示范信源，全部为 RSS","note":"示范配置的编辑性归类；不代表线上信源构成","rows":[
+      {"label":"官方与研究机构","value":10},
+      {"label":"科技媒体","value":5},
+      {"label":"个人与社区刊物","value":3}
+    ]},
+    {"id":"heat","kind":"decay","title":"单个参与方的热度贡献","note":"理论值 · 无新增信号 · 不是线上热度观测","halfLife":24,"window":48}
+  ]
+}
